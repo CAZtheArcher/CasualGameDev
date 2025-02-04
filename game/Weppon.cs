@@ -51,7 +51,7 @@ public partial class Weppon : Node
     {
         Array.Resize(ref weponSlots, weponSlots.Length - 1);
     }
-    //
+    //sdff
     public void WeponShot()
 	{
         for (int i = 0; i < weponSlots.Length; i++)
