@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\game"
   ],
-  "SelectedNode": "\\Z:\\cashuwal ga,e-g",
+  "SelectedNode": "\\game\\CharacterBody2D.gd",
   "PreviewInSolutionExplorer": false
 }
