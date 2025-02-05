@@ -1,2 +1,2 @@
 # CasualGameDev
-A game produced during a Game development course.
+Appliance Assault: A game produced during a Game development course.
