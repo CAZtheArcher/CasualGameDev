@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://canaxvsh3v45b"]
+[gd_scene load_steps=5 format=3 uid="uid://canaxvsh3v45b"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1hb4j"]
 [ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Sprites/player_temp.png" id="2_33ssv"]
+[ext_resource type="PackedScene" uid="uid://bhf4ybse1u73u" path="res://Projectile/Projectile.tscn" id="3_qb3rc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4t71"]
 size = Vector2(26, 26)
@@ -18,3 +19,22 @@ texture = ExtResource("2_33ssv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_w4t71")
+
+[node name="Projectile" parent="." instance=ExtResource("3_qb3rc")]
+position = Vector2(105, 105)
+velocity = 1
+directionOfTravel = Vector2(1, 0)
+damage = 1
+
+[node name="Projectile2" parent="." instance=ExtResource("3_qb3rc")]
+position = Vector2(71, 176)
+rotation = 1.16278
+velocity = 1
+directionOfTravel = Vector2(0.397, 0.918)
+damage = 1
+
+[node name="Projectile3" parent="." instance=ExtResource("3_qb3rc")]
+position = Vector2(9, 180)
+rotation = 1.93684
+velocity = 1
+damage = 1
