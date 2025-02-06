@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2tcbylr2puk8"]
+
+[ext_resource type="Script" path="res://Player/CharacterBody2D.gd" id="1_i88vj"]
+[ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Player/player_temp.png" id="2_cm1vq"]
+[ext_resource type="Script" path="res://Player/LookAtMouse.cs" id="3_ej2tf"]
+[ext_resource type="Texture2D" uid="uid://b1lqnj7mtla4v" path="res://Sprites/weapon_temp.png" id="4_dmbi0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oy6"]
+size = Vector2(26, 26)
+
+[node name="Player" type="Node2D"]
+
+[node name="PlayerBody" type="CharacterBody2D" parent="."]
+position = Vector2(14, 13)
+script = ExtResource("1_i88vj")
+
+[node name="PlayerSprite" type="Sprite2D" parent="PlayerBody"]
+texture = ExtResource("2_cm1vq")
+script = ExtResource("3_ej2tf")
+
+[node name="WeaponSprite" type="Sprite2D" parent="PlayerBody/PlayerSprite"]
+position = Vector2(20, 0)
+rotation = 1.5708
+texture = ExtResource("4_dmbi0")
+
+[node name="Bullet_Spawn" type="Marker2D" parent="PlayerBody/PlayerSprite"]
+position = Vector2(31, 0)
+
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="PlayerBody"]
+shape = SubResource("RectangleShape2D_l3oy6")

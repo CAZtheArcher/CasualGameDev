@@ -4,15 +4,19 @@ using System;
 public partial class Weppon : Node
 {
     //im thinking of doing an item class inseted of an int but im runing out of time today
+    PackedScene scene = GD.Load<PackedScene>("res://Projectile/Projectile.tscn");
     class item
     {
-        
 
     }
     int[] weponSlots = new int[4];
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
+        Projectile inst = scene.Instantiate<Projectile>();
+        inst.Init(1 , 90, 1);
+        inst.GlobalPosition = new Vector2(10, 10);
+        AddChild(inst);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
