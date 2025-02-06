@@ -1,23 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://canaxvsh3v45b"]
+[gd_scene load_steps=6 format=3 uid="uid://canaxvsh3v45b"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1hb4j"]
+[ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="1_1hb4j"]
 [ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Sprites/player_temp.png" id="2_33ssv"]
-[ext_resource type="PackedScene" uid="uid://bhf4ybse1u73u" path="res://projectile/projectile.tscn" id="3_qb3rc"]
+[ext_resource type="Script" path="res://Scripts/LookAtMouse.cs" id="3_l488t"]
+[ext_resource type="PackedScene" uid="uid://bhf4ybse1u73u" path="res://Projectile/Projectile.tscn" id="3_qb3rc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4t71"]
 size = Vector2(26, 26)
 
-[node name="Player" type="Node2D"]
+[node name="Scene" type="Node2D"]
 position = Vector2(190, 97)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="PlayerBody" type="CharacterBody2D" parent="."]
 position = Vector2(14, 13)
 script = ExtResource("1_1hb4j")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="PlayerSprite" type="Sprite2D" parent="PlayerBody"]
 texture = ExtResource("2_33ssv")
+script = ExtResource("3_l488t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="PlayerBody"]
 shape = SubResource("RectangleShape2D_w4t71")
 
 [node name="Projectile" parent="." instance=ExtResource("3_qb3rc")]
