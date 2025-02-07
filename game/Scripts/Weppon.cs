@@ -1,27 +1,36 @@
+
 using Godot;
 using System;
+
 
 public partial class Weppon : Node
 {
     //im thinking of doing an item class inseted of an int but im runing out of time today
     PackedScene scene = GD.Load<PackedScene>("res://Projectile/Projectile.tscn");
+
+   // public System.Windows.Input.MouseButtonState RightButton { get; }
     class item
     {
 
     }
     int[] weponSlots = new int[4];
+    Projectile inst;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        Projectile inst = scene.Instantiate<Projectile>();
-        inst.Init(1 , 90, 1);
-        inst.GlobalPosition = new Vector2(10, 10);
-        AddChild(inst);
-	}
+       
+        weponSlots[0] = 1;
+
+    }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+        if (Input.IsMouseButtonPressed(MouseButton.Left))
+        {
+            WeponShot();
+        }
+       
 	}
 	//item nuber is like an id for the item 0 number is nothing there
 	public void AddItem(int item)
@@ -62,7 +71,10 @@ public partial class Weppon : Node
         {
             if (weponSlots[i] == 1)
             {
-              //shot code gose here
+                Projectile inst = scene.Instantiate<Projectile>();
+                inst.Init(1, 90, 1);
+                inst.GlobalPosition = new Vector2(10, 10);
+                AddChild(inst);
             }
             if (weponSlots[i] == 2)
             {
