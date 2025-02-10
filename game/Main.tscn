@@ -4,12 +4,8 @@
 [ext_resource type="Script" path="res://Scripts/Weppon.cs" id="4_p1mdf"]
 
 [node name="Main" type="Node2D"]
-
 position = Vector2(63, 167)
 rotation = 1.16278
-velocity = 0
-directionOfTravel = Vector2(0, 0)
-damage = 0
 
 [node name="Player" parent="." instance=ExtResource("3_45x1i")]
 

@@ -20,19 +20,19 @@ public partial class Weppon : Node
 	{
         weponSlots[0] = 1;
     }
-    double shotSpeed = 1.0;
+    double fireRate = 1.0;
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     //Vector2 cursorPos = GetLocalMousePosition();
     //Rotation += cursorPos.Angle() + InitRot;
     public override void _Process(double delta)
     {
-        shotSpeed += delta;
+        fireRate += delta;
         if (Input.IsMouseButtonPressed(MouseButton.Left) && (shotSpeed >= 1.0))
         {
-            shotSpeed -= 1.0;
+            fireRate -= 1.0;
             WeponShot();
         }
-        if (shotSpeed >= 1.5) { shotSpeed -= 1.0; }
+        if (fireRate >= 1.5) { fireRate -= 1.0; }
     }
 	//item nuber is like an id for the item 0 number is nothing there
 	public void AddItem(int item)
