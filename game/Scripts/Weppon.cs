@@ -40,7 +40,11 @@ public partial class Weppon : Node
         int check = 0;
 		for (int i = 0; i < weponSlots.Length; i++) 
 		{
-			if (weponSlots[i]== 0)
+            if(weponSlots[i] == item)
+            {
+
+            }
+			else if (weponSlots[i]== 0)
 			{
 				weponSlots[i] = item;
 
