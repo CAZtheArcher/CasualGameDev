@@ -1,15 +1,20 @@
+
 using Godot;
 using System;
+
 
 public partial class Weppon : Node
 {
     //im thinking of doing an item class inseted of an int but im runing out of time today
     PackedScene scene = GD.Load<PackedScene>("res://Projectile/Projectile.tscn");
+
+   // public System.Windows.Input.MouseButtonState RightButton { get; }
     class item
     {
 
     }
     int[] weponSlots = new int[4];
+    Projectile inst;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
