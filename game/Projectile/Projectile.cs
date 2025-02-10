@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+// TODO: Projectile base class,rename this to playerprojectile
 public partial class Projectile : RigidBody2D
 {
     [Export]
@@ -13,6 +14,7 @@ public partial class Projectile : RigidBody2D
     Node2D player_node;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready(){
+        // Change to part of the 'constructor', that takes a resource path
         player_node = (Node2D)GetNode("../../Player/PlayerBody");
         this.Position = player_node.Position;
 	}
