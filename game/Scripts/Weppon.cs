@@ -18,20 +18,22 @@ public partial class Weppon : Node
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-       
         weponSlots[0] = 1;
-
     }
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-        if (Input.IsMouseButtonPressed(MouseButton.Left))
+    double shotSpeed = 1.0;
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    //Vector2 cursorPos = GetLocalMousePosition();
+    //Rotation += cursorPos.Angle() + InitRot;
+    public override void _Process(double delta)
+    {
+        shotSpeed += delta;
+        if (Input.IsMouseButtonPressed(MouseButton.Left) && (shotSpeed >= 1.0))
         {
+            shotSpeed -= 1.0;
             WeponShot();
         }
-       
-	}
+        if (shotSpeed >= 1.5) { shotSpeed -= 1.0; }
+    }
 	//item nuber is like an id for the item 0 number is nothing there
 	public void AddItem(int item)
 	{
@@ -72,8 +74,7 @@ public partial class Weppon : Node
             if (weponSlots[i] == 1)
             {
                 Projectile inst = scene.Instantiate<Projectile>();
-                inst.Init(1, 90, 1);
-                inst.GlobalPosition = new Vector2(10, 10);
+                inst.Init(1, 60, 1);
                 AddChild(inst);
             }
             if (weponSlots[i] == 2)

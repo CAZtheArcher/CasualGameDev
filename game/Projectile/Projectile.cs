@@ -10,8 +10,11 @@ public partial class Projectile : RigidBody2D
     [Export]
     int damage;
 
+    Node2D player_node;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready(){
+        player_node = (Node2D)GetNode("../../Player/PlayerBody");
+        this.Position = player_node.Position;
 	}
 
 	public void InitRadians(int velocity, int directionAsRadians, int damage) {

@@ -11,7 +11,7 @@ size = Vector2(26, 26)
 [node name="Player" type="Node2D"]
 
 [node name="PlayerBody" type="CharacterBody2D" parent="."]
-position = Vector2(14, 13)
+position = Vector2(500, 300)
 script = ExtResource("1_i88vj")
 
 [node name="PlayerSprite" type="Sprite2D" parent="PlayerBody"]
@@ -19,12 +19,12 @@ texture = ExtResource("2_cm1vq")
 script = ExtResource("3_ej2tf")
 
 [node name="WeaponSprite" type="Sprite2D" parent="PlayerBody/PlayerSprite"]
-position = Vector2(20, 0)
+position = Vector2(23.0001, 1.52588e-05)
 rotation = 1.5708
 texture = ExtResource("4_dmbi0")
 
 [node name="Bullet_Spawn" type="Marker2D" parent="PlayerBody/PlayerSprite"]
-position = Vector2(31, 0)
+position = Vector2(34.0001, 1.52588e-05)
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="PlayerBody"]
 shape = SubResource("RectangleShape2D_l3oy6")
