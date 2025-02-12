@@ -5,8 +5,6 @@
 [ext_resource type="Script" path="res://Scripts/Weppon.cs" id="4_p1mdf"]
 
 [node name="Main" type="Node2D"]
-position = Vector2(63, 167)
-rotation = 1.16278
 
 [node name="Player" parent="." instance=ExtResource("3_45x1i")]
 
@@ -14,4 +12,8 @@ rotation = 1.16278
 script = ExtResource("4_p1mdf")
 
 [node name="Items" parent="." instance=ExtResource("3_p8slr")]
-position = Vector2(197.831, -404.727)
+position = Vector2(708, 187)
+
+[node name="Items2" parent="." instance=ExtResource("3_p8slr")]
+position = Vector2(742, 411)
+itemTipe = 3
