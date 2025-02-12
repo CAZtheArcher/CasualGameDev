@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlt4frpidja2t"]
+[gd_scene load_steps=3 format=3 uid="uid://dlt4frpidja2t"]
 
-[ext_resource type="PackedScene" uid="uid://b2tcbylr2puk8" path="res://Player/Player.tscn" id="3_45x1i"]
-[ext_resource type="PackedScene" uid="uid://5sayynp76d4v" path="res://item/items.tscn" id="3_p8slr"]
+[ext_resource type="PackedScene" uid="uid://ccc5lkpw4y0aw" path="res://Player/Player.tscn" id="3_45x1i"]
 [ext_resource type="Script" path="res://Scripts/Weppon.cs" id="4_p1mdf"]
 
 [node name="Main" type="Node2D"]
