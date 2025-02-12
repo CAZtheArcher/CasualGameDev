@@ -27,7 +27,7 @@ public partial class Weppon : Node
     public override void _Process(double delta)
     {
         fireRate += delta;
-        if (Input.IsMouseButtonPressed(MouseButton.Left) && (shotSpeed >= 1.0))
+        if (Input.IsMouseButtonPressed(MouseButton.Left) && (fireRate >= 1.0))
         {
             fireRate -= 1.0;
             WeponShot();
