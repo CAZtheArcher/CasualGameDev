@@ -1,12 +1,15 @@
 
 using Godot;
 using System;
+using System.Collections.Generic;
 
 
 public partial class Weppon : Node
 {
     //im thinking of doing an item class inseted of an int but im runing out of time today
     PackedScene scene = GD.Load<PackedScene>("res://Projectile/Projectile.tscn");
+
+    List<Projectile> projectiles = new List<Projectile>();
 
    // public System.Windows.Input.MouseButtonState RightButton { get; }
     class item
@@ -77,8 +80,8 @@ public partial class Weppon : Node
         {
             if (weponSlots[i] == 1)
             {
-                Projectile inst = scene.Instantiate<Projectile>();
-                inst.Init(1, 60, 1);
+                projectiles.Add(scene.Instantiate<Projectile>());
+                projectiles[projectiles.Count - 1].
                 AddChild(inst);
             }
             if (weponSlots[i] == 2)
