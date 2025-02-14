@@ -8,23 +8,28 @@ public partial class item : RigidBody2D
     int itemTipe;
     [Export]
     int itemLevel;
-    
 
-    PackedScene scene = GD.Load<PackedScene>("res://Scripts/Weppon.tscn");
+    Node2D player ;
+
+
+    Weppon wepon;
     
 
     // Setup the collision signal
     public override void _Ready()
     {
+        wepon  = (Weppon)GetNode("../InstantBulletTest");
+        player = (Node2D)GetNode("../Player/PlayerBody");
+        
 
     }
     //work in progres
-    private void _on_Item_body_entered(Node body)
+    private void _on_Item_body_entered()
     {
-        if (body == body)  // Check if the player collided with the item
+        if (this.Position == player.Position)  // Check if the player collided with the item
         {
-            inst = scene.Instantiate<Weppon>();
-            inst.AddItem(itemTipe);
+            GD.Print("works");
+            wepon.AddItem(itemTipe);
             // Emit the signal for pickup
             QueueFree();  // Remove the item from the scene
         }
