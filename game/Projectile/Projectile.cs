@@ -35,15 +35,10 @@ public partial class Projectile : RigidBody2D
 		this.Rotation = directionAsRadians;
     }
 
-    public void Init(int velocity, int directionAsDegrees, int damage)
+    public void Init(int velocity, int damage)
     {
         this.velocity = velocity;
-        this.directionOfTravel = 
-            new Vector2(
-                (float)Math.Cos(Math.Round(directionAsDegrees * Math.PI / 180)), 
-                (float)Math.Sin(Math.Round(directionAsDegrees * Math.PI / 180)));
         this.damage = damage;
-        this.Rotation = (float)Math.Round(directionAsDegrees * Math.PI / 180);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

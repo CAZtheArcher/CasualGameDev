@@ -26,6 +26,8 @@ public partial class Weppon : Node
     double fireRate = 1.0;
     double rateCap = 1.99;
     double shotReady = 1.0;
+    int shotSpeed = 5;
+    int weaponDmg = 1;
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     //Vector2 cursorPos = GetLocalMousePosition();
     //Rotation += cursorPos.Angle() + InitRot;
@@ -83,8 +85,8 @@ public partial class Weppon : Node
             if (weponSlots[i] == 1)
             {
                 projectiles.Add(scene.Instantiate<Projectile>());
-                projectiles[projectiles.Count - 1].
-                AddChild(inst);
+                projectiles[projectiles.Count - 1].Init(shotSpeed, weaponDmg);
+                AddChild(projectiles[projectiles.Count - 1]);
             }
             if (weponSlots[i] == 2)
             {
