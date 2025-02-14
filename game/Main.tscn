@@ -9,10 +9,3 @@
 
 [node name="InstantBulletTest" type="Node" parent="."]
 script = ExtResource("4_p1mdf")
-
-[node name="Items" parent="." instance=ExtResource("3_p8slr")]
-position = Vector2(708, 187)
-
-[node name="Items2" parent="." instance=ExtResource("3_p8slr")]
-position = Vector2(742, 411)
-itemTipe = 3
