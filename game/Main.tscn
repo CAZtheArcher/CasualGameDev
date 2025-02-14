@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlt4frpidja2t"]
+[gd_scene load_steps=3 format=3 uid="uid://chwg3w2njemar"]
 
-[ext_resource type="PackedScene" uid="uid://ccc5lkpw4y0aw" path="res://Player/Player.tscn" id="3_45x1i"]
+[ext_resource type="PackedScene" uid="uid://770ov0wmwoh" path="res://Player/Player.tscn" id="3_45x1i"]
 [ext_resource type="Script" path="res://Scripts/Weppon.cs" id="4_p1mdf"]
 
 [node name="Main" type="Node2D"]

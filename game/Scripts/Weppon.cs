@@ -11,7 +11,13 @@ public partial class Weppon : Node
 
     List<Projectile> projectiles = new List<Projectile>();
 
-   // public System.Windows.Input.MouseButtonState RightButton { get; }
+    double fireRate = 1.0;
+    double rateCap = 1.99;
+    double shotReady = 1.0;
+    int shotSpeed = 10;
+    int weaponDmg = 1;
+
+    // public System.Windows.Input.MouseButtonState RightButton { get; }
     class item
     {
 
@@ -23,11 +29,6 @@ public partial class Weppon : Node
 	{
         weponSlots[0] = 1;
     }
-    double fireRate = 1.0;
-    double rateCap = 1.99;
-    double shotReady = 1.0;
-    int shotSpeed = 5;
-    int weaponDmg = 1;
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     //Vector2 cursorPos = GetLocalMousePosition();
     //Rotation += cursorPos.Angle() + InitRot;

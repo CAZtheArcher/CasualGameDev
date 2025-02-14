@@ -21,8 +21,6 @@ public partial class Projectile : RigidBody2D
             new Vector2(
                 (float)Math.Cos(player_rotation.Rotation),
                 (float)Math.Sin(player_rotation.Rotation));
-        this.velocity = 1;
-        this.damage = 1;
     }
 
 	public void InitRadians(int velocity, int directionAsRadians, int damage) {
