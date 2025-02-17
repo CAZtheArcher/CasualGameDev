@@ -45,6 +45,7 @@ public partial class Weppon : Node
 	//item nuber is like an id for the item 0 number is nothing there
 	public void AddItem(int item)
 	{
+        GD.Print(item);
         int check = 0;
 		for (int i = 0; i < weponSlots.Length; i++) 
 		{
@@ -52,7 +53,7 @@ public partial class Weppon : Node
             {
 
             }
-			else if (weponSlots[i]== 0)
+			else if (weponSlots[i] == 0)
 			{
 				weponSlots[i] = item;
 
@@ -91,7 +92,9 @@ public partial class Weppon : Node
             }
             if (weponSlots[i] == 2)
             {
-               //shot code gose here
+                projectiles.Add(scene.Instantiate<Projectile>());
+                projectiles[projectiles.Count - 1].Init(shotSpeed, weaponDmg);
+                AddChild(projectiles[projectiles.Count - 1]);
             }
         }
 

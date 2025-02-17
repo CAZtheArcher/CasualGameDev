@@ -26,7 +26,7 @@ public partial class item : RigidBody2D
     //work in progres
     private void _on_Item_body_entered()
     {
-        if (this.Position == player.Position)  // Check if the player collided with the item
+        if (this.Position <= player.Position)  // Check if the player collided with the item
         {
             GD.Print("works");
             wepon.AddItem(itemTipe);
@@ -39,5 +39,7 @@ public partial class item : RigidBody2D
 // Called every frame. 'delta' is the elapsed time since the previous frame.
 public override void _Process(double delta)
 	{
-	}
+        _on_Item_body_entered();
+
+    }
 }
