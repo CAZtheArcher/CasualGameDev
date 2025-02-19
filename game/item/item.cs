@@ -26,7 +26,7 @@ public partial class item : RigidBody2D
     //work in progres
     private void _on_Item_body_entered()
     {
-        if (this.Position <= player.Position)  // Check if the player collided with the item
+        if (((this.Position.Y+10 > player.Position.Y) && (this.Position.Y - 10 < player.Position.Y))  && ((this.Position.X + 10 > player.Position.X) && (this.Position.X - 10 < player.Position.X)))  // Check if the player collided with the item
         {
             GD.Print("works");
             wepon.AddItem(itemTipe);

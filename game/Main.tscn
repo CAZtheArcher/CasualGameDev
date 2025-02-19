@@ -12,5 +12,8 @@
 script = ExtResource("4_p1mdf")
 
 [node name="Items" parent="." instance=ExtResource("3_aowyt")]
-position = Vector2(622, 305)
+position = Vector2(604, 298)
+
+[node name="Items2" parent="." instance=ExtResource("3_aowyt")]
+position = Vector2(642, 369)
 itemTipe = 1

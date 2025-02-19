@@ -22,12 +22,12 @@ public partial class Weppon : Node
     {
 
     }
-    int[] weponSlots = new int[4];
+    int[] weponSlots = {0,0,0,0 };
     Projectile inst;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        weponSlots[0] = 1;
+        weponSlots[0] = 0;
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     //Vector2 cursorPos = GetLocalMousePosition();
@@ -45,7 +45,7 @@ public partial class Weppon : Node
 	//item nuber is like an id for the item 0 number is nothing there
 	public void AddItem(int item)
 	{
-        GD.Print(item);
+        
         int check = 0;
 		for (int i = 0; i < weponSlots.Length; i++) 
 		{
@@ -63,7 +63,8 @@ public partial class Weppon : Node
             {
                 check++;            
             }
-		}
+            GD.Print(weponSlots[i]);
+        }
         if (check == weponSlots.Length)
         { 
         //promt drop or swap
@@ -84,6 +85,7 @@ public partial class Weppon : Node
 	{
         for (int i = 0; i < weponSlots.Length; i++)
         {
+            GD.Print(weponSlots[i]);
             if (weponSlots[i] == 1)
             {
                 projectiles.Add(scene.Instantiate<Projectile>());
