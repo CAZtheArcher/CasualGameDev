@@ -11,7 +11,7 @@ size = Vector2(26, 26)
 [node name="Player" type="Node2D"]
 
 [node name="PlayerBody" type="CharacterBody2D" parent="."]
-position = Vector2(500, 300)
+position = Vector2(576, 324)
 script = ExtResource("1_ram6g")
 
 [node name="PlayerSprite" type="Sprite2D" parent="PlayerBody"]
