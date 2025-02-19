@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://chwg3w2njemar"]
+[gd_scene load_steps=4 format=3 uid="uid://kqarq2vld2tw"]
 
-[ext_resource type="PackedScene" uid="uid://770ov0wmwoh" path="res://Player/Player.tscn" id="3_45x1i"]
+[ext_resource type="PackedScene" uid="uid://thw2lf5s8cii" path="res://Player/Player.tscn" id="3_45x1i"]
+[ext_resource type="PackedScene" uid="uid://byn8r06655wo0" path="res://Overlays/PlayerUi.tscn" id="3_i85mx"]
 [ext_resource type="Script" path="res://Scripts/Weppon.cs" id="4_p1mdf"]
 
 [node name="Main" type="Node2D"]
@@ -9,3 +10,5 @@
 
 [node name="InstantBulletTest" type="Node" parent="."]
 script = ExtResource("4_p1mdf")
+
+[node name="PlayerUi" parent="." instance=ExtResource("3_i85mx")]
