@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using static System.Formats.Asn1.AsnWriter;
 
 public partial class item : RigidBody2D
 {
@@ -13,15 +15,19 @@ public partial class item : RigidBody2D
 
 
     Weppon wepon;
-    
-
+   
     // Setup the collision signal
     public override void _Ready()
     {
         wepon  = (Weppon)GetNode("../InstantBulletTest");
         player = (Node2D)GetNode("../Player/PlayerBody");
-        
+       
 
+    }
+    public void spawn(Vector2 posishon, int itemTipe)
+    {
+        this.Position = posishon;
+        this.itemTipe = itemTipe;
     }
     //work in progres
     private void _on_Item_body_entered()
