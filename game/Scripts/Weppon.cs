@@ -27,7 +27,7 @@ public partial class Weppon : Node
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        weponSlots[0] = 1;
+        weponSlots[0] = 0;
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     //Vector2 cursorPos = GetLocalMousePosition();
@@ -91,7 +91,9 @@ public partial class Weppon : Node
             }
             if (weponSlots[i] == 2)
             {
-               //shot code gose here
+                projectiles.Add(scene.Instantiate<Projectile>());
+                projectiles[projectiles.Count - 1].Init(shotSpeed, weaponDmg);
+                AddChild(projectiles[projectiles.Count - 1]);
             }
         }
 
