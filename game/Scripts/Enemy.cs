@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Enemy : Node
 {
@@ -10,10 +11,15 @@ public partial class Enemy : Node
     Vector2 direction = new Vector2(0, 0);
     int radius = 10;
     Random random = new Random();
-
+    PackedScene scene = GD.Load<PackedScene>("res://item/items.tscn");
+    List<item> item = new List<item>();
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        //put this into the random spawner on deth
+        item.Add(scene.Instantiate<item>());
+        item[item.Count - 1].spawn(new Vector2(200, 200), 1);
+        AddChild(item[item.Count - 1]);
     }
 
     Enemy()
