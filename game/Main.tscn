@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://chwg3w2njemar"]
+[gd_scene load_steps=7 format=3 uid="uid://chwg3w2njemar"]
 
 [ext_resource type="PackedScene" uid="uid://770ov0wmwoh" path="res://Player/Player.tscn" id="3_45x1i"]
 [ext_resource type="PackedScene" uid="uid://5sayynp76d4v" path="res://item/items.tscn" id="3_aowyt"]
+[ext_resource type="Script" path="res://Enemy/Enemy.cs" id="4_bjsc8"]
 [ext_resource type="Script" path="res://Scripts/Weppon.cs" id="4_p1mdf"]
+[ext_resource type="Texture2D" uid="uid://l6ois6prjvab" path="res://Sprites/enemy_temp.png" id="5_vq22x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ickle"]
 
 [node name="Main" type="Node2D"]
 
@@ -13,4 +17,18 @@ script = ExtResource("4_p1mdf")
 
 [node name="Items" parent="." instance=ExtResource("3_aowyt")]
 position = Vector2(636, 322)
+collision_layer = 8
+collision_mask = 0
 itemTipe = 1
+
+[node name="Enemy" type="RigidBody2D" parent="."]
+position = Vector2(-63, -54)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("4_bjsc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("RectangleShape2D_ickle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("5_vq22x")

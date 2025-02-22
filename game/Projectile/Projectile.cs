@@ -9,10 +9,13 @@ public partial class Projectile : RigidBody2D
     Vector2 directionOfTravel;
     [Export]
     int damage;
+    
 
     //Node2D player_node;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready(){
+        this.CollisionLayer = 3;
+        this.CollisionMask = 2;
         Node2D player_node = (Node2D)GetNode("../../Player/PlayerBody");
         this.Position = player_node.Position;
         Node2D player_rotation = (Node2D)GetNode("../../Player/PlayerBody/PlayerSprite");

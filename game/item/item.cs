@@ -30,7 +30,7 @@ public void spawn(Vector2 posishon, int itemTipe)
 //work in progres
 private void _on_Item_body_entered()
 {
-    if (((this.Position.Y + 10 > player.Position.Y) && (this.Position.Y - 10 < player.Position.Y)) && ((this.Position.X + 10 > player.Position.X) && (this.Position.X - 10 < player.Position.X)))  // Check if the player collided with the item
+    if (((this.Position.Y + 20 > player.Position.Y) && (this.Position.Y - 20 < player.Position.Y)) && ((this.Position.X + 20 > player.Position.X) && (this.Position.X - 20 < player.Position.X)))  // Check if the player collided with the item
     {
         GD.Print("works");
         wepon.AddItem(itemTipe);

@@ -27,7 +27,7 @@ public partial class Weppon : Node
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        weponSlots[0] = 0;
+        weponSlots[0] = 1;
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     //Vector2 cursorPos = GetLocalMousePosition();
