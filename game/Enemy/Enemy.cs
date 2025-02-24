@@ -17,7 +17,7 @@ public partial class Enemy : RigidBody2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        player = (Node2D)GetNode("../Player/PlayerBody");
+        player = (Node2D)GetNode("/root/Main/Player/PlayerBody");
         // Calculating spawn position (temp use of direction to determine it)
         direction = new Vector2(random.Next(2) - 1, 0);
         direction.Y = (float)(random.NextDouble() * 2) - 1;
