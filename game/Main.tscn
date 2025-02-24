@@ -33,6 +33,7 @@ shape = SubResource("RectangleShape2D_ickle")
 texture = ExtResource("5_vq22x")
 
 [node name="Move" type="Node2D" parent="."]
+position = Vector2(576, 324)
 
 [node name="PlayerUi" parent="Move" instance=ExtResource("3_i85mx")]
 
