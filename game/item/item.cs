@@ -9,35 +9,41 @@ public partial class item : RigidBody2D
     [Export]
     int itemLevel;
 
-    Node2D player ;
+    Node2D player;
 
 
-    Weppon wepon;
-    
+    Weppon weapon;
 
     // Setup the collision signal
     public override void _Ready()
     {
-        wepon  = (Weppon)GetNode("../InstantBulletTest");
-        player = (Node2D)GetNode("../Player/PlayerBody");
-        
+        weapon = (Weppon)GetNode("/root/Main/InstantBulletTest");
+        player = (Node2D)GetNode("/root/Main/Player/PlayerBody");
 
+
+    }
+    public void spawn(Vector2 posishon, int itemTipe)
+    {
+        this.Position = posishon;
+        this.itemTipe = itemTipe;
     }
     //work in progres
     private void _on_Item_body_entered()
     {
-        if (this.Position == player.Position)  // Check if the player collided with the item
+        if (((this.Position.Y + 20 > player.Position.Y) && (this.Position.Y - 20 < player.Position.Y)) && ((this.Position.X + 20 > player.Position.X) && (this.Position.X - 20 < player.Position.X)))  // Check if the player collided with the item
         {
             GD.Print("works");
-            wepon.AddItem(itemTipe);
+            weapon.AddItem(itemTipe);
             // Emit the signal for pickup
             QueueFree();  // Remove the item from the scene
         }
     }
 
 
-// Called every frame. 'delta' is the elapsed time since the previous frame.
-public override void _Process(double delta)
-	{
-	}
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
+    {
+        _on_Item_body_entered();
+
+    }
 }
