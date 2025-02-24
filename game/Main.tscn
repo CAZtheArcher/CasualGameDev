@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://5sayynp76d4v" path="res://item/items.tscn" id="3_aowyt"]
 [ext_resource type="Script" path="res://Enemy/Enemy.cs" id="4_bjsc8"]
 [ext_resource type="Script" path="res://Scripts/Weppon.cs" id="4_p1mdf"]
-[ext_resource type="Texture2D" uid="uid://l6ois6prjvab" path="res://Sprites/enemy_temp.png" id="5_vq22x"]
+[ext_resource type="Texture2D" uid="uid://l6ois6prjvab" path="res://Enemy/enemy_temp.png" id="5_vq22x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ickle"]
 

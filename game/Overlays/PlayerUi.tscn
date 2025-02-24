@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://byn8r06655wo0"]
 
-[ext_resource type="Texture2D" uid="uid://dlj1c4xrnoi1q" path="res://Sprites/ammo_count_sprite.png" id="1_mqlr4"]
+[ext_resource type="Texture2D" uid="uid://dlj1c4xrnoi1q" path="res://Overlays/ammo_count_sprite.png" id="1_mqlr4"]
 [ext_resource type="Script" path="res://Overlays/PlayerUiManager.cs" id="1_yqvap"]
 
 [node name="PlayerUi" type="Control"]

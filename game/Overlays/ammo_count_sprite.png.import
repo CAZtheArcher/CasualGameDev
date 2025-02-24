@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1lqnj7mtla4v"
-path="res://.godot/imported/weapon_temp.png-a7df6eb5613f597ed5c62df69912853a.ctex"
+uid="uid://dlj1c4xrnoi1q"
+path="res://.godot/imported/ammo_count_sprite.png-b4ae9b1ff8d051801d077af77ee26889.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/weapon_temp.png"
-dest_files=["res://.godot/imported/weapon_temp.png-a7df6eb5613f597ed5c62df69912853a.ctex"]
+source_file="res://Overlays/ammo_count_sprite.png"
+dest_files=["res://.godot/imported/ammo_count_sprite.png-b4ae9b1ff8d051801d077af77ee26889.ctex"]
 
 [params]
 
