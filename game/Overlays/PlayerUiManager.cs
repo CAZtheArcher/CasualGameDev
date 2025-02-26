@@ -8,8 +8,8 @@ public partial class PlayerUiManager : Control
 
     public override void _Ready()
     {
-        healthbar = (ProgressBar)GetNode("/root/Main/PlayerUi/HealthBar");
-        ammobar = (TextureProgressBar)GetNode("/root/Main/PlayerUi/AmmoCount");
+        healthbar = (ProgressBar)GetNode("HealthBar");
+        ammobar = (TextureProgressBar)GetNode("AmmoCount");
         healthbar.Value = healthbar.MaxValue;
         ammobar.Value = ammobar.MaxValue;
     }
