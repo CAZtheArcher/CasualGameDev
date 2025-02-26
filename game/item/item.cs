@@ -3,7 +3,7 @@ using System;
 
 public partial class item : RigidBody2D
 { 
-    Weppon inst;
+    Weapon inst;
 [Export]
 int itemTipe;
 [Export]
@@ -12,12 +12,12 @@ int itemLevel;
 Node2D player;
 
 
-Weppon weapon;
+Weapon weapon;
 
 // Setup the collision signal
 public override void _Ready()
 {
-    weapon = (Weppon)GetNode("/root/Main/InstantBulletTest");
+    weapon = (Weapon)GetNode("/root/Main/InstantBulletTest");
     player = (Node2D)GetNode("/root/Main/Player/PlayerBody");
 
 

@@ -3,8 +3,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-
-public partial class Weppon : Node
+public partial class Weapon : Node
 {
     //im thinking of doing an item class inseted of an int but im runing out of time today
     PackedScene scene = GD.Load<PackedScene>("res://Projectile/Projectile.tscn");
@@ -12,7 +11,6 @@ public partial class Weppon : Node
     List<Projectile> projectiles = new List<Projectile>();
 
     double fireRate = 1.0;
-    double rateCap = 1.99;
     double shotReady = 1.0;
     int shotSpeed = 10;
     int weaponDmg = 1;
@@ -22,12 +20,12 @@ public partial class Weppon : Node
     {
 
     }
-    int[] weponSlots = new int[4];
+    int[] weaponSlots = new int[4];
     Projectile inst;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        weponSlots[0] = 1;
+        weaponSlots[0] = 1;
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     //Vector2 cursorPos = GetLocalMousePosition();
@@ -35,26 +33,26 @@ public partial class Weppon : Node
     public override void _Process(double delta)
     {
         shotReady += delta;
-        if (shotReady >= rateCap) { shotReady -= 1.0; }
+        //if (shotReady >= fireRate) { shotReady = fireRate; }
         if (Input.IsMouseButtonPressed(MouseButton.Left) && (shotReady >= fireRate))
         {
-            shotReady -= fireRate;
-            WeponShot();
+            shotReady = 0;
+            WeaponShot();
         }
     }
-	//item nuber is like an id for the item 0 number is nothing there
+	//item number is like an id for the item, 0 is null
 	public void AddItem(int item)
 	{
         int check = 0;
-		for (int i = 0; i < weponSlots.Length; i++) 
+		for (int i = 0; i < weaponSlots.Length; i++) 
 		{
-            if(weponSlots[i] == item)
+            if(weaponSlots[i] == item)
             {
 
             }
-			else if (weponSlots[i]== 0)
+			else if (weaponSlots[i]== 0)
 			{
-				weponSlots[i] = item;
+				weaponSlots[i] = item;
 
                 return;
 			}
@@ -63,33 +61,33 @@ public partial class Weppon : Node
                 check++;            
             }
 		}
-        if (check == weponSlots.Length)
+        if (check == weaponSlots.Length)
         { 
-        //promt drop or swap
+        //prompt drop or swap
         }
 	}
     //
     public void slotExspand()
 	{
-		Array.Resize(ref weponSlots, weponSlots.Length + 1);
+		Array.Resize(ref weaponSlots, weaponSlots.Length + 1);
     }
     //
     public void slotSrink()
     {
-        Array.Resize(ref weponSlots, weponSlots.Length - 1);
+        Array.Resize(ref weaponSlots, weaponSlots.Length - 1);
     }
     //sdff
-    public void WeponShot()
+    public void WeaponShot()
 	{
-        for (int i = 0; i < weponSlots.Length; i++)
+        for (int i = 0; i < weaponSlots.Length; i++)
         {
-            if (weponSlots[i] == 1)
+            if (weaponSlots[i] == 1)
             {
                 projectiles.Add(scene.Instantiate<Projectile>());
                 projectiles[projectiles.Count - 1].Init(shotSpeed, weaponDmg);
                 AddChild(projectiles[projectiles.Count - 1]);
             }
-            if (weponSlots[i] == 2)
+            if (weaponSlots[i] == 2)
             {
                 projectiles.Add(scene.Instantiate<Projectile>());
                 projectiles[projectiles.Count - 1].Init(shotSpeed, weaponDmg);
