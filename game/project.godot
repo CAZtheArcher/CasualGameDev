@@ -58,3 +58,4 @@ fire={
 2d_render/layer_3="Projectiles"
 2d_render/layer_4="Items"
 2d_render/layer_5="Obstacles"
+2d_physics/layer_2="Enemy"
