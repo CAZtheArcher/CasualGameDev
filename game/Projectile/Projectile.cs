@@ -1,56 +1,42 @@
 using Godot;
 using System;
+using System.Diagnostics.Metrics;
 
-public partial class Projectile : RigidBody2D
+/// <summary>
+/// Projectile is the base class used for player and enemy projectiles.
+/// It contains base values that all projectiles need to function, like speed and damage.
+/// <para>*It is never instantiated or attached to scenes*</para>
+/// </summary>
+public abstract partial class Projectile : Node2D
 {
+    /// <summary> Speed that the projectile travels</summary>
     [Export]
-    int velocity;
+    protected int velocity;
+    /// <summary> Damage this projectile deals to what it collides with, upon collision</summary>
     [Export]
-    Vector2 directionOfTravel;
+    protected int damage;
+    /// <summary> # of targets this projectile can damage before it is destroyed.
+    /// Reduced by 1 each time an enemy is damaged.</summary>
     [Export]
-    int damage;
-    
+    protected int pierce; 
 
-    //Node2D player_node;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready(){
-        this.CollisionLayer = 3;
-        this.CollisionMask = 2;
-        Node2D player_node = (Node2D)GetNode("../../Player/PlayerBody");
-        this.Position = player_node.Position;
-        Node2D player_rotation = (Node2D)GetNode("../../Player/PlayerBody/PlayerSprite");
-        this.Rotation = player_rotation.Rotation;
-        this.directionOfTravel =
-            new Vector2(
-                (float)Math.Cos(player_rotation.Rotation),
-                (float)Math.Sin(player_rotation.Rotation));
-    }
 
-	public void InitRadians(int velocity, int directionAsRadians, int damage) {
-		this.velocity = velocity;
-		this.directionOfTravel = 
-            new Vector2(
-                (float)Math.Cos(directionAsRadians), 
-                (float)Math.Sin(directionAsRadians));
-		this.damage = damage;
-		this.Rotation = directionAsRadians;
-    }
-
-    public void Init(int velocity, int damage)
-    {
-        this.velocity = velocity;
-        this.damage = damage;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta){
-		// Move in the direction it was fired in
-		this.Position = new Vector2(
-			this.Position.X + directionOfTravel.X * velocity, 
-			this.Position.Y + directionOfTravel.Y * velocity);
+        // Move in the direction it was fired in
+        this.Position += this.Transform.X * velocity * (float)delta;
 	}
 
-    //public int Velocity { get; set; }
-    //public Vector2 Direction { get; set; }
-    //public int Damage { get; set; }
+    /// <summary>
+    /// This method is called whenever Projectile detects a collision with another object.
+    /// **To hook it up, select the Area2D in your projectile's .tscn, navigate to the
+    /// "Node" tab of the inspector window, right click "body_entered(body: Node2D)", select
+    /// connect, and in the pop up box, connect it to the Projectile child script.
+    /// </summary>
+    /// <param name="body">The body that this projectile collided with</param>
+    public abstract void OnArea2DBodyEntered(Node2D body);
 }
