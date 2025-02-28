@@ -35,4 +35,9 @@ public partial class BasicBullet : Projectile
             GD.PrintErr("BasicBullet just collided with something other than an Enemy!  This is not supposed to happen.");
         }
 	}
+
+	public override void OnVisibleOnScreenNotifier2DScreenExited()
+	{
+		this.QueueFree();
+	}
 }

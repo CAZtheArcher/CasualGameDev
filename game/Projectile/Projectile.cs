@@ -39,4 +39,10 @@ public abstract partial class Projectile : Node2D
     /// </summary>
     /// <param name="body">The body that this projectile collided with</param>
     public abstract void OnArea2DBodyEntered(Node2D body);
+
+    /// <summary>
+    /// This method is called whenever the Projectile scene's VisibleOnScreenNotifier2D is 
+    /// fully offscreen, and is used to delete the Projectile
+    /// </summary>
+    public abstract void OnVisibleOnScreenNotifier2DScreenExited();
 }
