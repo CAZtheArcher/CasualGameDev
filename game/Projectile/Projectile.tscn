@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://baxwmecgxuvqd"]
+
+[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Sprites/bullet.png" id="1_5t16a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cdeo6"]
+
+[node name="Projectile" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(0.928571, 1)
+texture = ExtResource("1_5t16a")
+centered = false
+offset = Vector2(-7, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 0)
+rotation = 1.5708
+scale = Vector2(0.56, 0.605)
+shape = SubResource("CapsuleShape2D_cdeo6")

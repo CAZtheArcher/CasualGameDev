@@ -15,7 +15,6 @@
 position = Vector2(636, 322)
 collision_layer = 8
 collision_mask = 0
-itemTipe = 1
 
 [node name="Enemy" type="RigidBody2D" parent="."]
 position = Vector2(-63, -54)
@@ -27,4 +26,28 @@ script = ExtResource("4_bjsc8")
 shape = SubResource("RectangleShape2D_ickle")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy/CollisionShape2D"]
+texture = ExtResource("5_vq22x")
+
+[node name="Enemy2" type="RigidBody2D" parent="."]
+position = Vector2(-126, -108)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("4_bjsc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2"]
+shape = SubResource("RectangleShape2D_ickle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy2/CollisionShape2D"]
+texture = ExtResource("5_vq22x")
+
+[node name="Enemy3" type="RigidBody2D" parent="."]
+position = Vector2(-189, -162)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("4_bjsc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3"]
+shape = SubResource("RectangleShape2D_ickle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy3/CollisionShape2D"]
 texture = ExtResource("5_vq22x")

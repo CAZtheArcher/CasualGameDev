@@ -13,7 +13,8 @@ public partial class Enemy : RigidBody2D
     Vector2 direction;
 
     PackedScene scene = GD.Load<PackedScene>("res://item/items.tscn");
-    List<item> item = new List<item>();
+    itmeHolder item;
+    //List<item> item = new List<item>();
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -36,16 +37,15 @@ public partial class Enemy : RigidBody2D
     public override void _PhysicsProcess(double delta)
     {
         var collisionInfo = MoveAndCollide(Vector2.Zero, true);
+
         //GD.Print(direction);
         if (collisionInfo != null)
-        { 
+        {
             // randomly spawn item on death
-            if ((float)(random.Next(0)) == 0)
-            {
-            item.Add(scene.Instantiate<item>());
-            item[item.Count - 1].spawn(new Vector2(200, 200), 1);
-            AddChild(item[item.Count - 1]);
-            }
+            //if ((float)(random.Next(0)) == 0)
+            // {
+            item.addItem(new BasicBulletModule(), this.Position);
+           // }
 
             GD.Print("man down");
             this.QueueFree();

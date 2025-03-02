@@ -5,7 +5,7 @@ public partial class item : RigidBody2D
 { 
     Weapon inst;
     [Export]
-    int itemTipe;
+    Module itemTipe;
     [Export]
     int itemLevel;
 
@@ -22,7 +22,7 @@ public partial class item : RigidBody2D
 
 
     }
-    public void spawn(Vector2 posishon, int itemTipe)
+    public void spawn(Vector2 posishon, Module itemTipe)
     {
         this.Position = posishon;
         this.itemTipe = itemTipe;
@@ -32,8 +32,8 @@ public partial class item : RigidBody2D
     {
         if (((this.Position.Y + 20 > player.Position.Y) && (this.Position.Y - 20 < player.Position.Y)) && ((this.Position.X + 20 > player.Position.X) && (this.Position.X - 20 < player.Position.X)))  // Check if the player collided with the item
         {
-            GD.Print("works");
-            // weapon.AddItem(itemTipe);
+            GD.Print(itemTipe);
+            weapon.AddModule(itemTipe);
             // Emit the signal for pickup
             QueueFree();  // Remove the item from the scene
         }
