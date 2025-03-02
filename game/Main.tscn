@@ -1,13 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://kqarq2vld2tw"]
 
-[ext_resource type="PackedScene" uid="uid://thw2lf5s8cii" path="res://Player/Player.tscn" id="3_45x1i"]
+[ext_resource type="PackedScene" uid="uid://bdifxajmvhfeu" path="res://Player/Player.tscn" id="3_45x1i"]
 [ext_resource type="PackedScene" uid="uid://5sayynp76d4v" path="res://item/items.tscn" id="3_aowyt"]
 [ext_resource type="Script" path="res://Enemy/Enemy.cs" id="4_bjsc8"]
-[ext_resource type="Texture2D" uid="uid://l6ois6prjvab" path="res://Sprites/enemy_temp.png" id="5_vq22x"]
+[ext_resource type="Texture2D" uid="uid://l6ois6prjvab" path="res://Enemy/enemy_temp.png" id="5_vq22x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ickle"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("3_45x1i")]
 
 [node name="Items" parent="." instance=ExtResource("3_aowyt")]
 position = Vector2(636, 322)
