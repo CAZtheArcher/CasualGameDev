@@ -38,13 +38,13 @@ public partial class Enemy : RigidBody2D
         var collisionInfo = MoveAndCollide(Vector2.Zero, true);
         //GD.Print(direction);
         if (collisionInfo != null)
-        {
+        { 
             // randomly spawn item on death
             if ((float)(random.Next(0)) == 0)
             {
-                item.Add(scene.Instantiate<item>());
-                item[item.Count - 1].spawn(new Vector2(200, 200), 1);
-                AddChild(item[item.Count - 1]);
+            item.Add(scene.Instantiate<item>());
+            item[item.Count - 1].spawn(new Vector2(200, 200), 1);
+            AddChild(item[item.Count - 1]);
             }
 
             GD.Print("man down");

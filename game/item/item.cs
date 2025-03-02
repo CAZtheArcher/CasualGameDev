@@ -2,8 +2,8 @@ using Godot;
 using System;
 
 public partial class item : RigidBody2D
-{
-    Weppon inst;
+{ 
+    Weapon inst;
     [Export]
     int itemTipe;
     [Export]
@@ -12,12 +12,12 @@ public partial class item : RigidBody2D
     Node2D player;
 
 
-    Weppon weapon;
+    Weapon weapon;
 
     // Setup the collision signal
     public override void _Ready()
     {
-        weapon = (Weppon)GetNode("/root/Main/InstantBulletTest");
+        weapon = (Weapon)GetNode("/root/Main/Player/PlayerBody/PlayerSprite/WeaponSprite");
         player = (Node2D)GetNode("/root/Main/Player/PlayerBody");
 
 
@@ -33,7 +33,7 @@ public partial class item : RigidBody2D
         if (((this.Position.Y + 20 > player.Position.Y) && (this.Position.Y - 20 < player.Position.Y)) && ((this.Position.X + 20 > player.Position.X) && (this.Position.X - 20 < player.Position.X)))  // Check if the player collided with the item
         {
             GD.Print("works");
-            weapon.AddItem(itemTipe);
+            // weapon.AddItem(itemTipe);
             // Emit the signal for pickup
             QueueFree();  // Remove the item from the scene
         }

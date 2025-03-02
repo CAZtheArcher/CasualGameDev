@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://thw2lf5s8cii"]
 
-[ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_ram6g"]
+[ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_i88vj"]
 [ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Player/player_temp.png" id="2_cm1vq"]
 [ext_resource type="Script" path="res://Player/LookAtMouse.cs" id="3_ej2tf"]
-[ext_resource type="Texture2D" uid="uid://b1lqnj7mtla4v" path="res://Player/weapon_temp.png" id="4_dmbi0"]
-[ext_resource type="PackedScene" uid="uid://byn8r06655wo0" path="res://Overlays/PlayerUi.tscn" id="5_1r5xx"]
+[ext_resource type="Texture2D" uid="uid://b1lqnj7mtla4v" path="res://Sprites/weapon_temp.png" id="4_dmbi0"]
+[ext_resource type="Script" path="res://Scripts/Weapon.cs" id="5_n0r7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oy6"]
 size = Vector2(26, 26)
@@ -12,18 +12,21 @@ size = Vector2(26, 26)
 [node name="Player" type="Node2D"]
 
 [node name="PlayerBody" type="CharacterBody2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(500, 300)
 collision_mask = 18
-script = ExtResource("1_ram6g")
+script = ExtResource("1_i88vj")
 
 [node name="PlayerSprite" type="Sprite2D" parent="PlayerBody"]
 texture = ExtResource("2_cm1vq")
 script = ExtResource("3_ej2tf")
 
 [node name="WeaponSprite" type="Sprite2D" parent="PlayerBody/PlayerSprite"]
-position = Vector2(23.0001, 1.52588e-05)
+position = Vector2(34, -1.52588e-05)
 rotation = 1.5708
 texture = ExtResource("4_dmbi0")
+centered = false
+offset = Vector2(-13, 0)
+script = ExtResource("5_n0r7d")
 
 [node name="Bullet_Spawn" type="Marker2D" parent="PlayerBody/PlayerSprite"]
 position = Vector2(34.0001, 1.52588e-05)
