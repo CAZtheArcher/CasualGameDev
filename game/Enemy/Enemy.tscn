@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7pydnqgyrdae"]
 
 [ext_resource type="Script" path="res://Enemy/Enemy.cs" id="1_gxctd"]
-[ext_resource type="Texture2D" uid="uid://l6ois6prjvab" path="res://Enemy/enemy_temp.png" id="2_mmldb"]
+[ext_resource type="Texture2D" uid="uid://dqsvdteooweee" path="res://Sprites/toaster_enemy.png" id="2_q6vca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2f2q"]
 
@@ -14,4 +14,5 @@ script = ExtResource("1_gxctd")
 shape = SubResource("RectangleShape2D_y2f2q")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-texture = ExtResource("2_mmldb")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_q6vca")
