@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7pydnqgyrdae"]
+[gd_scene load_steps=4 format=3 uid="uid://b7pydnqgyrdae"]
 
 [ext_resource type="Script" path="res://Enemy/Enemy.cs" id="1_gxctd"]
+[ext_resource type="Texture2D" uid="uid://l6ois6prjvab" path="res://Enemy/enemy_temp.png" id="2_mmldb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2f2q"]
 
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_gxctd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y2f2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("2_mmldb")
