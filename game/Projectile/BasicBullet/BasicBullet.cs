@@ -27,8 +27,14 @@ public partial class BasicBullet : Projectile
 		// TODO:  Implement dealing damage, and reducing this projectile's pierce variable by 1
 		try {
 			Enemy enemy = (Enemy)body;
+   			// enemy.takeDamage(damage);
+
+      			// Remove this once enemy damage is implemented
 			enemy.QueueFree();
-            this.QueueFree();
+    	    	pierce -= 1;
+	    	if(pierce < 1){
+              		this.QueueFree();
+	    	}
         } catch {
             // This try/catch is here in case someone mucks up the collision layers/masks
             // BasicBullets are player bullets (not supposed to collide with non-enemies)
