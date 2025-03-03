@@ -44,5 +44,7 @@ public abstract partial class Projectile : Node2D
     /// This method is called whenever the Projectile scene's VisibleOnScreenNotifier2D is 
     /// fully offscreen, and is used to delete the Projectile
     /// </summary>
-    public abstract void OnVisibleOnScreenNotifier2DScreenExited();
+    public virtual void OnVisibleOnScreenNotifier2DScreenExited(){
+	this.QueueFree();
+    }
 }
