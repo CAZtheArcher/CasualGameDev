@@ -13,8 +13,7 @@ public partial class Enemy : RigidBody2D
     Vector2 direction;
 
     PackedScene scene = GD.Load<PackedScene>("res://item/items.tscn");
-    itmeHolder item;
-    //List<item> item = new List<item>();
+    List<item> item = new List<item>();
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -37,18 +36,36 @@ public partial class Enemy : RigidBody2D
     public override void _PhysicsProcess(double delta)
     {
         var collisionInfo = MoveAndCollide(Vector2.Zero, true);
-
         //GD.Print(direction);
         if (collisionInfo != null)
         {
-            // randomly spawn item on death
-            //if ((float)(random.Next(0)) == 0)
-            // {
-            item.addItem(new BasicBulletModule(), this.Position);
-           // }
-
             GD.Print("man down");
             this.QueueFree();
+            GD.Print("collision detected with " + collisionInfo.GetCollider());
+            if (collisionInfo.GetCollider().Equals("CharacterBody2D"))
+            {
+                GD.Print("it's the player");
+                Knockback();
+            }
         }
+    }
+
+    public void EnemyDie()
+    {
+        if ((float)(random.Next(0)) == 0)
+        {
+            item.Add(scene.Instantiate<item>());
+            item[item.Count - 1].spawn(this.Position, new BasicBulletModule());
+            GetTree().Root.AddChild(item[item.Count - 1]);
+            GD.Print("Item spawned");
+        }
+        this.QueueFree();
+    }
+
+
+    public void Knockback()
+    {
+        direction = (Position - player.Position).Normalized();
+        Position += (10 * direction);
     }
 }

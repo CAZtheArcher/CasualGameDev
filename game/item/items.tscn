@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://wltxpa1k5ctx" path="res://item/item_temp.png" id="1_g02q4"]
 [ext_resource type="Script" path="res://item/item.cs" id="2_gmya2"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_shfwd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ji50q"]
 
 [node name="Items" type="RigidBody2D"]
 collision_layer = 4
@@ -13,7 +13,9 @@ script = ExtResource("2_gmya2")
 itemLevel = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.736257
+scale = Vector2(-0.676768, -0.804054)
 texture = ExtResource("1_g02q4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_shfwd")
+shape = SubResource("RectangleShape2D_ji50q")
