@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://thw2lf5s8cii" path="res://Player/Player.tscn" id="3_45x1i"]
 [ext_resource type="PackedScene" uid="uid://5sayynp76d4v" path="res://item/items.tscn" id="3_aowyt"]
-[ext_resource type="Texture2D" uid="uid://dqsvdteooweee" path="res://Sprites/toaster_enemy.png" id="4_83omq"]
+[ext_resource type="Texture2D" uid="uid://dqsvdteooweee" path="res://Enemy/toaster_enemy.png" id="4_83omq"]
 [ext_resource type="Script" path="res://Enemy/Enemy.cs" id="4_bjsc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ickle"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqsvdteooweee"
-path="res://.godot/imported/toaster_enemy.png-d71be7d2d0607db30bc73291b3dbb4d9.ctex"
+path="res://.godot/imported/toaster_enemy.png-22e8ea757babbcdb4e1c16e6da3ba82d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/toaster_enemy.png"
-dest_files=["res://.godot/imported/toaster_enemy.png-d71be7d2d0607db30bc73291b3dbb4d9.ctex"]
+source_file="res://Enemy/toaster_enemy.png"
+dest_files=["res://.godot/imported/toaster_enemy.png-22e8ea757babbcdb4e1c16e6da3ba82d.ctex"]
 
 [params]
 
