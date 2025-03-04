@@ -21,6 +21,7 @@ public partial class BasicBullet : Projectile
 		base._Process(delta);
 	}
 
+	// TODO: Move this basic funcionality to Projectile, and mark the function in Projectile as Virtual instead of Abstract
     public override void OnArea2DBodyEntered(Node2D body)
 	{
 		// Basic functionality.  If the projectile collides with an enemy, deletes both.
