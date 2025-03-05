@@ -56,7 +56,8 @@ public partial class Enemy : RigidBody2D
         {
             item.Add(scene.Instantiate<item>());
             item[item.Count - 1].spawn(this.Position, new BasicBulletModule());
-            GetTree().Root.AddChild(item[item.Count - 1]);
+            //GetTree().Root.AddChild(item[item.Count - 1]);
+            GetTree().Root.CallDeferred("add_child", item[item.Count - 1]);
             GD.Print("Item spawned");
         }
         this.QueueFree();

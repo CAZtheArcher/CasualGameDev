@@ -74,7 +74,7 @@ public partial class Weapon : Sprite2D
 			{
                 weaponModules[i] = module;
                 // Modules need to be added as children of Weapon to be able to add things to the scene.
-                AddChild(weaponModules[0]);
+                AddChild(weaponModules[i]);
                 weaponModulesSize++;
                 return;
 			}
