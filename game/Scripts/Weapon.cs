@@ -31,6 +31,7 @@ public partial class Weapon : Sprite2D
         timeSinceLastShot = fireRate; // Can fire immediately upon spawning.
         weaponModules = new Module[4]; // Weapon can hold a default 4 modules.
         weaponModulesSize = 0; // There is a single BasicBulletModule slotted into the weapon.
+        AddModule(new BuckshotModule());// Weapon has one BasicBulletModule installed by default.
         AddModule(new BasicBulletModule());// Weapon has one BasicBulletModule installed by default.
         currentModule = 0; // Weapon fires the module in slot 1 (index 0) first.
     }
@@ -74,7 +75,7 @@ public partial class Weapon : Sprite2D
 			{
                 weaponModules[i] = module;
                 // Modules need to be added as children of Weapon to be able to add things to the scene.
-                AddChild(weaponModules[0]);
+                AddChild(weaponModules[i]);
                 weaponModulesSize++;
                 return;
 			}

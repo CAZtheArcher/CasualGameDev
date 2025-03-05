@@ -59,3 +59,7 @@ fire={
 2d_render/layer_4="Items"
 2d_render/layer_5="Obstacles"
 2d_physics/layer_2="Enemy"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.37918, 0.37918, 0.37918, 1)

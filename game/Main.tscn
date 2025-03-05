@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://kqarq2vld2tw"]
+[gd_scene load_steps=7 format=3 uid="uid://kqarq2vld2tw"]
 
 [ext_resource type="PackedScene" uid="uid://thw2lf5s8cii" path="res://Player/Player.tscn" id="3_45x1i"]
 [ext_resource type="PackedScene" uid="uid://5sayynp76d4v" path="res://item/items.tscn" id="3_aowyt"]
 [ext_resource type="Texture2D" uid="uid://dqsvdteooweee" path="res://Enemy/toaster_enemy.png" id="4_83omq"]
 [ext_resource type="Script" path="res://Enemy/Enemy.cs" id="4_bjsc8"]
+[ext_resource type="PackedScene" uid="uid://ksyj3c8jlmbr" path="res://Enemy/Enemy.tscn" id="5_wl6rm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ickle"]
 
@@ -29,3 +30,27 @@ shape = SubResource("RectangleShape2D_ickle")
 [node name="Sprite2D" type="Sprite2D" parent="Enemy/CollisionShape2D"]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_83omq")
+
+[node name="Enemy2" parent="." instance=ExtResource("5_wl6rm")]
+position = Vector2(152, 197)
+
+[node name="Enemy3" parent="." instance=ExtResource("5_wl6rm")]
+position = Vector2(152, 197)
+
+[node name="Enemy4" parent="." instance=ExtResource("5_wl6rm")]
+position = Vector2(152, 197)
+
+[node name="Enemy5" parent="." instance=ExtResource("5_wl6rm")]
+position = Vector2(152, 197)
+
+[node name="Enemy6" parent="." instance=ExtResource("5_wl6rm")]
+position = Vector2(152, 197)
+
+[node name="Enemy7" parent="." instance=ExtResource("5_wl6rm")]
+position = Vector2(152, 197)
+
+[node name="Enemy8" parent="." instance=ExtResource("5_wl6rm")]
+position = Vector2(-115, 181)
+
+[node name="Enemy9" parent="." instance=ExtResource("5_wl6rm")]
+position = Vector2(458, 48)
