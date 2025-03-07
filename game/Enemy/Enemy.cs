@@ -32,7 +32,7 @@ public partial class Enemy : RigidBody2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-        direction = (player.Position - Position).Normalized();
+        direction = (player.GlobalPosition - GlobalPosition).Normalized();
         if (random.NextDouble() <= 0.15)
         {
             direction = new Vector2((float)(random.NextDouble() * 2) - 1, 0);
@@ -50,7 +50,7 @@ public partial class Enemy : RigidBody2D
     public override void _PhysicsProcess(double delta)
     {
         var collisionInfo = MoveAndCollide(Vector2.Zero, true);
-        //GD.Print(direction);
+        GD.Print(direction);
         if (collisionInfo != null)
         {
             GD.Print("man down");
