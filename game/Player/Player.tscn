@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://thw2lf5s8cii"]
 
-[ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_i88vj"]
+[ext_resource type="Script" path="res://Player/Player.cs" id="1_ybvti"]
 [ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Player/player_temp.png" id="2_cm1vq"]
 [ext_resource type="Script" path="res://Player/LookAtMouse.cs" id="3_ej2tf"]
 [ext_resource type="Texture2D" uid="uid://b1lqnj7mtla4v" path="res://Player/weapon_temp.png" id="4_dmbi0"]
@@ -15,7 +15,7 @@ size = Vector2(26, 26)
 [node name="PlayerBody" type="CharacterBody2D" parent="."]
 position = Vector2(576, 324)
 collision_mask = 18
-script = ExtResource("1_i88vj")
+script = ExtResource("1_ybvti")
 
 [node name="PlayerSprite" type="Sprite2D" parent="PlayerBody"]
 texture = ExtResource("2_cm1vq")
