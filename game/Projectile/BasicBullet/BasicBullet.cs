@@ -12,7 +12,7 @@ public partial class BasicBullet : Projectile
 	{
 		base._Ready();
         velocity = 250;
-		damage = 2;
+		damage = 3;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
