@@ -1,23 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://kqarq2vld2tw"]
+[gd_scene load_steps=4 format=3 uid="uid://kqarq2vld2tw"]
 
+[ext_resource type="Texture2D" uid="uid://cv0h38v3len3g" path="res://Sprites/stone.png" id="1_nqn3t"]
 [ext_resource type="PackedScene" uid="uid://thw2lf5s8cii" path="res://Player/Player.tscn" id="3_45x1i"]
-[ext_resource type="Texture2D" uid="uid://dqsvdteooweee" path="res://Enemy/toaster_enemy.png" id="4_83omq"]
-[ext_resource type="Script" path="res://Enemy/Enemy.cs" id="4_bjsc8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ickle"]
+[ext_resource type="Script" path="res://Enemy/EnemyManager.cs" id="4_fhkiy"]
 
 [node name="Main" type="Node2D"]
 
+[node name="Sprite2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+position = Vector2(181269, 182560)
+scale = Vector2(-236.586, -205.17)
+color = Color(0.46, 0.384177, 0.3542, 1)
+texture = ExtResource("1_nqn3t")
+texture_scale = Vector2(8000, 8000)
+polygon = PackedVector2Array(0, 1920, 0, 0, 1920, 0, 1920, 1920)
+uv = PackedVector2Array(0, 1920, 0, 0, 1920, 0, 1920, 1920)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
 [node name="Player" parent="." instance=ExtResource("3_45x1i")]
 
-[node name="Enemy" type="RigidBody2D" parent="."]
+[node name="EnemyManger" type="Node2D" parent="."]
 position = Vector2(-63, -54)
-collision_layer = 2
-script = ExtResource("4_bjsc8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("RectangleShape2D_ickle")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy/CollisionShape2D"]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_83omq")
+script = ExtResource("4_fhkiy")

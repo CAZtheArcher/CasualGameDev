@@ -7,7 +7,7 @@ public partial class Player : CharacterBody2D
 {
     float speed = 400;
 	int health = 5;
-	
+	public Vector2 direction = new Vector2();
     public override void _Ready()
 	{
 	}
@@ -15,6 +15,7 @@ public partial class Player : CharacterBody2D
 	public void GetInput()
 	{
 		var input_direction = Input.GetVector("left", "right", "up", "down");
+		direction = input_direction;
 		Velocity = input_direction * speed;
     }
 

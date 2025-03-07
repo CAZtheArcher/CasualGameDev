@@ -7,7 +7,7 @@ public partial class Enemy : RigidBody2D
 {
     int damage = 1;
     [Export] float speed = 1f;
-    int radius = 200;
+    int radius = 400;
     Random random = new Random();
     Node2D player;
     Vector2 direction;
@@ -19,18 +19,32 @@ public partial class Enemy : RigidBody2D
     {
         player = (Node2D)GetNode("/root/Main/Player/PlayerBody");
         // Calculating spawn position (temp use of direction to determine it)
-        direction = new Vector2(random.Next(2) - 1, 0);
+        direction = new Vector2((float)(random.NextDouble() * 2) - 1, 0);
         direction.Y = (float)(random.NextDouble() * 2) - 1;
         direction = direction.Normalized();
         Position = player.Position + (direction * radius);
         direction = Vector2.Zero;
+        CollisionMask = 1;
+        CollisionLayer = 2;
     }
+
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
         direction = (player.Position - Position).Normalized();
-        Position += (speed * direction);
+        if (random.NextDouble() <= 0.15)
+        {
+            direction = new Vector2((float)(random.NextDouble() * 2) - 1, 0);
+            direction.Y = (float)(random.NextDouble() * 2) - 1;
+            direction = direction.Normalized();
+            Position += (2 * direction);
+        }
+        else
+            Position += (speed * direction);
+        
+
+        //GetTree().Root.AddChild(item[item.Count - 1]);
     }
 
     public override void _PhysicsProcess(double delta)
@@ -45,18 +59,17 @@ public partial class Enemy : RigidBody2D
             if (collisionInfo.GetCollider().Equals("CharacterBody2D"))
             {
                 GD.Print("it's the player");
-                Knockback();
+                //Knockback();
             }
         }
     }
 
     public void EnemyDie()
     {
-        if ((float)(random.Next(0)) == 0)
+        if ((float)(random.Next(3)) == 0)
         {
             item.Add(scene.Instantiate<item>());
             item[item.Count - 1].spawn(this.Position, new BuckshotModule());
-            //GetTree().Root.AddChild(item[item.Count - 1]);
             GetTree().Root.CallDeferred("add_child", item[item.Count - 1]);
             GD.Print("Item spawned");
         }
@@ -69,4 +82,10 @@ public partial class Enemy : RigidBody2D
         direction = (Position - player.Position).Normalized();
         Position += (10 * direction);
     }
+
+
+    /*public void Spawn(Type eT)
+    {
+        this.enemyType = eT;
+    }*/
 }

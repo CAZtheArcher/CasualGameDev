@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://2bfau3idx3sc"]
 
 [ext_resource type="Script" path="res://Projectile/BasicBullet/BasicBullet.cs" id="1_8tk2b"]
-[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Sprites/bullet.png" id="2_6m2c1"]
+[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/bullet.png" id="2_6m2c1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fp3t"]
 radius = 10.7
