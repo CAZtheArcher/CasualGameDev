@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://djboooc6emmjg"]
+[gd_scene load_steps=3 format=3 uid="uid://djboooc6emmjg"]
 
 [ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/bullet.png" id="1_5t16a"]
-[ext_resource type="Script" path="res://Projectile/Projectile.cs" id="1_yrfba"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cdeo6"]
 
@@ -9,7 +8,6 @@
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
-script = ExtResource("1_yrfba")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
