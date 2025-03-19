@@ -52,7 +52,7 @@ public partial class Enemy : RigidBody2D
     public override void _PhysicsProcess(double delta)
     {
         var collisionInfo = MoveAndCollide(Vector2.Zero, true);
-        GD.Print(direction);
+        //GD.Print(direction);
         if (collisionInfo != null)
         {
             GD.Print("man down");
