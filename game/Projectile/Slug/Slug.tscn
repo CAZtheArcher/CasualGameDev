@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbe5jhg04eogo"]
 
-[ext_resource type="Script" path="res://Projectile/Buckshot/Buckshot.cs" id="1_e5ofs"]
-[ext_resource type="Texture2D" uid="uid://bgvy627mltwvg" path="res://Projectile/Buckshot/Buckshot.png" id="2_3jkq7"]
+[ext_resource type="Script" path="res://Projectile/Slug/Slug.cs" id="1_8p6no"]
+[ext_resource type="Texture2D" uid="uid://dbpcmwisv0dsd" path="res://Projectile/Slug/Slug.png" id="2_hau5e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0c7gx"]
 
-[node name="Buckshot" type="Node2D"]
-script = ExtResource("1_e5ofs")
+[node name="Sug" type="Node2D"]
+script = ExtResource("1_8p6no")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 rotation = 1.5708
 scale = Vector2(0.928571, 1)
-texture = ExtResource("2_3jkq7")
+texture = ExtResource("2_hau5e")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 5
