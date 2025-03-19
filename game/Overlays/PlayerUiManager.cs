@@ -57,4 +57,9 @@ public partial class PlayerUiManager : Control
         ammobar.MaxValue -= value;
         ammobar.Value = ammobar.MaxValue;
     }
+
+    public void GameOver()
+    {
+        GetTree().ChangeSceneToFile("res://Main.tscn")
+    }
 }
