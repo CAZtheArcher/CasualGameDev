@@ -77,10 +77,10 @@ public partial class Enemy : RigidBody2D
     }
 
 
-    public void Knockback()
+    public void Knockback(int knockbackAmount = 10)
     {
         direction = (Position - player.Position).Normalized();
-        Position += (10 * direction);
+        Position += (knockbackAmount * direction);
     }
 
 
