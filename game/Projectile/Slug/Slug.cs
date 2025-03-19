@@ -42,7 +42,7 @@ public partial class Slug : Projectile
         }
         catch
         {
-            GD.PrintErr("BasicBullet just collided with something other than an Enemy!  This is not supposed to happen.");
+            GD.PrintErr("Slug just collided with something other than an Enemy!  This is not supposed to happen.");
         }
     }
 }
