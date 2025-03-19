@@ -65,7 +65,7 @@ public abstract partial class Projectile : Node2D
         }
         catch
         {
-            GD.PrintErr("BasicBullet just collided with something other than an Enemy!  This is not supposed to happen.");
+            GD.PrintErr("Projectile just collided with something other than an Enemy!  This is not supposed to happen.");
         }
     }
 
