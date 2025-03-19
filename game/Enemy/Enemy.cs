@@ -79,7 +79,7 @@ public partial class Enemy : RigidBody2D
         this.QueueFree();
     }
 
-
+    //PATRICK TODO: Make this use RigidBody's physics magic, so the enemy doesn't just teleport backwards lmao
     public void Knockback(int knockbackAmount = 10)
     {
         direction = (Position - player.Position).Normalized();
