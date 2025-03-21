@@ -57,6 +57,7 @@ public partial class Weapon : Sprite2D
         currentModule++;
         // If there are no modules after this one, loop back to the start.
         if (currentModule == weaponModulesSize) { currentModule = 0; }
+        UpdateUI();
     }
 
     /// <summary> Adds 'module' to the weapon, at the end of the weapon's array of modules.
@@ -92,4 +93,16 @@ public partial class Weapon : Sprite2D
 
     public void SlotExpand() { Array.Resize(ref weaponModules, weaponModules.Length + 1); }
     public void SlotShrink() { Array.Resize(ref weaponModules, weaponModules.Length - 1); }
+
+    public void UpdateUI()
+    {
+        string[] sprites = { "", "", "" };
+        int count = 0;
+        for (int i = currentModule; i < currentModule + 3; i++)
+        {
+            int accessModule = i;
+            if (accessModule >= weaponModulesSize) { accessModule -= weaponModulesSize; }
+            //sprites[count] = weaponModules[accessModule].
+        }
+    }
 }

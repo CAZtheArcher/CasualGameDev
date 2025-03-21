@@ -12,6 +12,7 @@ public partial class BasicBulletModule : Module {
     {
         basicBulletScene = GD.Load<PackedScene>("res://Projectile/BasicBullet/BasicBullet.tscn");
         parent = GetParent<Weapon>();
+        spritePath = "res://Projectile/bullet.png";
     }
 
     /// <summary>Fires a BasicBullet.</summary>

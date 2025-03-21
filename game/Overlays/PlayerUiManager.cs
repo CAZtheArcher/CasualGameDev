@@ -4,14 +4,17 @@ using System;
 public partial class PlayerUiManager : Control
 {
     ProgressBar healthbar;
-    TextureProgressBar ammobar;
+    Sprite2D nextBullet;
+    Sprite2D nextNextBullet;
+    Sprite2D nextNextNextBullet;
 
     public override void _Ready()
     {
         healthbar = (ProgressBar)GetNode("HealthBar");
-        ammobar = (TextureProgressBar)GetNode("AmmoCount");
+        nextBullet = (Sprite2D)GetNode("NextBullet/DisplayBullet");
+        nextNextBullet = (Sprite2D)GetNode("NextNextBullet/DisplayBullet");
+        nextNextNextBullet = (Sprite2D)GetNode("NextNextNextBullet/DisplayBullet");
         healthbar.Value = healthbar.MaxValue;
-        ammobar.Value = ammobar.MaxValue;
     }
 
     public void IncrimentHealth(int value)
@@ -42,6 +45,16 @@ public partial class PlayerUiManager : Control
     public void ShotFired()
     {
 
+    }
+
+    public void UpdateBulletSprite(string sprite1, string sprite2, string sprite3)
+    {
+        Texture2D newTexture = GD.Load<Texture2D>(sprite1);
+        nextBullet.Texture = newTexture;
+        newTexture = GD.Load<Texture2D>(sprite2);
+        nextNextBullet.Texture = newTexture;
+        newTexture = GD.Load<Texture2D>(sprite3);
+        nextNextNextBullet.Texture = newTexture;
     }
 
     public void GameOver()
