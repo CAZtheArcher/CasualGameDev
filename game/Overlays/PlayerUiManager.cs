@@ -17,11 +17,13 @@ public partial class PlayerUiManager : Control
     public void IncrimentHealth(int value)
     {
         healthbar.Value += value;
+        if (healthbar.Value > healthbar.MaxValue) { healthbar.Value = healthbar.MaxValue; }
     }
 
     public void DecrimentHealth(int value)
     {
         healthbar.Value -= value;
+        if (healthbar.Value <= 0) { GameOver(); }
     }
 
     public void IncrimentMaxHealth(int value)
@@ -34,27 +36,16 @@ public partial class PlayerUiManager : Control
     {
         healthbar.MaxValue -= value;
         healthbar.Value = healthbar.MaxValue;
+        if (healthbar.Value <= 0) { GameOver(); }
     }
 
-    public void IncrementAmmo(int value)
+    public void ShotFired()
     {
-        ammobar.Value += value;
+
     }
 
-    public void DecrementAmmo(int value)
+    public void GameOver()
     {
-        ammobar.Value -= value;
-    }
-
-    public void IncrementMaxAmmo(int value)
-    {
-        ammobar.MaxValue += value;
-        ammobar.Value = ammobar.MaxValue;
-    }
-
-    public void DecrementMaxAmmo(int value)
-    {
-        ammobar.MaxValue -= value;
-        ammobar.Value = ammobar.MaxValue;
+        GetTree().ChangeSceneToFile("res://Levels/MainMenu/GameOver.tscn");
     }
 }

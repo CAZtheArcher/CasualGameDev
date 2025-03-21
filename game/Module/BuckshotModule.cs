@@ -25,7 +25,6 @@ public partial class BuckshotModule : Module {
     {
         for(byte i = 0; i < pelletCount; i++){
             Buckshot pellet_instance = (Buckshot)buckshotScene.Instantiate();
-            // parent's GetTree is called here because BasicBulletModule is not in the scene tree.
             
             pellet_instance.GlobalPosition = parent.BulletSpawn.GlobalPosition;
             float rotation = parent.PlayerSprite.Rotation;

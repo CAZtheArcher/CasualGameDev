@@ -2,22 +2,22 @@ using Godot;
 using System;
 
 /// <summary>
-/// Fires a BasicBullet.
+/// Fires a slug.
 /// </summary>
-public partial class BasicBulletModule : Module {
-    private PackedScene basicBulletScene;
+public partial class SlugModule : Module {
+    private PackedScene slugScene;
     private Weapon parent;
 
     public override void _Ready()
     {
-        basicBulletScene = GD.Load<PackedScene>("res://Projectile/BasicBullet/BasicBullet.tscn");
+        slugScene = GD.Load<PackedScene>("res://Projectile/Slug/Slug.tscn");
         parent = GetParent<Weapon>();
     }
 
-    /// <summary>Fires a BasicBullet.</summary>
+    /// <summary>Fires a slug.</summary>
     public override void Activate()
     {
-        BasicBullet bullet_instance = (BasicBullet)basicBulletScene.Instantiate();
+        Slug bullet_instance = (Slug)slugScene.Instantiate();
         GetTree().Root.AddChild(bullet_instance);
         bullet_instance.GlobalPosition = parent.BulletSpawn.GlobalPosition;
         bullet_instance.Rotation = parent.PlayerSprite.Rotation;
