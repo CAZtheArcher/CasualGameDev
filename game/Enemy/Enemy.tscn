@@ -4,15 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://dqsvdteooweee" path="res://Enemy/toaster_enemy.png" id="2_q6vca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2f2q"]
+size = Vector2(25, 23)
 
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 5
+mass = 0.01
+gravity_scale = 0.0
 script = ExtResource("1_gxctd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 1.5)
 shape = SubResource("RectangleShape2D_y2f2q")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(1.5, -1.5)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_q6vca")
