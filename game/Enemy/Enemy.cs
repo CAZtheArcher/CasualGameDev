@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 public partial class Enemy : RigidBody2D
@@ -9,19 +10,21 @@ public partial class Enemy : RigidBody2D
     [Export] float velocity; // This is the max speed of the enemy
     int radius = 400;
     Random random = new Random();
-    Node2D player;
-    Control UIManager;
+    Player player;
+    PlayerUiManager UIManager;
     Vector2 direction;
+    EnemyManager man;
 
     PackedScene scene = GD.Load<PackedScene>("res://item/items.tscn");
     List<item> item = new List<item>();
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        man = (EnemyManager)GetNode("root/Main/enemyManager");
         ContactMonitor = true;
         MaxContactsReported = 999;
-        player = (Node2D)GetNode("/root/Main/Player/PlayerBody");
-        UIManager = (Control)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
+        player = (Player)GetNode("/root/Main/Player/PlayerBody");
+        UIManager = (PlayerUiManager)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
         // Calculating spawn position (temp use of direction to determine it)
         direction = new Vector2((float)(random.NextDouble() * 2) - 1, 0);
         direction.Y = (float)(random.NextDouble() * 2) - 1;
@@ -60,11 +63,14 @@ public partial class Enemy : RigidBody2D
     public void CollisionDetected(Node body)
     {
         Knockback(500);
+        player.TakeDamage(damage);
+        UIManager.DecrementHealth(damage);
         GD.Print("Collided with the player");
     }
 
     public void EnemyDie()
     {
+        UIManager.IncrementKills();
         if ((float)(random.Next(3)) == 0)
         {
             item.Add(scene.Instantiate<item>());
