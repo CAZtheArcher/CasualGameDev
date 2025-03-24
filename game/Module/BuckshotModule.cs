@@ -18,6 +18,7 @@ public partial class BuckshotModule : Module {
         pelletCount = 9; // 9 is the pellet count of 00 buckshot, so I used it here
         pelletSpreadVariance = 30;
         rng = new Random();
+        spritePath = "res://Projectile/Buckshot/Buckshot.png";
     }
 
     /// <summary>Fires a BasicBullet.</summary>

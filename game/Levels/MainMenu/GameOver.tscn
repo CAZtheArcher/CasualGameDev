@@ -1,19 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7wedlj0anm7v"]
+[gd_scene load_steps=3 format=3 uid="uid://bhggta7xf8gbt"]
 
 [ext_resource type="Script" path="res://Levels/MainMenu/Start.cs" id="1_iy3gt"]
 [ext_resource type="Script" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_o8hg1"]
 
 [node name="MainMenu" type="Node2D"]
 
-[node name="Continue" type="Button" parent="."]
-offset_left = 535.0
+[node name="NewGameButton" type="Button" parent="."]
+offset_left = 526.0
 offset_top = 333.0
-offset_right = 617.0
+offset_right = 626.0
 offset_bottom = 364.0
-text = "Contnue?"
+text = "New Game?"
 script = ExtResource("1_iy3gt")
 
-[node name="Exit to Desktop" type="Button" parent="."]
+[node name="ExitToDesktop" type="Button" parent="."]
 offset_left = 513.0
 offset_top = 394.0
 offset_right = 639.0

@@ -8,6 +8,7 @@ using System;
 public partial class Slug : Projectile
 {
     private int knockbackAmount;
+    private Vector2 spawnPoint; // Used to calculate knockback direction 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -16,7 +17,8 @@ public partial class Slug : Projectile
         velocity = 200;
 		pierce = 1;
 		damage = 2;
-        knockbackAmount = 50;
+        knockbackAmount = 750;
+        spawnPoint = this.Position;
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
