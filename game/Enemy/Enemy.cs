@@ -7,8 +7,6 @@ public partial class Enemy : RigidBody2D
 {
     int damage = 1;
     [Export] float velocity; // This is the max speed of the enemy
-    float acceleration; // This is the change in speed
-    float secondsToReachMaxSpeed;
     int radius = 400;
     Random random = new Random();
     Node2D player;
@@ -20,6 +18,8 @@ public partial class Enemy : RigidBody2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        ContactMonitor = true;
+        MaxContactsReported = 999;
         player = (Node2D)GetNode("/root/Main/Player/PlayerBody");
         UIManager = (Control)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
         // Calculating spawn position (temp use of direction to determine it)
@@ -32,60 +32,35 @@ public partial class Enemy : RigidBody2D
         CollisionLayer = 2;
 
         velocity = 50f;
-        secondsToReachMaxSpeed = 0.5f;
-        acceleration = velocity / secondsToReachMaxSpeed;
     }
 
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-
-        
-
         //GetTree().Root.AddChild(item[item.Count - 1]);
     }
 
     public override void _PhysicsProcess(double delta)
     {
         direction = (player.GlobalPosition - GlobalPosition).Normalized();
-        if (random.NextDouble() <= 0.15)
-        {
-            direction = new Vector2((float)(random.NextDouble() * 2) - 1, 0);
-            direction.Y = (float)(random.NextDouble() * 2) - 1;
-            direction = direction.Normalized();
-            //Position += (2 * direction);
-            ApplyCentralForce(2 * direction);
-        }
-        else
-        {
-            //Position += (speed * direction);
-            ApplyCentralForce(velocity * direction);
-            //ApplyTorque(direction);// PATRICK TODO: Convert this to ana ctual direction (its a vector)
-        }
-            
 
-        // Prevents the enemy from infinitely accelerating.
-        if(Mathf.Abs(LinearVelocity.X) > velocity)
-        {
-            Vector2 clampedVelocity = LinearVelocity.Normalized() * velocity;
-            LinearVelocity = clampedVelocity;
-        } 
+        // I hate physics, this is probably my 6th implementation of getting
+        // the enemy to move with physics.
+        // This code finds the desired direction it wants to travel, the
+        // difference between that and its current direction, and then
+        // moves towards its desired direction (limtied by velocity)
+        Vector2 desired_velocity = direction * velocity;
+        Vector2 velocity_diff = desired_velocity - LinearVelocity;
+        Vector2 force = velocity_diff.LimitLength(velocity);
+        ApplyCentralForce(force);
 
+    }
 
-        var collisionInfo = MoveAndCollide(Vector2.Zero, true);
-        //GD.Print(direction);
-        if (collisionInfo != null)
-        {
-            GD.Print("Enemy collided with " + collisionInfo.GetCollider());
-            UIManager.Call("DecrimentHealth", 5);
-            this.QueueFree();
-            if (collisionInfo.GetCollider().Equals("CharacterBody2D"))
-            {
-                GD.Print("Enemy collided with the player");
-                //Knockback();
-            }
-        }
+    public void CollisionDetected(Node body)
+    {
+        Knockback(500);
+        GD.Print("Collided with the player");
     }
 
     public void EnemyDie()
@@ -103,13 +78,14 @@ public partial class Enemy : RigidBody2D
     //PATRICK TODO: Make this use RigidBody's physics magic, so the enemy doesn't just teleport backwards lmao
     public async void Knockback(int knockbackAmount = 10)
     {
-        direction = (Position - player.Position).Normalized();
+        direction = (GlobalPosition - player.GlobalPosition).Normalized();
         //Position += (knockbackAmount * direction);
-        ApplyCentralForce(direction * knockbackAmount * 200);
-        await ToSignal(GetTree().CreateTimer(1f/3f), "timeout");
-        ApplyCentralForce(-direction * knockbackAmount/3);
-        await ToSignal(GetTree().CreateTimer(1f / 3f), "timeout");
-        ApplyCentralForce(-direction * knockbackAmount/3);
+        ApplyCentralForce(direction * knockbackAmount);
+
+        //await ToSignal(GetTree().CreateTimer(1f/3f), "timeout");
+        //ApplyCentralForce(-direction * knockbackAmount/3);
+        //await ToSignal(GetTree().CreateTimer(1f / 3f), "timeout");
+        //ApplyCentralForce(-direction * knockbackAmount/3);
     }
 
 

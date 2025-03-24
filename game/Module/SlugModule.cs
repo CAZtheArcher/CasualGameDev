@@ -12,7 +12,7 @@ public partial class SlugModule : Module {
     {
         slugScene = GD.Load<PackedScene>("res://Projectile/Slug/Slug.tscn");
         parent = GetParent<Weapon>();
-        spritePath = "res://Projectile/bullet.png";
+        spritePath = "res://Projectile/Slug/Slug.png";
     }
 
     /// <summary>Fires a slug.</summary>
