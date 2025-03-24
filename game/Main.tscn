@@ -19,5 +19,5 @@ polygons = [PackedInt32Array(0, 1, 2, 3)]
 
 [node name="Player" parent="." instance=ExtResource("3_45x1i")]
 
-[node name="enemyMan" type="Node2D" parent="."]
+[node name="enemyManager" type="Node2D" parent="."]
 script = ExtResource("3_awo5e")

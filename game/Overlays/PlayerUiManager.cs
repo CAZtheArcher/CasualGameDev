@@ -3,13 +3,18 @@ using System;
 
 public partial class PlayerUiManager : Control
 {
+    ProgressBar timer;
+    Label killLabel;
     ProgressBar healthbar;
     Sprite2D nextBullet;
     Sprite2D nextNextBullet;
     Sprite2D nextNextNextBullet;
+    int kills = 0;
 
     public override void _Ready()
     {
+        timer = (ProgressBar)GetNode("Timer");
+        killLabel = (Label)GetNode("Kills");
         healthbar = (ProgressBar)GetNode("HealthBar");
         nextBullet = (Sprite2D)GetNode("NextBullet/DisplayBullet");
         nextNextBullet = (Sprite2D)GetNode("NextNextBullet/DisplayBullet");
@@ -17,25 +22,41 @@ public partial class PlayerUiManager : Control
         healthbar.Value = healthbar.MaxValue;
     }
 
-    public void IncrimentHealth(int value)
+    public void DecrementTime(double delta)
+    {
+        timer.Value -= delta;
+        if (timer.Value < 0)
+        {
+            //win condition/level transition
+            GD.Print("YOU WIN");
+        }
+    }
+
+    public void IncrementHealth(int value)
     {
         healthbar.Value += value;
         if (healthbar.Value > healthbar.MaxValue) { healthbar.Value = healthbar.MaxValue; }
     }
 
-    public void DecrimentHealth(int value)
+    public void IncrementKills()
+    {
+        kills++;
+        killLabel.Text = "Kills: " + kills;
+    }
+
+    public void DecrementHealth(int value)
     {
         healthbar.Value -= value;
         if (healthbar.Value <= 0) { GameOver(); }
     }
 
-    public void IncrimentMaxHealth(int value)
+    public void IncrementMaxHealth(int value)
     {
         healthbar.MaxValue += value;
         healthbar.Value = healthbar.MaxValue;
     }
 
-    public void DecrimentMaxHealth(int value)
+    public void DecrementMaxHealth(int value)
     {
         healthbar.MaxValue -= value;
         healthbar.Value = healthbar.MaxValue;

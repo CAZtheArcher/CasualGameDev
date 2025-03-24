@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://byn8r06655wo0"]
+
+[gd_scene load_steps=6 format=3 uid="uid://byn8r06655wo0"]
+
 
 [ext_resource type="Script" path="res://Overlays/PlayerUiManager.cs" id="1_yqvap"]
 [ext_resource type="Texture2D" uid="uid://deqlm0npwy647" path="res://Overlays/active_bullet.png" id="2_m3sch"]
 [ext_resource type="Texture2D" uid="uid://gqupn8y5j5gi" path="res://Overlays/next_bullet.png" id="3_ry1mb"]
-[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/bullet.png" id="3_xcanx"]
+
+[ext_resource type="FontFile" uid="uid://dlctppta40jeq" path="res://Fonts/VT323/VT323-Regular.ttf" id="4_oaa01"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxh11"]
 
 [node name="PlayerUi" type="Control"]
+z_index = 100
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +31,9 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 310.0
 offset_bottom = 40.0
-value = 100.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_dxh11")
+max_value = 5.0
+value = 5.0
 show_percentage = false
 
 [node name="NextBullet" type="Sprite2D" parent="."]
@@ -52,4 +61,23 @@ texture = ExtResource("3_ry1mb")
 
 [node name="DisplayBullet" type="Sprite2D" parent="NextNextNextBullet"]
 scale = Vector2(3, 3)
-texture = ExtResource("3_xcanx")
+
+
+[node name="Kills" type="Label" parent="."]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 33.0
+offset_right = 1022.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("4_oaa01")
+text = "Kills: 0"
+
+[node name="Timer" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 603.0
+offset_right = 885.0
+offset_bottom = 618.0
+max_value = 60.0
+value = 60.0
+show_percentage = false
