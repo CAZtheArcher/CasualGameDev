@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba717hpy0v3fc"]
+
+[ext_resource type="Script" path="res://Levels/MainMenu/Start.cs" id="1_iy3gt"]
+[ext_resource type="Script" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_o8hg1"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="NewGameButton" type="Button" parent="."]
+offset_left = 526.0
+offset_top = 333.0
+offset_right = 626.0
+offset_bottom = 364.0
+text = "New Game?"
+script = ExtResource("1_iy3gt")
+
+[node name="ExitToDesktop" type="Button" parent="."]
+offset_left = 513.0
+offset_top = 394.0
+offset_right = 639.0
+offset_bottom = 425.0
+text = "Exit to Desktop"
+script = ExtResource("2_o8hg1")
+
+[node name="Game Over" type="RichTextLabel" parent="."]
+offset_left = 372.0
+offset_top = 200.0
+offset_right = 780.0
+offset_bottom = 300.0
+bbcode_enabled = true
+text = "[color=red][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=100][center]GAME OVER[/center][/font_size][/font][/color]"
+fit_content = true
