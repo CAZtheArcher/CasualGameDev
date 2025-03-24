@@ -26,17 +26,23 @@ offset_bottom = 40.0
 value = 100.0
 show_percentage = false
 
-[node name="Next Bullet" type="Sprite2D" parent="."]
+[node name="NextBullet" type="Sprite2D" parent="."]
 position = Vector2(992, 608)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_m3sch")
 
-[node name="NextNext Bullet" type="Sprite2D" parent="."]
+[node name="DisplayBullet" type="Sprite2D" parent="NextBullet"]
+
+[node name="NextNextBullet" type="Sprite2D" parent="."]
 position = Vector2(1052, 608)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ry1mb")
 
-[node name="NextNextNext Bullet" type="Sprite2D" parent="."]
+[node name="DisplayBullet" type="Sprite2D" parent="NextNextBullet"]
+
+[node name="NextNextNextBullet" type="Sprite2D" parent="."]
 position = Vector2(1112, 608)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ry1mb")
+
+[node name="DisplayBullet" type="Sprite2D" parent="NextNextNextBullet"]
