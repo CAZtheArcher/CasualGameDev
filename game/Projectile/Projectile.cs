@@ -23,7 +23,7 @@ public abstract partial class Projectile : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready(){
         // Default values
-        velocity = 50;
+        velocity = 110;
         pierce = 1;
         damage = 1;
     }
@@ -54,8 +54,7 @@ public abstract partial class Projectile : Node2D
         try
         {
             Enemy enemy = (Enemy)body;
-
-            enemy.QueueFree(); // Remove this once enemy damage is implemented
+            enemy.EnemyDie(); // Remove this once enemy damage is implemented
             // enemy.takeDamage(damage);
 
             pierce -= 1;

@@ -34,7 +34,7 @@ public partial class Enemy : RigidBody2D
         CollisionMask = 1;
         CollisionLayer = 2;
 
-        velocity = 50f;
+        velocity = 100f;
     }
 
 

@@ -7,16 +7,18 @@ public partial class EnemyManager : Node
     PackedScene scene = GD.Load<PackedScene>("res://Enemy/Enemy.tscn");
 	List<Enemy> enemies = new List<Enemy>();
     PlayerUiManager UIManager;
-    double time = 2;
+    double spawnDelay = 2;
 	double countdown;
 	double totalTime = 0;
+	int level = 0;
 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		countdown = time;
+		countdown = spawnDelay;
         UIManager = (PlayerUiManager)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
+        addEnemy();
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,24 +27,40 @@ public partial class EnemyManager : Node
 		UIManager.DecrementTime(delta);
         countdown -= delta;
 		totalTime += delta;
-		if (countdown <= 0)
-        {
-            countdown = time;
-			addEnemy();
-		}
-		if (totalTime >= 60)
+
+		switch (level)
 		{
-			//game end
-		}		
-		else if (totalTime >= 40)
-			time = 0.2;
-		else if (totalTime >= 20)
-            time = 1;
+			case 0:
+                if (countdown <= 0)
+                {
+                    countdown = spawnDelay;
+                    addEnemy();
+                }
+                if (totalTime >= 60)
+                {
+                    level++;
+                    //level transition scene
+                }
+                spawnDelay = 10 / totalTime;
+                break;
+            case 1:
+
+                break;
+		}
     }
 
     public void addEnemy()
     {
         enemies.Add(scene.Instantiate<Enemy>());
         AddChild(enemies[enemies.Count - 1]);
+    }
+
+    public void addEnemies(int quantity)
+    {
+        for (int i = 0; i < quantity; i++)
+        {
+            enemies.Add(scene.Instantiate<Enemy>());
+            AddChild(enemies[enemies.Count - 1]);
+        }
     }
 }
