@@ -18,6 +18,7 @@ public partial class BuckshotModule : Module {
         pelletCount = 9; // 9 is the pellet count of 00 buckshot, so I used it here
         pelletSpreadVariance = 30;
         rng = new Random();
+        spritePath = "res://Projectile/Buckshot/Buckshot.png";
     }
 
     /// <summary>Fires a BasicBullet.</summary>
@@ -25,7 +26,6 @@ public partial class BuckshotModule : Module {
     {
         for(byte i = 0; i < pelletCount; i++){
             Buckshot pellet_instance = (Buckshot)buckshotScene.Instantiate();
-            // parent's GetTree is called here because BasicBulletModule is not in the scene tree.
             
             pellet_instance.GlobalPosition = parent.BulletSpawn.GlobalPosition;
             float rotation = parent.PlayerSprite.Rotation;

@@ -22,18 +22,23 @@ public partial class Weapon : Sprite2D
     private short weaponModulesSize;
     private short currentModule;
 
+    /// <summary> playerUI for bullets to display </summary>
+    private Control UIManager;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
         bulletSpawn = (Marker2D)GetParent().GetChild(1);
         playerSprite = (Sprite2D)this.GetParent();
+        UIManager = (Control)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
         fireRate = 1f / 8f; // 8 per second
         timeSinceLastShot = fireRate; // Can fire immediately upon spawning.
         weaponModules = new Module[4]; // Weapon can hold a default 4 modules.
         weaponModulesSize = 0; // There is a single BasicBulletModule slotted into the weapon.
-        //AddModule(new BuckshotModule());// Weapon has one BasicBulletModule installed by default.
+        //AddModule(new SlugModule());
         AddModule(new BasicBulletModule());// Weapon has one BasicBulletModule installed by default.
         currentModule = 0; // Weapon fires the module in slot 1 (index 0) first.
+        UpdateUI();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,6 +62,7 @@ public partial class Weapon : Sprite2D
         currentModule++;
         // If there are no modules after this one, loop back to the start.
         if (currentModule == weaponModulesSize) { currentModule = 0; }
+        UpdateUI();
     }
 
     /// <summary> Adds 'module' to the weapon, at the end of the weapon's array of modules.
@@ -77,6 +83,7 @@ public partial class Weapon : Sprite2D
                 // Modules need to be added as children of Weapon to be able to add things to the scene.
                 AddChild(weaponModules[i]);
                 weaponModulesSize++;
+                UpdateUI();
                 return;
 			}
             else 
@@ -92,4 +99,18 @@ public partial class Weapon : Sprite2D
 
     public void SlotExpand() { Array.Resize(ref weaponModules, weaponModules.Length + 1); }
     public void SlotShrink() { Array.Resize(ref weaponModules, weaponModules.Length - 1); }
+
+    public void UpdateUI()
+    {
+        string[] sprites = { "", "", "" };
+        int count = 0;
+        for (int i = currentModule; i < currentModule + 3; i++)
+        {
+            int accessModule = i;
+            while (accessModule >= weaponModulesSize) { accessModule -= weaponModulesSize; }
+            sprites[count] = weaponModules[accessModule].SpritePath;
+            count++;
+        }
+        UIManager.Call("UpdateBulletSprite", sprites[0], sprites[1], sprites[2]);
+    }
 }

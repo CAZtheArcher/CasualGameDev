@@ -14,8 +14,8 @@ public partial class Buckshot : Projectile
 	public override void _Ready()
 	{
 		base._Ready();
-		speedVariance = 120;
-        velocity = 200;
+		speedVariance = 150;
+        velocity = 300;
 		baseVelocity = velocity;
 		velocity += new Random().Next(speedVariance) - speedVariance / 2;
 		pierce = 1;
@@ -25,7 +25,8 @@ public partial class Buckshot : Projectile
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-        // Pellet speed starts at b
+        // Pellet speed starts at velocity and slows/speeds up until it reaches baseVelocity.
+		// This is done so when the pellets are shot, they form a 'clump' that looks cool.
         if (velocity > baseVelocity + 1) velocity -= (float)delta * 20;
 		if (velocity < baseVelocity - 1) velocity += (float)delta * 20;
         base._Process(delta);

@@ -5,7 +5,12 @@ using System;
 /// A Module is a "thing" that can be slotted into a weapon.
 /// Modules are activated one at a time, one per time the weapon is fired.
 /// </summary>
-public abstract partial class Module : Node {
+public abstract partial class Module : Node
+{
+    protected string spritePath;
+    public string SpritePath{
+        get { return spritePath; }
+    }
     /// <summary>
     /// What happens when this module is activated.
     /// <para>Some examples of what this method is designed for include:</para>
