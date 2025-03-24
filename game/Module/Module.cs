@@ -8,6 +8,9 @@ using System;
 public abstract partial class Module : Node
 {
     protected string spritePath;
+    public string SpritePath{
+        get { return spritePath; }
+    }
     /// <summary>
     /// What happens when this module is activated.
     /// <para>Some examples of what this method is designed for include:</para>

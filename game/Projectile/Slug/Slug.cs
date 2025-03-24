@@ -17,7 +17,7 @@ public partial class Slug : Projectile
         velocity = 200;
 		pierce = 1;
 		damage = 2;
-        knockbackAmount = 50;
+        knockbackAmount = 750;
         spawnPoint = this.Position;
     }
 

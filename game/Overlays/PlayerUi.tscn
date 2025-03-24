@@ -32,6 +32,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_m3sch")
 
 [node name="DisplayBullet" type="Sprite2D" parent="NextBullet"]
+scale = Vector2(3, 3)
 
 [node name="NextNextBullet" type="Sprite2D" parent="."]
 position = Vector2(1052, 608)
@@ -39,6 +40,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ry1mb")
 
 [node name="DisplayBullet" type="Sprite2D" parent="NextNextBullet"]
+scale = Vector2(3, 3)
 
 [node name="NextNextNextBullet" type="Sprite2D" parent="."]
 position = Vector2(1112, 608)
@@ -46,3 +48,4 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ry1mb")
 
 [node name="DisplayBullet" type="Sprite2D" parent="NextNextNextBullet"]
+scale = Vector2(3, 3)
