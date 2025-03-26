@@ -5,12 +5,15 @@ using System.Diagnostics;
 
 public partial class Player : CharacterBody2D
 {
+    private Control pause;
     float speed = 400;
 	int health = 5;
 	public Vector2 direction = new Vector2();
     public override void _Ready()
 	{
-	}
+        //pause = (Control)GetNode("PlayerUi");
+       // pause.Hide();
+    }
 
 	public void GetInput()
 	{

@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://csus8utkq6t7k"]
+[gd_scene load_steps=2 format=3 uid="uid://csus8utkq6t7k"]
+
+[ext_resource type="Script" path="res://SwapDropPause.cs" id="1_x5hm7"]
 
 [node name="SwapDropPause" type="Control"]
 layout_mode = 3
@@ -8,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.947345, 0.956004)
+script = ExtResource("1_x5hm7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -36,7 +39,3 @@ text = "Swap3"
 [node name="Button5" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Swap4"
-
-[node name="Button6" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Swap5"

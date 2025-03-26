@@ -37,3 +37,56 @@ shape = SubResource("RectangleShape2D_l3oy6")
 [node name="Camera2D" type="Camera2D" parent="PlayerBody"]
 
 [node name="PlayerUi" parent="PlayerBody" instance=ExtResource("6_yu4jo")]
+
+[node name="pauseButon" type="Control" parent="PlayerBody"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -576.0
+offset_top = -322.0
+offset_right = 578.0
+offset_bottom = 321.0
+
+[node name="Button" type="Button" parent="PlayerBody/pauseButon"]
+layout_mode = 2
+offset_left = 550.0
+offset_top = 365.0
+offset_right = 597.0
+offset_bottom = 413.0
+button_mask = 0
+text = "Drop"
+
+[node name="Button2" type="Button" parent="PlayerBody/pauseButon"]
+layout_mode = 0
+offset_left = 335.0
+offset_top = 153.0
+offset_right = 382.0
+offset_bottom = 201.0
+button_mask = 0
+text = "one"
+
+[node name="Button3" type="Button" parent="PlayerBody/pauseButon"]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 153.0
+offset_right = 508.0
+offset_bottom = 201.0
+button_mask = 0
+text = "two"
+
+[node name="Button4" type="Button" parent="PlayerBody/pauseButon"]
+layout_mode = 0
+offset_left = 653.0
+offset_top = 153.0
+offset_right = 700.0
+offset_bottom = 201.0
+button_mask = 0
+text = "tree"
+
+[node name="Button5" type="Button" parent="PlayerBody/pauseButon"]
+layout_mode = 0
+offset_left = 786.0
+offset_top = 149.0
+offset_right = 833.0
+offset_bottom = 197.0
+button_mask = 0
+text = "fore"

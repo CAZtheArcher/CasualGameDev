@@ -6,6 +6,7 @@ using static System.Formats.Asn1.AsnWriter;
 
 public partial class Weapon : Sprite2D
 {
+    private Control pause;
     /// <summary> The Marker2D in the player scene that bullets spawn at </summary>
     private Marker2D bulletSpawn;
     public Marker2D BulletSpawn { get => bulletSpawn; }
@@ -25,7 +26,9 @@ public partial class Weapon : Sprite2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        bulletSpawn = (Marker2D)GetParent().GetChild(1);
+        pause = (Control)GetNode("/root/Main/Player/PlayerBody/pauseButon");
+        pause.Hide();
+         bulletSpawn = (Marker2D)GetParent().GetChild(1);
         playerSprite = (Sprite2D)this.GetParent();
         fireRate = 1f / 8f; // 8 per second
         timeSinceLastShot = fireRate; // Can fire immediately upon spawning.
@@ -64,12 +67,11 @@ public partial class Weapon : Sprite2D
     /// <param name="module">The module that will be added.</param>
     public void AddModule(Module module)
 	{
-        int check = 0;
 		for (int i = 0; i < weaponModules.Length; i++) 
 		{
             if(weaponModules[i] == module)
             {
-
+                return;
             }
 			else if (weaponModules[i] == null)
 			{
@@ -81,14 +83,40 @@ public partial class Weapon : Sprite2D
 			}
             else 
             {
-                check++;            
+                GetTree().Paused = true;
+                pause.Show();
             }
 		}
-        if (check == weaponModules.Length)
-        { 
-            //prompt drop or swap
-        }
 	}
+    public void buton1(Module module)
+    {
+        weaponModules[0] = module;
+        pause.Hide();
+        GetTree().Paused = false;
+    }
+    public void buton2(Module module)
+    {
+        weaponModules[1] = module;
+        pause.Hide();
+        GetTree().Paused = false;
+    }
+    public void buton3(Module module)
+    {
+        weaponModules[2] = module;
+        pause.Hide();
+        GetTree().Paused = false;
+    }
+    public void buton4(Module module)
+    {
+        weaponModules[3] = module;
+        pause.Hide();
+        GetTree().Paused = false;
+    }
+    public void butonDrop()
+    {
+        pause.Hide();
+        GetTree().Paused = false;
+    }
 
     public void SlotExpand() { Array.Resize(ref weaponModules, weaponModules.Length + 1); }
     public void SlotShrink() { Array.Resize(ref weaponModules, weaponModules.Length - 1); }
