@@ -106,7 +106,7 @@ public partial class Weapon : Sprite2D
         int count = 0;
         for (int i = currentModule; i < currentModule + 3; i++)
         {
-            int accessModule = i;
+            int accessModule = i % weaponModules.Length;
             while (accessModule >= weaponModulesSize) { accessModule -= weaponModulesSize; }
             sprites[count] = weaponModules[accessModule].SpritePath;
             count++;

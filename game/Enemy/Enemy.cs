@@ -13,14 +13,14 @@ public partial class Enemy : RigidBody2D
     Player player;
     PlayerUiManager UIManager;
     Vector2 direction;
-    EnemyManager man;
+    EnemyManager enemyManager;
 
     PackedScene scene = GD.Load<PackedScene>("res://item/items.tscn");
     List<item> item = new List<item>();
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        man = (EnemyManager)GetNode("root/Main/enemyManager");
+        enemyManager = (EnemyManager)GetNode("/root/Main/enemyManager");
         ContactMonitor = true;
         MaxContactsReported = 999;
         player = (Player)GetNode("/root/Main/Player/PlayerBody");
