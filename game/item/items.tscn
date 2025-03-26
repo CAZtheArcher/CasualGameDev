@@ -13,9 +13,11 @@ script = ExtResource("2_gmya2")
 itemLevel = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -0.736257
-scale = Vector2(-0.676768, -0.804054)
+rotation = 0.785398
+scale = Vector2(-1, -1)
 texture = ExtResource("1_g02q4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.785398
+scale = Vector2(1.3, 1.3)
 shape = SubResource("RectangleShape2D_ji50q")
