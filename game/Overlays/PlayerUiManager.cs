@@ -4,7 +4,7 @@ using System;
 public partial class PlayerUiManager : Control
 {
     ProgressBar timer;
-    Label killLabel;
+    RichTextLabel killLabel;
     ProgressBar healthbar;
     Sprite2D nextBullet;
     Sprite2D nextNextBullet;
@@ -14,11 +14,11 @@ public partial class PlayerUiManager : Control
     public override void _Ready()
     {
         timer = (ProgressBar)GetNode("Timer");
-        killLabel = (Label)GetNode("Kills");
+        killLabel = (RichTextLabel)GetNode("Kills");
         healthbar = (ProgressBar)GetNode("HealthBar");
         nextBullet = (Sprite2D)GetNode("NextBullet/DisplayBullet");
-        nextNextBullet = (Sprite2D)GetNode("NextNextBullet/DisplayBullet");
-        nextNextNextBullet = (Sprite2D)GetNode("NextNextNextBullet/DisplayBullet");
+        nextNextBullet = (Sprite2D)GetNode("NextBullet2/DisplayBullet");
+        nextNextNextBullet = (Sprite2D)GetNode("NextBullet3/DisplayBullet");
         healthbar.Value = healthbar.MaxValue;
     }
 
@@ -41,7 +41,7 @@ public partial class PlayerUiManager : Control
     public void IncrementKills()
     {
         kills++;
-        killLabel.Text = "Kills: " + kills;
+        killLabel.Text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25] Kills: " + kills + "[/font_size][/font][/color]";
     }
 
     public void DecrementHealth(int value)

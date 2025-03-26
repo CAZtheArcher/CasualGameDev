@@ -20,7 +20,7 @@ public partial class Enemy : RigidBody2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        man = (EnemyManager)GetNode("root/Main/enemyManager");
+        man = (EnemyManager)GetNode("/root/Main/enemyManager");
         ContactMonitor = true;
         MaxContactsReported = 999;
         player = (Player)GetNode("/root/Main/Player/PlayerBody");

@@ -38,7 +38,7 @@ public partial class Weapon : Sprite2D
         //AddModule(new SlugModule());
         AddModule(new BasicBulletModule());// Weapon has one BasicBulletModule installed by default.
         currentModule = 0; // Weapon fires the module in slot 1 (index 0) first.
-        UpdateUI();
+        //UpdateUI();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -107,7 +107,7 @@ public partial class Weapon : Sprite2D
         for (int i = currentModule; i < currentModule + 3; i++)
         {
             int accessModule = i;
-            while (accessModule >= weaponModulesSize) { accessModule -= weaponModulesSize; }
+            while (accessModule >= weaponModulesSize) { accessModule -= weaponModulesSize; if (weaponModulesSize == 0) { accessModule = 0; break; } }
             sprites[count] = weaponModules[accessModule].SpritePath;
             count++;
         }
