@@ -15,6 +15,7 @@ position = Vector2(1, 0)
 position = Vector2(-63, -54)
 collision_layer = 2
 script = ExtResource("4_bjsc8")
+speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 shape = SubResource("RectangleShape2D_ickle")

@@ -26,7 +26,7 @@ public partial class Weapon : Sprite2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        pause = (Control)GetNode("/root/Main/Player/PlayerBody/pauseButon");
+        pause = (Control)GetNode("/root/Main/Player/PlayerBody/SwapDrop");
         pause.Hide();
          bulletSpawn = (Marker2D)GetParent().GetChild(1);
         playerSprite = (Sprite2D)this.GetParent();
@@ -36,6 +36,11 @@ public partial class Weapon : Sprite2D
         weaponModulesSize = 0; // There is a single BasicBulletModule slotted into the weapon.
         //AddModule(new BuckshotModule());// Weapon has one BasicBulletModule installed by default.
         AddModule(new BasicBulletModule());// Weapon has one BasicBulletModule installed by default.
+        AddModule(new BasicBulletModule());
+        AddModule(new BasicBulletModule());
+        AddModule(new BasicBulletModule());
+        AddModule(new BasicBulletModule());
+
         currentModule = 0; // Weapon fires the module in slot 1 (index 0) first.
     }
 
@@ -65,15 +70,17 @@ public partial class Weapon : Sprite2D
     /// <summary> Adds 'module' to the weapon, at the end of the weapon's array of modules.
     /// <para>Also increments weaponModulesSize and adds the module as a child.</para></summary>
     /// <param name="module">The module that will be added.</param>
+    /// 
+    Module holder;
     public void AddModule(Module module)
 	{
 		for (int i = 0; i < weaponModules.Length; i++) 
 		{
-            if(weaponModules[i] == module)
+           /* if(weaponModules[i] == module)
             {
                 return;
-            }
-			else if (weaponModules[i] == null)
+            }*/
+			if (weaponModules[i] == null)
 			{
                 weaponModules[i] = module;
                 // Modules need to be added as children of Weapon to be able to add things to the scene.
@@ -81,42 +88,22 @@ public partial class Weapon : Sprite2D
                 weaponModulesSize++;
                 return;
 			}
-            else 
+            else if(i == weaponModules.Length-1)
             {
                 GetTree().Paused = true;
                 pause.Show();
+                holder = module;
             }
 		}
 	}
-    public void buton1(Module module)
+    public void butonSwap(int num)
     {
-        weaponModules[0] = module;
+        weaponModules[num] = holder;
+        holder = null;
         pause.Hide();
         GetTree().Paused = false;
     }
-    public void buton2(Module module)
-    {
-        weaponModules[1] = module;
-        pause.Hide();
-        GetTree().Paused = false;
-    }
-    public void buton3(Module module)
-    {
-        weaponModules[2] = module;
-        pause.Hide();
-        GetTree().Paused = false;
-    }
-    public void buton4(Module module)
-    {
-        weaponModules[3] = module;
-        pause.Hide();
-        GetTree().Paused = false;
-    }
-    public void butonDrop()
-    {
-        pause.Hide();
-        GetTree().Paused = false;
-    }
+   
 
     public void SlotExpand() { Array.Resize(ref weaponModules, weaponModules.Length + 1); }
     public void SlotShrink() { Array.Resize(ref weaponModules, weaponModules.Length - 1); }

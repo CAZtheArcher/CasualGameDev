@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://thw2lf5s8cii"]
+[gd_scene load_steps=9 format=3 uid="uid://thw2lf5s8cii"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_ybvti"]
 [ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Player/player_temp.png" id="2_cm1vq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b1lqnj7mtla4v" path="res://Player/weapon_temp.png" id="4_dmbi0"]
 [ext_resource type="Script" path="res://Scripts/Weapon.cs" id="5_n0r7d"]
 [ext_resource type="PackedScene" uid="uid://byn8r06655wo0" path="res://Overlays/PlayerUi.tscn" id="6_yu4jo"]
+[ext_resource type="Script" path="res://Overlays/drop.cs" id="7_0t8ud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oy6"]
 size = Vector2(26, 26)
@@ -38,7 +39,7 @@ shape = SubResource("RectangleShape2D_l3oy6")
 
 [node name="PlayerUi" parent="PlayerBody" instance=ExtResource("6_yu4jo")]
 
-[node name="pauseButon" type="Control" parent="PlayerBody"]
+[node name="SwapDrop" type="Control" parent="PlayerBody"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -576.0
@@ -46,7 +47,7 @@ offset_top = -322.0
 offset_right = 578.0
 offset_bottom = 321.0
 
-[node name="Button" type="Button" parent="PlayerBody/pauseButon"]
+[node name="Button" type="Button" parent="PlayerBody/SwapDrop"]
 layout_mode = 2
 offset_left = 550.0
 offset_top = 365.0
@@ -54,8 +55,9 @@ offset_right = 597.0
 offset_bottom = 413.0
 button_mask = 0
 text = "Drop"
+script = ExtResource("7_0t8ud")
 
-[node name="Button2" type="Button" parent="PlayerBody/pauseButon"]
+[node name="Button2" type="Button" parent="PlayerBody/SwapDrop"]
 layout_mode = 0
 offset_left = 335.0
 offset_top = 153.0
@@ -64,7 +66,7 @@ offset_bottom = 201.0
 button_mask = 0
 text = "one"
 
-[node name="Button3" type="Button" parent="PlayerBody/pauseButon"]
+[node name="Button3" type="Button" parent="PlayerBody/SwapDrop"]
 layout_mode = 0
 offset_left = 461.0
 offset_top = 153.0
@@ -73,7 +75,7 @@ offset_bottom = 201.0
 button_mask = 0
 text = "two"
 
-[node name="Button4" type="Button" parent="PlayerBody/pauseButon"]
+[node name="Button4" type="Button" parent="PlayerBody/SwapDrop"]
 layout_mode = 0
 offset_left = 653.0
 offset_top = 153.0
@@ -82,7 +84,7 @@ offset_bottom = 201.0
 button_mask = 0
 text = "tree"
 
-[node name="Button5" type="Button" parent="PlayerBody/pauseButon"]
+[node name="Button5" type="Button" parent="PlayerBody/SwapDrop"]
 layout_mode = 0
 offset_left = 786.0
 offset_top = 149.0
