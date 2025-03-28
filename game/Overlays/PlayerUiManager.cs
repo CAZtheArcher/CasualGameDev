@@ -72,7 +72,7 @@ public partial class PlayerUiManager : Control
     {
         
         nextBullet.Texture = GD.Load<Texture2D>(sprite1);
-        // This prevents the a null ref exceptions that pops up every load
+        // This prevents a null ref exception that pops up every load
         if (sprite1 == sprite2)
         {
             nextNextBullet.Texture = nextBullet.Texture;

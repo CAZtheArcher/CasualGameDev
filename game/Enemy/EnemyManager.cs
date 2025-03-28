@@ -21,10 +21,11 @@ public partial class EnemyManager : Node
 	{
         countdown = spawnDelay;
         UIManager = (PlayerUiManager)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
-        addEnemy();
 
         random = new Random();
         vacuumEnemyScene = GD.Load<PackedScene>("res://Enemy/Vacuum/Vacuum.tscn");
+        
+        addEnemy(); 
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

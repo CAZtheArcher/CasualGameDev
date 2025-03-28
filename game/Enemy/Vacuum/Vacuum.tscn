@@ -41,6 +41,7 @@ gravity_scale = 0.0
 script = ExtResource("1_epa7s")
 
 [node name="Telegraph" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(2, 4)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_cf5v6")
