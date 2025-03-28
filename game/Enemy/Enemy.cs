@@ -3,38 +3,43 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using static System.Net.Mime.MediaTypeNames;
 
 public partial class Enemy : RigidBody2D
 {
-    int damage = 1;
-    [Export] float velocity; // This is the max speed of the enemy
-    int radius = 400;
-    Random random = new Random();
-    Player player;
-    PlayerUiManager UIManager;
-    Vector2 direction;
-    EnemyManager man;
+    protected int damage;
+    [Export] protected float velocity; // This is the max speed of the enemy
+    protected int radius;
 
-    PackedScene scene = GD.Load<PackedScene>("res://item/items.tscn");
-    List<item> item = new List<item>();
+    protected Random random;
+    protected Player player;
+    protected PlayerUiManager UIManager;
+    protected PackedScene scene;
+    protected List<Item> item;
+
+    protected Vector2 direction;
     // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
-    {
-        man = (EnemyManager)GetNode("/root/Main/enemyManager");
+    public override void _Ready(){
+        // These two make collision work.
         ContactMonitor = true;
         MaxContactsReported = 999;
+
+        damage = 1;
+        velocity = 100f;
+        radius = 400;
+
+        random = new Random();
         player = (Player)GetNode("/root/Main/Player/PlayerBody");
         UIManager = (PlayerUiManager)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
+        scene = GD.Load<PackedScene>("res://Item/Item.tscn");
+        item = new List<Item>();
+
         // Calculating spawn position (temp use of direction to determine it)
         direction = new Vector2((float)(random.NextDouble() * 2) - 1, 0);
         direction.Y = (float)(random.NextDouble() * 2) - 1;
         direction = direction.Normalized();
         Position = player.Position + (direction * radius);
         direction = Vector2.Zero;
-        CollisionMask = 1;
-        CollisionLayer = 2;
-
-        velocity = 100f;
     }
 
 
@@ -47,6 +52,7 @@ public partial class Enemy : RigidBody2D
     public override void _PhysicsProcess(double delta)
     {
         direction = (player.GlobalPosition - GlobalPosition).Normalized();
+        Rotation = 0; // Prevents collsions with the player from spinning the enemy
 
         // I hate physics, this is probably my 6th implementation of getting
         // the enemy to move with physics.
@@ -73,7 +79,7 @@ public partial class Enemy : RigidBody2D
         UIManager.IncrementKills();
         if ((float)(random.Next(3)) == 0)
         {
-            item.Add(scene.Instantiate<item>());
+            item.Add(scene.Instantiate<Item>());
             item[item.Count - 1].spawn(this.Position, new BuckshotModule());
             GetTree().Root.CallDeferred("add_child", item[item.Count - 1]);
             GD.Print("Item spawned");
@@ -81,19 +87,11 @@ public partial class Enemy : RigidBody2D
         this.QueueFree();
     }
 
-    //PATRICK TODO: Make this use RigidBody's physics magic, so the enemy doesn't just teleport backwards lmao
-    public async void Knockback(int knockbackAmount = 10)
+    public void Knockback(int knockbackAmount = 10)
     {
         direction = (GlobalPosition - player.GlobalPosition).Normalized();
-        //Position += (knockbackAmount * direction);
         ApplyCentralForce(direction * knockbackAmount);
-
-        //await ToSignal(GetTree().CreateTimer(1f/3f), "timeout");
-        //ApplyCentralForce(-direction * knockbackAmount/3);
-        //await ToSignal(GetTree().CreateTimer(1f / 3f), "timeout");
-        //ApplyCentralForce(-direction * knockbackAmount/3);
     }
-
 
     /*public void Spawn(Type eT)
     {

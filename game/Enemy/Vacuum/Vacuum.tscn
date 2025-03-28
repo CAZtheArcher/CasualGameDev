@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkopxoxf8twm"]
+
+[ext_resource type="Script" path="res://Enemy/Vacuum/Vacuum.cs" id="1_epa7s"]
+[ext_resource type="Texture2D" uid="uid://b67ysr42hafr2" path="res://Enemy/Vacuum/Vacuum.png" id="2_snqt1"]
+[ext_resource type="Texture2D" uid="uid://dk2olpkrcypxp" path="res://Enemy/Vacuum/VacuumTelegraph.png" id="2_v5o4r"]
+[ext_resource type="Texture2D" uid="uid://f6t4jqhr7wmm" path="res://Enemy/Vacuum/VacuumTelegraph1.png" id="3_jcv1k"]
+[ext_resource type="Texture2D" uid="uid://cp8hima6w2ile" path="res://Enemy/Vacuum/VacuumTelegraph2.png" id="4_6r4hc"]
+[ext_resource type="Texture2D" uid="uid://by2rscp4bypcv" path="res://Enemy/Vacuum/VacuumTelegraph3.png" id="5_pdeao"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cf5v6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v5o4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jcv1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6r4hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pdeao")
+}],
+"loop": true,
+"name": &"windup",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2f2q"]
+size = Vector2(8, 34)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f2poo"]
+radius = 4.44007
+height = 18.969
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 5
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_epa7s")
+
+[node name="Telegraph" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 4)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_cf5v6")
+animation = &"windup"
+frame_progress = 0.700507
+centered = false
+offset = Vector2(-11, -29.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -19)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_snqt1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -15)
+shape = SubResource("RectangleShape2D_y2f2q")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(2, 4.5)
+rotation = 1.91463
+shape = SubResource("CapsuleShape2D_f2poo")
+
+[connection signal="body_entered" from="." to="." method="CollisionDetected"]

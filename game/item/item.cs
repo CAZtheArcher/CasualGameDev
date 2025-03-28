@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class item : RigidBody2D
+public partial class Item : RigidBody2D
 { 
     Weapon inst;
     [Export]
