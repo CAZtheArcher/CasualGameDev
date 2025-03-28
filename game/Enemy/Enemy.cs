@@ -52,6 +52,7 @@ public partial class Enemy : RigidBody2D
     public override void _PhysicsProcess(double delta)
     {
         direction = (player.GlobalPosition - GlobalPosition).Normalized();
+        Rotation = 0; // Prevents collsions with the player from spinning the enemy
 
         // I hate physics, this is probably my 6th implementation of getting
         // the enemy to move with physics.
