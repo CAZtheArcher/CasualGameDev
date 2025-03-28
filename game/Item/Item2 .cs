@@ -3,7 +3,7 @@ using System;
 
 public partial class Item : RigidBody2D
 { 
-    Weapon inst;
+    Weapon inst; 
     [Export]
     Module itemType;
     [Export]
