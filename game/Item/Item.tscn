@@ -8,7 +8,7 @@ size = Vector2(25.4558, 25.4558)
 
 [node name="Items" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_320sg")
 itemLevel = 1
