@@ -70,12 +70,14 @@ public partial class PlayerUiManager : Control
 
     public void UpdateBulletSprite(string sprite1, string sprite2, string sprite3)
     {
-        Texture2D newTexture = GD.Load<Texture2D>(sprite1);
-        nextBullet.Texture = newTexture;
-        newTexture = GD.Load<Texture2D>(sprite2);
-        nextNextBullet.Texture = newTexture;
-        newTexture = GD.Load<Texture2D>(sprite3);
-        nextNextNextBullet.Texture = newTexture;
+        
+        nextBullet.Texture = GD.Load<Texture2D>(sprite1);
+        if (sprite1 == sprite2)
+            nextNextBullet.Texture = GD.Load<Texture2D>(sprite1);
+        nextNextBullet.Texture = GD.Load<Texture2D>(sprite2);
+        if (sprite2 == sprite3)
+            nextNextNextBullet.Texture = GD.Load<Texture2D>(sprite2);
+        nextNextNextBullet.Texture = GD.Load<Texture2D>(sprite3);
     }
 
     public void GameOver()

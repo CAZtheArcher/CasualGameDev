@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://br06u2rfnd7xh"]
+
+[ext_resource type="Script" path="res://Enemy/Vacuum/Vacuum.cs" id="1_epa7s"]
+[ext_resource type="Texture2D" uid="uid://dqsvdteooweee" path="res://Enemy/toaster_enemy.png" id="2_pdhtj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2f2q"]
+size = Vector2(28, 27)
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 5
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_epa7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -3)
+shape = SubResource("RectangleShape2D_y2f2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -4)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_pdhtj")
+
+[connection signal="body_entered" from="." to="." method="CollisionDetected"]
