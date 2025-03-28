@@ -57,6 +57,12 @@ public partial class EnemyManager : Node
 
     public void addEnemy()
     {
+        if (random.NextSingle() < 0.35)
+        {
+            enemies.Add(vacuumEnemyScene.Instantiate<Vacuum>());
+            AddChild(enemies[enemies.Count - 1]);
+            return;
+        }
         enemies.Add(scene.Instantiate<Enemy>());
         AddChild(enemies[enemies.Count - 1]);
     }
@@ -65,12 +71,6 @@ public partial class EnemyManager : Node
     {
         for (int i = 0; i < quantity; i++)
         {
-            if(random.NextSingle() < 0.15)
-            {
-                enemies.Add(vacuumEnemyScene.Instantiate<Vacuum>());
-                AddChild(enemies[enemies.Count - 1]);
-                return;
-            }
             enemies.Add(scene.Instantiate<Enemy>());
             AddChild(enemies[enemies.Count - 1]);
         }
