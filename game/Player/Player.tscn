@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Player/LookAtMouse.cs" id="3_ej2tf"]
 [ext_resource type="Texture2D" uid="uid://b1lqnj7mtla4v" path="res://Player/weapon_temp.png" id="4_dmbi0"]
 [ext_resource type="Script" path="res://Scripts/Weapon.cs" id="5_n0r7d"]
-[ext_resource type="PackedScene" uid="uid://byn8r06655wo0" path="res://Overlays/PlayerUi.tscn" id="6_yu4jo"]
+[ext_resource type="PackedScene" uid="uid://gfd8yniw6adk" path="res://Overlays/PlayerUi.tscn" id="6_yu4jo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oy6"]
 size = Vector2(26, 26)

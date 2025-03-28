@@ -47,7 +47,8 @@ public partial class PlayerUiManager : Control
     public void DecrementHealth(int value)
     {
         healthbar.Value -= value;
-        if (healthbar.Value <= 0) { GameOver(); }
+
+        if (healthbar.Value <= 0) { CallDeferred("GameOver"); }
     }
 
     public void IncrementMaxHealth(int value)

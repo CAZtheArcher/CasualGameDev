@@ -52,7 +52,7 @@ public partial class Enemy : RigidBody2D
     public override void _PhysicsProcess(double delta)
     {
         direction = (player.GlobalPosition - GlobalPosition).Normalized();
-        Rotation = 0; // Prevents collsions with the player from spinning the enemy
+        //Rotation = 0; // Prevents collsions with the player from spinning the enemy
 
         // I hate physics, this is probably my 6th implementation of getting
         // the enemy to move with physics.
@@ -68,7 +68,7 @@ public partial class Enemy : RigidBody2D
 
     public void CollisionDetected(Node body)
     {
-        Knockback(500);
+        Knockback(800);
         player.TakeDamage(damage);
         UIManager.DecrementHealth(damage);
         GD.Print("Collided with the player");
@@ -87,10 +87,12 @@ public partial class Enemy : RigidBody2D
         this.QueueFree();
     }
 
-    public void Knockback(int knockbackAmount = 10)
+    public virtual void Knockback(int knockbackAmount = 10)
     {
+        LinearVelocity = Vector2.Zero;
         direction = (GlobalPosition - player.GlobalPosition).Normalized();
         ApplyCentralForce(direction * knockbackAmount);
+        GD.Print("Knockback applied in " + direction);
     }
 
     /*public void Spawn(Type eT)

@@ -37,6 +37,6 @@ public partial class Player : CharacterBody2D
 
 	public void Death()
 	{
-		Debug.WriteLine("YOU DIED");
+		//Debug.WriteLine("YOU DIED");
 	}
 }

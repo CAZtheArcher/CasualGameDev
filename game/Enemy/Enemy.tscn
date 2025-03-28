@@ -8,7 +8,9 @@ size = Vector2(28, 27)
 
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 2
+mass = 0.01
 gravity_scale = 0.0
+can_sleep = false
 script = ExtResource("1_gxctd")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

@@ -128,8 +128,13 @@ public partial class Vacuum : Enemy
                 break;
 
         }
-        
+    }
 
-
+    public override void Knockback(int knockbackAmount = 10)
+    {
+        currentState = State.COOLING_DOWN;
+        // Don't move again until the full duration of dashTime and cooldownTime has passed
+        timeSpentInCurrentState = 0 - (dashTime - timeSpentInCurrentState);
+        base.Knockback(knockbackAmount);
     }
 }
