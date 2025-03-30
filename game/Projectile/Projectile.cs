@@ -50,12 +50,10 @@ public abstract partial class Projectile : Node2D
     public virtual void OnArea2DBodyEntered(Node2D body){
         // Basic functionality.  Handles projectile interactions with enemies,
         // or whatever else they are configured to collide with.
-        // TODO:  Implement dealing damage
         try
         {
             Enemy enemy = (Enemy)body;
-            enemy.EnemyDie(); // Remove this once enemy damage is implemented
-            // enemy.takeDamage(damage);
+            enemy.DecreaseHealth(damage); 
 
             pierce -= 1;
             // pierce -= enemy.PierceResistance // (Large enemies can be harder to pierce) - Not implemented

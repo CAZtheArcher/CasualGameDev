@@ -19,6 +19,8 @@ public partial class Enemy : RigidBody2D
 
     protected Vector2 direction;
     // Called when the node enters the scene tree for the first time.
+
+    private int health = 10;
     public override void _Ready(){
         // These two make collision work.
         ContactMonitor = true;
@@ -72,6 +74,14 @@ public partial class Enemy : RigidBody2D
         player.TakeDamage(damage);
         UIManager.DecrementHealth(damage);
         GD.Print("Collided with the player");
+    }
+
+    public void DecreaseHealth(int val){
+        health -= val;
+        GD.Print("DMG dealt" + health);
+        if (health <= 0){
+            EnemyDie();
+        }
     }
 
     public void EnemyDie()
