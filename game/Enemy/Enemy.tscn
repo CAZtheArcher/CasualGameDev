@@ -17,8 +17,8 @@ script = ExtResource("1_gxctd")
 position = Vector2(3, -3)
 shape = SubResource("RectangleShape2D_y2f2q")
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D2"]
-position = Vector2(0.999999, -1)
+[node name="EnemySprite" type="Sprite2D" parent="."]
+position = Vector2(4, -4)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_q6vca")
 

@@ -16,11 +16,13 @@ public partial class Enemy : RigidBody2D
     protected PlayerUiManager UIManager;
     protected PackedScene scene;
     protected List<Item> item;
+    protected Sprite2D sprite;
 
     protected Vector2 direction;
     // Called when the node enters the scene tree for the first time.
 
     private int health = 10;
+    private double hitTimer = 0.0;
     private bool itemDropped = false;
     public override void _Ready(){
         // These two make collision work.
@@ -36,6 +38,7 @@ public partial class Enemy : RigidBody2D
         UIManager = (PlayerUiManager)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
         scene = GD.Load<PackedScene>("res://Item/Item.tscn");
         item = new List<Item>();
+        sprite = (Sprite2D)GetNode("EnemySprite");
 
         // Calculating spawn position (temp use of direction to determine it)
         direction = new Vector2((float)(random.NextDouble() * 2) - 1, 0);
@@ -49,7 +52,14 @@ public partial class Enemy : RigidBody2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-        //GetTree().Root.AddChild(item[item.Count - 1]);
+        if (hitTimer >= 0)
+        {
+            hitTimer -= delta;
+            if (hitTimer <= 0.0)
+            {
+                sprite.Modulate = new Color(1, 1, 1, 1);
+            }
+        }
     }
 
     public override void _PhysicsProcess(double delta)
@@ -78,6 +88,8 @@ public partial class Enemy : RigidBody2D
 
     public void DecreaseHealth(int val){
         health -= val;
+        hitTimer = 0.3;
+        sprite.Modulate = new Color(1, 0, 0, 1);
         //GD.Print("DMG dealt: " + health);
         if (health <= 0){
             EnemyDie();
