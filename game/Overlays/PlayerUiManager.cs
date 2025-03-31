@@ -10,6 +10,7 @@ public partial class PlayerUiManager : Control
     Sprite2D nextNextBullet;
     Sprite2D nextNextNextBullet;
     int kills = 0;
+    bool winCon = true;
 
     public override void _Ready()
     {
@@ -25,10 +26,12 @@ public partial class PlayerUiManager : Control
     public void DecrementTime(double delta)
     {
         timer.Value -= delta;
-        if (timer.Value < 0)
+        if (timer.Value <= 0 && winCon)
         {
             //win condition/level transition
             GD.Print("YOU WIN");
+            CallDeferred("GameWin");
+            winCon = false;
         }
     }
 
@@ -47,7 +50,8 @@ public partial class PlayerUiManager : Control
     public void DecrementHealth(int value)
     {
         healthbar.Value -= value;
-        if (healthbar.Value <= 0) { GameOver(); }
+
+        if (healthbar.Value <= 0) { CallDeferred("GameOver"); }
     }
 
     public void IncrementMaxHealth(int value)
@@ -89,5 +93,10 @@ public partial class PlayerUiManager : Control
     public void GameOver()
     {
         GetTree().ChangeSceneToFile("res://Levels/MainMenu/GameOver.tscn");
+    }
+
+    public void GameWin()
+    {
+        GetTree().ChangeSceneToFile("res://Levels/MainMenu/WinScreen.tscn");
     }
 }

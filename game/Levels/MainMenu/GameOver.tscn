@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Levels/MainMenu/Start.cs" id="1_iy3gt"]
 [ext_resource type="Script" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_o8hg1"]
 
-[node name="MainMenu" type="Node2D"]
+[node name="GameOver" type="Node2D"]
 
 [node name="NewGameButton" type="Button" parent="."]
 offset_left = 526.0

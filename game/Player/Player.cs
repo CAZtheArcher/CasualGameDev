@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 public partial class Player : CharacterBody2D
 {
-    float speed = 400;
+    float speed = 300;
 	int health = 5;
 	public Vector2 direction = new Vector2();
     public override void _Ready()
@@ -37,6 +37,6 @@ public partial class Player : CharacterBody2D
 
 	public void Death()
 	{
-		Debug.WriteLine("YOU DIED");
+		//Debug.WriteLine("YOU DIED");
 	}
 }
