@@ -19,6 +19,9 @@ public partial class Weapon : Sprite2D
     private double timeSinceLastShot;
 
     private Module[] weaponModules;
+    private Module[] weaponHolding;
+    private Module[] minorModules;
+    private Module[] minorHolding;
     /// <summary> The number of modules *currently* slotted into the weapon.</summary>
     private short weaponModulesSize;
     private short currentModule;
@@ -32,14 +35,11 @@ public partial class Weapon : Sprite2D
         playerSprite = (Sprite2D)this.GetParent();
         fireRate = 1f / 8f; // 8 per second
         timeSinceLastShot = fireRate; // Can fire immediately upon spawning.
-        weaponModules = new Module[4]; // Weapon can hold a default 4 modules.
+        weaponModules = new Module[2]; // Weapon can hold a default 4 modules.
         weaponModulesSize = 0; // There is a single BasicBulletModule slotted into the weapon.
         //AddModule(new BuckshotModule());// Weapon has one BasicBulletModule installed by default.
         AddModule(new BasicBulletModule());// Weapon has one BasicBulletModule installed by default.
-        AddModule(new BasicBulletModule());
-        AddModule(new BasicBulletModule());
-        AddModule(new BasicBulletModule());
-        AddModule(new BasicBulletModule());
+
 
         currentModule = 0; // Weapon fires the module in slot 1 (index 0) first.
     }
@@ -80,7 +80,7 @@ public partial class Weapon : Sprite2D
             {
                 return;
             }*/
-			if (weaponModules[i] == null)
+			if (weaponModules[i] == null && module.isWepon == true)
 			{
                 weaponModules[i] = module;
                 // Modules need to be added as children of Weapon to be able to add things to the scene.
@@ -88,7 +88,15 @@ public partial class Weapon : Sprite2D
                 weaponModulesSize++;
                 return;
 			}
-            else if(i == weaponModules.Length-1)
+            else if(minorModules[i] == null && module.isWepon == false)
+            {
+
+            }
+            else if (i == minorModules.Length - 1 && module.isWepon == false)
+            {
+
+            }
+            else if(i == weaponModules.Length-1 && module.isWepon == true)
             {
                 GetTree().Paused = true;
                 pause.Show();
