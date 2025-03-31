@@ -21,6 +21,7 @@ public partial class Enemy : RigidBody2D
     // Called when the node enters the scene tree for the first time.
 
     private int health = 10;
+    private bool itemDropped = false;
     public override void _Ready(){
         // These two make collision work.
         ContactMonitor = true;
@@ -85,13 +86,14 @@ public partial class Enemy : RigidBody2D
 
     public void EnemyDie()
     {
-        UIManager.IncrementKills();
-        if ((float)(random.Next(3)) == 0)
+        if ((float)(random.Next(3)) == 0 && (!itemDropped))
         {
+            UIManager.IncrementKills();
             item.Add(scene.Instantiate<Item>());
             item[item.Count - 1].spawn(this.Position, new BuckshotModule());
             GetTree().Root.CallDeferred("add_child", item[item.Count - 1]);
             //GD.Print("Item spawned");
+            itemDropped = true;
         }
         this.QueueFree();
     }
