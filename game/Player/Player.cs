@@ -25,18 +25,4 @@ public partial class Player : CharacterBody2D
 		GetInput();
 		MoveAndSlide();
     }
-
-	public void TakeDamage(int damage)
-	{
-		health -= damage;
-		if (health <= 0)
-		{
-			Death();
-		}
-	}
-
-	public void Death()
-	{
-		//Debug.WriteLine("YOU DIED");
-	}
 }

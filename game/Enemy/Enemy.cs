@@ -71,14 +71,13 @@ public partial class Enemy : RigidBody2D
     public void CollisionDetected(Node body)
     {
         Knockback(800);
-        player.TakeDamage(damage);
         UIManager.DecrementHealth(damage);
-        GD.Print("Collided with the player");
+        //GD.Print("Collided with the player");
     }
 
     public void DecreaseHealth(int val){
         health -= val;
-        GD.Print("DMG dealt: " + health);
+        //GD.Print("DMG dealt: " + health);
         if (health <= 0){
             EnemyDie();
         }
@@ -92,7 +91,7 @@ public partial class Enemy : RigidBody2D
             item.Add(scene.Instantiate<Item>());
             item[item.Count - 1].spawn(this.Position, new BuckshotModule());
             GetTree().Root.CallDeferred("add_child", item[item.Count - 1]);
-            GD.Print("Item spawned");
+            //GD.Print("Item spawned");
         }
         this.QueueFree();
     }
@@ -102,7 +101,7 @@ public partial class Enemy : RigidBody2D
         LinearVelocity = Vector2.Zero;
         direction = (GlobalPosition - player.GlobalPosition).Normalized();
         ApplyCentralForce(direction * knockbackAmount);
-        GD.Print("Knockback applied in " + direction);
+        //GD.Print("Knockback applied in " + direction);
     }
 
     /*public void Spawn(Type eT)
