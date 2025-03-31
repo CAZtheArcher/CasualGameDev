@@ -60,7 +60,7 @@ public partial class PlayerUiManager : Control
     {
         healthbar.MaxValue -= value;
         healthbar.Value = healthbar.MaxValue;
-        if (healthbar.Value <= 0) { GameOver(); }
+        if (healthbar.Value <= 0) { CallDeferred("GameOver"); }
     }
 
     public void ShotFired()
