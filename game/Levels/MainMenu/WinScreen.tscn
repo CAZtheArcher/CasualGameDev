@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm7oqqmlplv1m"]
+[gd_scene load_steps=3 format=3 uid="uid://b558ml4d28ciw"]
 
 [ext_resource type="Script" path="res://Levels/MainMenu/Start.cs" id="1_dx04m"]
 [ext_resource type="Script" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_v4qvw"]

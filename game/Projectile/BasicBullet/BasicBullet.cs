@@ -11,7 +11,7 @@ public partial class BasicBullet : Projectile
 	public override void _Ready()
 	{
 		base._Ready();
-        velocity = 250;
+        velocity = 400;
 		damage = 3;
 	}
 

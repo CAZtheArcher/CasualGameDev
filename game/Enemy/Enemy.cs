@@ -78,7 +78,7 @@ public partial class Enemy : RigidBody2D
 
     public void DecreaseHealth(int val){
         health -= val;
-        GD.Print("DMG dealt" + health);
+        GD.Print("DMG dealt: " + health);
         if (health <= 0){
             EnemyDie();
         }

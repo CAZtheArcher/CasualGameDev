@@ -11,6 +11,7 @@ public partial class PlayerUiManager : Control
     Sprite2D nextNextNextBullet;
     int kills = 0;
     bool winCon = true;
+    bool firstErr = false;
 
     public override void _Ready()
     {
@@ -74,20 +75,26 @@ public partial class PlayerUiManager : Control
 
     public void UpdateBulletSprite(string sprite1, string sprite2, string sprite3)
     {
-        
-        nextBullet.Texture = GD.Load<Texture2D>(sprite1);
-        // This prevents a null ref exception that pops up every load
-        if (sprite1 == sprite2)
+        try
         {
-            nextNextBullet.Texture = nextBullet.Texture;
-            if (sprite2 == sprite3)
+            nextBullet.Texture = GD.Load<Texture2D>(sprite1);
+            // This prevents a null ref exception that pops up every load
+            if (sprite1 == sprite2)
             {
-                nextNextNextBullet.Texture = nextNextBullet.Texture;
-                return;
+                nextNextBullet.Texture = nextBullet.Texture;
+                if (sprite2 == sprite3)
+                {
+                    nextNextNextBullet.Texture = nextNextBullet.Texture;
+                    return;
+                }
             }
+            nextNextBullet.Texture = GD.Load<Texture2D>(sprite2);
+            nextNextNextBullet.Texture = GD.Load<Texture2D>(sprite3);
         }
-        nextNextBullet.Texture = GD.Load<Texture2D>(sprite2);
-        nextNextNextBullet.Texture = GD.Load<Texture2D>(sprite3);
+        catch (Exception ex) {
+            if (firstErr) { GD.Print("Error: " + ex.Message); }
+            firstErr = true;
+        }
     }
 
     public void GameOver()

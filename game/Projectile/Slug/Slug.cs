@@ -14,7 +14,7 @@ public partial class Slug : Projectile
 	public override void _Ready()
 	{
 		base._Ready();
-        velocity = 200;
+        velocity = 350;
 		pierce = 1;
 		damage = 2;
         knockbackAmount = 750;
