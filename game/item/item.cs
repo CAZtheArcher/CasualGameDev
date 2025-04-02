@@ -33,6 +33,14 @@ public partial class item : RigidBody2D
         if (((this.Position.Y + 20 > player.Position.Y) && (this.Position.Y - 20 < player.Position.Y)) && ((this.Position.X + 20 > player.Position.X) && (this.Position.X - 20 < player.Position.X)))  // Check if the player collided with the item
         {
             GD.Print(itemType);
+            if(randomvar < .5)
+            {
+                weapon.addWeapon(itemType);
+            }
+            else
+            {
+                weapon.AddModule(itemType);
+            }
             weapon.AddModule(itemType);
             // Emit the signal for pickup
             QueueFree();  // Remove the item from the scene

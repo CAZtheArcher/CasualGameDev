@@ -14,5 +14,7 @@ public abstract partial class Module : Node {
     /// <para>    -Firing multiple projectiles in a cone (e.g. a shotgun blast)</para>
     /// <para>    -Telling the Weapon containing this module to fire the next two modules at the same time (e.g. "doubleshot")</para>
     /// </summary>
+    public bool iswepon;
     public abstract void Activate();
+    public abstract bool IsWeapon();
 }

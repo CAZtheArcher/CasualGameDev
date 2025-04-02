@@ -7,11 +7,13 @@ using System;
 /// </summary>
 public partial class BasicBullet : Projectile
 {
-    public bool isWepon  = true;
+    public bool Wepon  = true;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		base._Ready();
+        Wepon = true;
+
+        base._Ready();
         velocity = 250;
 		damage = 3;
        
@@ -42,4 +44,5 @@ public partial class BasicBullet : Projectile
 	{
 		this.QueueFree();
 	}
+    
 }

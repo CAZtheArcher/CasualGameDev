@@ -76,27 +76,15 @@ public partial class Weapon : Sprite2D
 	{
 		for (int i = 0; i < weaponModules.Length; i++) 
 		{
-           /* if(weaponModules[i] == module)
-            {
-                return;
-            }*/
-			if (weaponModules[i] == null && module.isWepon == true)
+			if (minorModules[i] == null )
 			{
-                weaponModules[i] = module;
+                minorModules[i] = module;
                 // Modules need to be added as children of Weapon to be able to add things to the scene.
-                AddChild(weaponModules[i]);
-                weaponModulesSize++;
+                AddChild(minorModules[i]);
+               
                 return;
 			}
-            else if(minorModules[i] == null && module.isWepon == false)
-            {
-
-            }
-            else if (i == minorModules.Length - 1 && module.isWepon == false)
-            {
-
-            }
-            else if(i == weaponModules.Length-1 && module.isWepon == true)
+            else if(i == minorModules.Length-1)
             {
                 GetTree().Paused = true;
                 pause.Show();
@@ -104,6 +92,26 @@ public partial class Weapon : Sprite2D
             }
 		}
 	}
+    public void addWeapon(Module module)
+    {
+        for (int i = 0; i < weaponModules.Length; i++)
+        {
+            if (weaponModules[i] == null)
+            {
+                weaponModules[i] = module;
+                // Modules need to be added as children of Weapon to be able to add things to the scene.
+                AddChild(weaponModules[i]);
+                weaponModulesSize++;
+                return;
+            }
+            else if (i == weaponModules.Length - 1 )
+            {
+                GetTree().Paused = true;
+                pause.Show();
+                holder = module;
+            }
+        }
+    }
     public void butonSwap(int num)
     {
         weaponModules[num] = holder;
