@@ -15,7 +15,7 @@ public partial class Slug : Projectile
 	{
 		base._Ready();
         velocity = 350;
-		pierce = 1;
+		pierce = 3;
 		damage = 2;
         knockbackAmount = 750;
         spawnPoint = this.Position;
