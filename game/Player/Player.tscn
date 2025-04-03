@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://thw2lf5s8cii"]
+[gd_scene load_steps=6 format=3 uid="uid://thw2lf5s8cii"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_ybvti"]
 [ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Player/player_temp.png" id="2_cm1vq"]
-[ext_resource type="Texture2D" uid="uid://b1lqnj7mtla4v" path="res://Player/weapon_temp.png" id="4_dmbi0"]
-[ext_resource type="Script" path="res://Player/Weapon/Weapon.cs" id="5_n0r7d"]
+[ext_resource type="PackedScene" uid="uid://ddlrpdxfw77gg" path="res://Player/Weapon/Weapon.tscn" id="3_nla60"]
 [ext_resource type="PackedScene" uid="uid://gfd8yniw6adk" path="res://Overlays/PlayerUi.tscn" id="6_yu4jo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oy6"]
@@ -18,17 +17,8 @@ script = ExtResource("1_ybvti")
 [node name="PlayerSprite" type="Sprite2D" parent="PlayerBody"]
 texture = ExtResource("2_cm1vq")
 
-[node name="WeaponSprite" type="Sprite2D" parent="PlayerBody/PlayerSprite"]
-position = Vector2(34, -1.52588e-05)
-rotation = 1.5708
-texture = ExtResource("4_dmbi0")
-centered = false
-offset = Vector2(-13, 0)
-script = ExtResource("5_n0r7d")
-
-[node name="Bullet_Spawn" type="Marker2D" parent="PlayerBody/PlayerSprite/WeaponSprite"]
-position = Vector2(3.05172e-05, -9.91821e-05)
-rotation = -1.5708
+[node name="Weapon" parent="PlayerBody/PlayerSprite" instance=ExtResource("3_nla60")]
+position = Vector2(24, 0)
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="PlayerBody"]
 shape = SubResource("RectangleShape2D_l3oy6")

@@ -1,5 +1,13 @@
-[gd_scene format=3 uid="uid://ddlrpdxfw77gg"]
+[gd_scene load_steps=3 format=3 uid="uid://ddlrpdxfw77gg"]
 
-[node name="Weapon" type="Node2D"]
+[ext_resource type="Script" path="res://Player/Weapon/Weapon.cs" id="1_2rbhg"]
+[ext_resource type="Texture2D" uid="uid://b1lqnj7mtla4v" path="res://Player/weapon_temp.png" id="2_n3w2j"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Weapon" type="Sprite2D"]
+position = Vector2(13, 0)
+rotation = 1.5708
+texture = ExtResource("2_n3w2j")
+script = ExtResource("1_2rbhg")
+
+[node name="Bullet Spawn" type="Marker2D" parent="."]
+position = Vector2(0, -13)
