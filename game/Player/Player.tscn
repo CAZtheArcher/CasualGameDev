@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_ybvti"]
 [ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Player/player_temp.png" id="2_cm1vq"]
 [ext_resource type="Texture2D" uid="uid://b1lqnj7mtla4v" path="res://Player/weapon_temp.png" id="4_dmbi0"]
-[ext_resource type="Script" path="res://Scripts/Weapon.cs" id="5_n0r7d"]
+[ext_resource type="Script" path="res://Player/Weapon/Weapon.cs" id="5_n0r7d"]
 [ext_resource type="PackedScene" uid="uid://gfd8yniw6adk" path="res://Overlays/PlayerUi.tscn" id="6_yu4jo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oy6"]
