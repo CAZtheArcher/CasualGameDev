@@ -28,7 +28,7 @@ public partial class Weapon : Sprite2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        bulletSpawn = (Marker2D)GetParent().GetChild(1);
+        bulletSpawn = (Marker2D)GetChild(0);
         playerSprite = (Sprite2D)this.GetParent();
         UIManager = (Control)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
         fireRate = 1f / 8f; // 8 per second

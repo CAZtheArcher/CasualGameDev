@@ -88,7 +88,7 @@ public partial class Enemy : RigidBody2D
 
     public void DecreaseHealth(int val){
         health -= val;
-        hitTimer = 0.3;
+        hitTimer = 0.15;
         sprite.Modulate = new Color(1, 0, 0, 1);
         //GD.Print("DMG dealt: " + health);
         if (health <= 0){
