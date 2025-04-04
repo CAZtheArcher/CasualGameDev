@@ -5,6 +5,7 @@ public partial class PlayerUiManager : Control
 {
     ProgressBar timer;
     RichTextLabel killLabel;
+    RichTextLabel timerLabel;
     ProgressBar healthbar;
     Sprite2D nextBullet;
     Sprite2D nextNextBullet;
@@ -17,6 +18,7 @@ public partial class PlayerUiManager : Control
     {
         timer = (ProgressBar)GetNode("Timer");
         killLabel = (RichTextLabel)GetNode("Kills");
+        timerLabel = (RichTextLabel)GetNode("TimerDisplay");
         healthbar = (ProgressBar)GetNode("HealthBar");
         nextBullet = (Sprite2D)GetNode("NextBullet/DisplayBullet");
         nextNextBullet = (Sprite2D)GetNode("NextBullet2/DisplayBullet");
@@ -27,6 +29,8 @@ public partial class PlayerUiManager : Control
     public void DecrementTime(double delta)
     {
         timer.Value -= delta;
+        int timerValue = Convert.ToInt32(Math.Ceiling(timer.Value));
+        timerLabel.Text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25] Time Remaining: " + timerValue + "[/font_size][/font][/color]";
         if (timer.Value <= 0 && winCon)
         {
             //win condition/level transition

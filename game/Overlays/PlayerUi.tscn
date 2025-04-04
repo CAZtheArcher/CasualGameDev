@@ -45,6 +45,14 @@ offset_bottom = 628.0
 bbcode_enabled = true
 text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25] Kills: 0[/font_size][/font][/color]"
 
+[node name="TimerDisplay" type="RichTextLabel" parent="."]
+offset_left = 882.0
+offset_top = 22.0
+offset_right = 1082.0
+offset_bottom = 47.0
+bbcode_enabled = true
+text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25] Time Remaining: 60[/font_size][/font][/color]"
+
 [node name="NextBullet" type="Sprite2D" parent="."]
 position = Vector2(967, 603)
 scale = Vector2(0.5, 0.5)
