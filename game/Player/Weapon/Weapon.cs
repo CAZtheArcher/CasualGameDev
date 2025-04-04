@@ -22,85 +22,83 @@ public partial class Weapon : Sprite2D
     private short weaponModulesSize;
     private short currentModule;
 
-    /// <summary> playerUI for bullets to display </summary>
-    private Control UIManager;
+    private WeaponManager weaponManager;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
+        weaponManager = (WeaponManager)GetNode("../");
         bulletSpawn = (Marker2D)GetChild(0);
-        playerSprite = (Sprite2D)this.GetParent();
-        UIManager = (Control)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
+        playerSprite = (Sprite2D)GetNode("/root/Main/Player/PlayerBody/PlayerSprite");
         fireRate = 1f / 8f; // 8 per second
         timeSinceLastShot = fireRate; // Can fire immediately upon spawning.
         weaponModules = new Module[4]; // Weapon can hold a default 4 modules.
         weaponModulesSize = 0; // There is a single BasicBulletModule slotted into the weapon.
-        //AddModule(new SlugModule());
         AddModule(new BasicBulletModule());// Weapon has one BasicBulletModule installed by default.
         currentModule = 0; // Weapon fires the module in slot 1 (index 0) first.
-        //UpdateUI();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
         timeSinceLastShot += delta;
-        //if (shotReady >= fireRate) { shotReady = fireRate; }
-        if (Input.IsActionJustPressed("fire") && (timeSinceLastShot >= fireRate))
-        {
-            timeSinceLastShot = 0;
-            ActivateNextModule();
-        }
     }
 
-    /// <summary>
-    /// Activates the next Module in the weapon.
-    /// </summary>
+    /// <summary> Returns true if timeSinceLastShot > fireRate </summary>
+    public bool CanFire(){return timeSinceLastShot >= fireRate;}
+
+    /// <summary> Activates the next Module in the weapon. </summary>
     public void ActivateNextModule()
     {
         weaponModules[currentModule].Activate();
         currentModule++;
         // If there are no modules after this one, loop back to the start.
         if (currentModule == weaponModulesSize) { currentModule = 0; }
-        UpdateUI();
+        timeSinceLastShot = 0;
     }
 
-    /// <summary> Adds 'module' to the weapon, at the end of the weapon's array of modules.
+    /// <summary> Adds 'module' to the weapon, at the first available empty spot.
     /// <para>Also increments weaponModulesSize and adds the module as a child.</para></summary>
     /// <param name="module">The module that will be added.</param>
     public void AddModule(Module module)
 	{
-        int check = 0;
 		for (int i = 0; i < weaponModules.Length; i++) 
 		{
-            if(weaponModules[i] == module)
+            if(weaponModules[i] == null)
             {
-
-            }
-			else if (weaponModules[i] == null)
-			{
                 weaponModules[i] = module;
                 // Modules need to be added as children of Weapon to be able to add things to the scene.
                 AddChild(weaponModules[i]);
                 weaponModulesSize++;
-                UpdateUI();
                 return;
-			}
-            else 
-            {
-                check++;            
             }
 		}
-        if (check == weaponModules.Length)
-        { 
-            //prompt drop or swap
-        }
+        GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
 	}
+
+    /// <summary> Removes the module closest to the end of weaponModules.
+    /// <para>Also increments weaponModulesSize and adds the module as a child.</para></summary>
+    /// <param name="module">The module that will be added.</param>
+    public void RemoveModule()
+    {
+        for (int i = weaponModules.Length - 1; i >= 0 ; i--)
+        {
+            if (weaponModules[i] != null)
+            {
+                Module justRemoved = weaponModules[i];
+                weaponModules[i] = null;
+                RemoveChild(justRemoved);
+                weaponModulesSize--;
+                return;
+            }
+        }
+        GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
+    }
 
     public void SlotExpand() { Array.Resize(ref weaponModules, weaponModules.Length + 1); }
     public void SlotShrink() { Array.Resize(ref weaponModules, weaponModules.Length - 1); }
 
-    public void UpdateUI()
+    public String[] GetNextModuleIcons()
     {
         string[] sprites = { "", "", "" };
         int count = 0;
@@ -111,6 +109,7 @@ public partial class Weapon : Sprite2D
             sprites[count] = weaponModules[accessModule].SpritePath;
             count++;
         }
-        UIManager.Call("UpdateBulletSprite", sprites[0], sprites[1], sprites[2]);
+        return sprites;
     }
+
 }

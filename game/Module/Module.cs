@@ -11,6 +11,13 @@ public abstract partial class Module : Node
     public string SpritePath{
         get { return spritePath; }
     }
+
+    protected Weapon parent;
+    public override void _Ready()
+    {
+        parent = GetParent<Weapon>();
+    }
+
     /// <summary>
     /// What happens when this module is activated.
     /// <para>Some examples of what this method is designed for include:</para>

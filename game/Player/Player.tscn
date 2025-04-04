@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_ybvti"]
 [ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Player/player_temp.png" id="2_cm1vq"]
+[ext_resource type="PackedScene" uid="uid://r1cuxdmp53iy" path="res://Player/WeaponManager/WeaponManager.tscn" id="3_83vbc"]
 [ext_resource type="PackedScene" uid="uid://ddlrpdxfw77gg" path="res://Player/Weapon/Weapon.tscn" id="3_nla60"]
-[ext_resource type="Script" path="res://Player/WeaponManager.cs" id="3_qi0st"]
 [ext_resource type="PackedScene" uid="uid://gfd8yniw6adk" path="res://Overlays/PlayerUi.tscn" id="6_yu4jo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oy6"]
@@ -17,9 +17,10 @@ script = ExtResource("1_ybvti")
 
 [node name="PlayerSprite" type="Sprite2D" parent="PlayerBody"]
 texture = ExtResource("2_cm1vq")
-script = ExtResource("3_qi0st")
 
-[node name="Weapon" parent="PlayerBody/PlayerSprite" instance=ExtResource("3_nla60")]
+[node name="WeaponManager" parent="PlayerBody/PlayerSprite" instance=ExtResource("3_83vbc")]
+
+[node name="Weapon" parent="PlayerBody/PlayerSprite/WeaponManager" instance=ExtResource("3_nla60")]
 position = Vector2(24, 0)
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="PlayerBody"]
