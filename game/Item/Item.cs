@@ -5,27 +5,31 @@ public partial class Item : RigidBody2D
 { 
     Weapon inst; 
     [Export]
-    Module itemType;
+    Module moduleType;
     [Export]
     int itemLevel;
+    [Export]
+    Weapon weaponType;
+
+    Random rand;
 
     Node2D player;
 
 
-    Weapon weapon;
+    Weapon playerWeapon;
 
     // Setup the collision signal
     public override void _Ready()
     {
-        weapon = (Weapon)GetNode("/root/Main/Player/PlayerBody/PlayerSprite/WeaponSprite");
+        playerWeapon = (Weapon)GetNode("/root/Main/Player/PlayerBody/PlayerSprite/WeaponSprite");
         player = (Node2D)GetNode("/root/Main/Player/PlayerBody");
-
+        rand = new Random();
 
     }
-    public void spawn(Vector2 position, Module itemType)
+    public void spawn(Vector2 position, Module moduleType)
     {
         this.Position = position;
-        this.itemType = itemType;
+        this.moduleType = moduleType;
     }
     //work in progres
     private void _on_Item_body_entered()
@@ -33,8 +37,20 @@ public partial class Item : RigidBody2D
         if (((this.Position.Y + 20 > player.Position.Y) && (this.Position.Y - 20 < player.Position.Y)) && ((this.Position.X + 20 > player.Position.X) && (this.Position.X - 20 < player.Position.X)))  // Check if the player collided with the item
         {
             //GD.Print(itemType);
-            weapon.AddModule(itemType);
             // Emit the signal for pickup
+            int randNum = rand.Next(0, 101);
+            if(randNum < 50)
+            {
+
+            }
+            else if(randNum < 75)
+            {
+
+            }
+            else
+            {
+
+            }
             QueueFree();  // Remove the item from the scene
         }
     }

@@ -30,7 +30,6 @@ public partial class PlayerUiManager : Control
         if (timer.Value <= 0 && winCon)
         {
             //win condition/level transition
-            //GD.Print("YOU WIN");
             CallDeferred("GameWin");
             winCon = false;
         }
