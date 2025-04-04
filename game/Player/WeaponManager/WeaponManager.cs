@@ -5,17 +5,23 @@ using System.Linq;
 
 public partial class WeaponManager : Node
 {
+    /// <summary> The player's arsenal of weapons.  Holds both equipped, and unequipped weapons. </summary>
 	private List<Weapon> weapons;
+    /// <summary> The `weapons` index that contains the left hand weapon </summary>
 	private int leftWeaponIndex;
-	private int rightWeaponIndex;
+    /// <summary> The `weapons` index that contains the right hand weapon </summary>
+    private int rightWeaponIndex;
+
+    /// <summary> A reference to the weapon in the left hand. </summary>
     public Weapon LeftWeapon { get => weapons[leftWeaponIndex]; }
+    /// <summary> A reference to the weapon in the right hand. </summary>
     public Weapon RightWeapon { get => weapons[rightWeaponIndex]; }
+    /// <summary> A reference to the weapon scene, to be instantiated whenever a weapon needs to be created. </summary>
     private PackedScene weaponScene;
 
-    /// <summary> playerUI for bullets to display </summary>
+    /// <summary> Used to update the 'next bullet indicator' in the bottom right corner of the UI </summary>
     private PlayerUiManager UIManager;
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready(){
         leftWeaponIndex = -1;
         rightWeaponIndex = -1;
@@ -39,7 +45,6 @@ public partial class WeaponManager : Node
         UIManager.CallDeferred(nameof(UIManager.UpdateBulletSprite), spritePaths[0], spritePaths[1], spritePaths[2], true);
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta){
         if (leftWeaponIndex >= 0) // If there is a weapon in the left hand
         {
