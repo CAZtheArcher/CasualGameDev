@@ -21,9 +21,9 @@ public partial class Enemy : RigidBody2D
     protected Vector2 direction;
     // Called when the node enters the scene tree for the first time.
 
-    private int health = 10;
-    private double hitTimer = 0.0;
-    private bool itemDropped = false;
+    protected int health = 10;
+    protected double hitTimer = 0.0;
+    protected bool itemDropped = false;
     public override void _Ready(){
         // These two make collision work.
         ContactMonitor = true;
@@ -51,6 +51,11 @@ public partial class Enemy : RigidBody2D
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
+    {
+        CheckHitTimer(delta);
+    }
+
+    public void CheckHitTimer(double delta)
     {
         if (hitTimer >= 0)
         {
