@@ -13,13 +13,16 @@ public partial class Weapon : Sprite2D
     private Sprite2D playerSprite;
     public Sprite2D PlayerSprite { get => playerSprite; }
 
-    /// <summary>The seconds that must pass before another module can be activated</summary>
+    /// <summary> The seconds that must pass before another module can be activated. </summary>
     private double fireRate;
+    /// <summary> The seconds that have passed since a module was last activated. </summary>
     private double timeSinceLastShot;
 
+    /// <summary> Array that holds this weapon's modules. This array's length is the max number of modules that this weapon can hold. </summary>
     private Module[] weaponModules;
-    /// <summary> The number of modules *currently* slotted into the weapon.</summary>
+    /// <summary> The number of modules *currently* slotted into the weapon. </summary>
     private short weaponModulesSize;
+    /// <summary> The module that will be activated the next time ActivateNextModule() is called. </summary>
     private short currentModule;
 
     private WeaponManager weaponManager;
