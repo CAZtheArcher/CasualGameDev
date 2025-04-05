@@ -6,6 +6,13 @@ using static System.Formats.Asn1.AsnWriter;
 
 public partial class Weapon : Sprite2D
 {
+    /// <summary> Array that holds this weapon's modules. This array's length is the max number of modules that this weapon can hold. </summary>
+    private Module[] weaponModules;
+    /// <summary> The number of modules *currently* slotted into the weapon. </summary>
+    private short weaponModulesSize;
+    /// <summary> The module that will be activated the next time ActivateNextModule() is called. </summary>
+    private short currentModule;
+
     /// <summary> The Marker2D in the player scene that bullets spawn at </summary>
     private Marker2D bulletSpawn;
     public Marker2D BulletSpawn { get => bulletSpawn; }
@@ -18,12 +25,7 @@ public partial class Weapon : Sprite2D
     /// <summary> The seconds that have passed since a module was last activated. </summary>
     private double timeSinceLastShot;
 
-    /// <summary> Array that holds this weapon's modules. This array's length is the max number of modules that this weapon can hold. </summary>
-    private Module[] weaponModules;
-    /// <summary> The number of modules *currently* slotted into the weapon. </summary>
-    private short weaponModulesSize;
-    /// <summary> The module that will be activated the next time ActivateNextModule() is called. </summary>
-    private short currentModule;
+
 
     private WeaponManager weaponManager;
 
