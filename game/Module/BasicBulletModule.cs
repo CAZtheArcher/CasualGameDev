@@ -6,12 +6,11 @@ using System;
 /// </summary>
 public partial class BasicBulletModule : Module {
     private PackedScene basicBulletScene;
-    private Weapon parent;
 
     public override void _Ready()
     {
+        base._Ready();
         basicBulletScene = GD.Load<PackedScene>("res://Projectile/BasicBullet/BasicBullet.tscn");
-        parent = GetParent<Weapon>();
         spritePath = "res://Projectile/bullet.png";
     }
 

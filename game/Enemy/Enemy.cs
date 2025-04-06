@@ -7,23 +7,39 @@ using static System.Net.Mime.MediaTypeNames;
 
 public partial class Enemy : RigidBody2D
 {
+    /// <summary> The damage that this enemy does to the player upon collision. </summary>
     protected int damage;
-    [Export] protected float velocity; // This is the max speed of the enemy
+    /// <summary> This is the max speed of the enemy.  Since this is a physics object with mass, this is *not* how many Godot measurement unit the enemey can travel every frame. </summary>
+    [Export] protected float velocity; 
+    /// <summary> The distance from the player, in any direction, that this enemy will spawn when it is instantiated by EnemyManager. </summary>
     protected int radius;
 
+    /// <summary> Used to determine if an item should be dropped when this enemy dies. </summary>
     protected Random random;
+    /// <summary> Reference to the player, used to allow the enemy to track and approach the player. </summary>
     protected Player player;
+    /// <summary> Reference to UIManager, which is attached to player.  
+    /// <para> This reference is used to decrease player health and track total enemy kills. </para></summary>
     protected PlayerUiManager UIManager;
+    /// <summary> Reference to the Item scene, used when the enemy dies to instantiate an Item. </summary>
     protected PackedScene scene;
+    /// <summary> The list of items that this enemy has already dropped. </summary>
     protected List<Item> item;
+    /// <summary> The enemy's sprite. </summary>
     protected Sprite2D sprite;
 
+    /// <summary> Vector pointing from the enemy to the player. </summary>
     protected Vector2 direction;
-    // Called when the node enters the scene tree for the first time.
 
-    private int health = 10;
-    private double hitTimer = 0.0;
-    private bool itemDropped = false;
+    /// <summary> The current health of the enemy.  Enemies die at 0 health. </summary>
+    protected int health;
+    /// <summary> Times how long an enemy has flashed red, after taking damage. </summary>
+    protected double hitTimer;
+    /// <summary> Controls how long an enemy will flash red upon taking damage. </summary>
+    protected double totalHitTimer;
+    /// <summary> Prevents the spawning of multiple items if the enemy is killed multiple times in a single frame. </summary>
+    protected bool itemDropped = false; 
+
     public override void _Ready(){
         // These two make collision work.
         ContactMonitor = true;
@@ -46,11 +62,20 @@ public partial class Enemy : RigidBody2D
         direction = direction.Normalized();
         Position = player.Position + (direction * radius);
         direction = Vector2.Zero;
+
+        health = 10;
+        hitTimer = 0.0;
+        totalHitTimer = 0.12;
     }
 
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
+    {
+        CheckHitTimer(delta);
+    }
+
+    public void CheckHitTimer(double delta)
     {
         if (hitTimer >= 0)
         {
@@ -88,7 +113,7 @@ public partial class Enemy : RigidBody2D
 
     public void DecreaseHealth(int val){
         health -= val;
-        hitTimer = 0.3;
+        hitTimer = totalHitTimer;
         sprite.Modulate = new Color(1, 0, 0, 1);
         //GD.Print("DMG dealt: " + health);
         if (health <= 0){

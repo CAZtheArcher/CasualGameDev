@@ -6,15 +6,14 @@ using System;
 /// </summary>
 public partial class BuckshotModule : Module {
     private PackedScene buckshotScene;
-    private Weapon parent;
     private short pelletCount;
     private short pelletSpreadVariance; // Degrees
     private Random rng;
 
     public override void _Ready()
     {
+        base._Ready();
         buckshotScene = GD.Load<PackedScene>("res://Projectile/Buckshot/Buckshot.tscn");
-        parent = GetParent<Weapon>();
         pelletCount = 9; // 9 is the pellet count of 00 buckshot, so I used it here
         pelletSpreadVariance = 30;
         rng = new Random();

@@ -7,10 +7,6 @@ using System;
 /// </summary>
 public abstract partial class Module : Node
 {
-    protected string spritePath;
-    public string SpritePath{
-        get { return spritePath; }
-    }
     /// <summary>
     /// What happens when this module is activated.
     /// <para>Some examples of what this method is designed for include:</para>
@@ -20,4 +16,17 @@ public abstract partial class Module : Node
     /// <para>    -Telling the Weapon containing this module to fire the next two modules at the same time (e.g. "doubleshot")</para>
     /// </summary>
     public abstract void Activate();
+
+    protected string spritePath;
+    public string SpritePath{
+        get { return spritePath; }
+    }
+
+    protected Weapon parent;
+    public override void _Ready()
+    {
+        parent = GetParent<Weapon>();
+    }
+
+
 }

@@ -79,3 +79,30 @@ texture = ExtResource("4_hvq80")
 [node name="DisplayBullet" type="Sprite2D" parent="NextBullet3"]
 scale = Vector2(3, 3)
 texture = ExtResource("3_dv5ld")
+
+[node name="NextBullet4" type="Sprite2D" parent="."]
+position = Vector2(967, 544)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_m3sch")
+
+[node name="DisplayBullet" type="Sprite2D" parent="NextBullet4"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_dv5ld")
+
+[node name="NextBullet5" type="Sprite2D" parent="."]
+position = Vector2(1037, 544)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_hvq80")
+
+[node name="DisplayBullet" type="Sprite2D" parent="NextBullet5"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_dv5ld")
+
+[node name="NextBullet6" type="Sprite2D" parent="."]
+position = Vector2(1107, 544)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_hvq80")
+
+[node name="DisplayBullet" type="Sprite2D" parent="NextBullet6"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_dv5ld")

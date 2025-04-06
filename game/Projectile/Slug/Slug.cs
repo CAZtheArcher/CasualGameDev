@@ -33,9 +33,8 @@ public partial class Slug : Projectile
         try
         {
             Enemy enemy = (Enemy)body;
+            enemy.DecreaseHealth(damage);
 
-            // enemy.QueueFree(); // Commented because enemies taking damage is unimplemented and I want to see the knockback
-            // enemy.takeDamage(damage);
             enemy.Knockback(knockbackAmount);
 
             pierce -= 1;

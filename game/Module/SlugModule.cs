@@ -6,12 +6,12 @@ using System;
 /// </summary>
 public partial class SlugModule : Module {
     private PackedScene slugScene;
-    private Weapon parent;
 
     public override void _Ready()
     {
+        base._Ready();
         slugScene = GD.Load<PackedScene>("res://Projectile/Slug/Slug.tscn");
-        parent = GetParent<Weapon>();
+        
         spritePath = "res://Projectile/Slug/Slug.png";
     }
 
