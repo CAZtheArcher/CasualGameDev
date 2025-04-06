@@ -7,12 +7,12 @@ public partial class PlayerUiManager : Control
     RichTextLabel killLabel;
     RichTextLabel timerLabel;
     ProgressBar healthbar;
-    Sprite2D nextBullet;
-    Sprite2D nextNextBullet;
-    Sprite2D nextNextNextBullet;
-    Sprite2D weaponTwoNextBullet;
-    Sprite2D weaponTwoNextNextBullet;
-    Sprite2D weaponTwoNextNextNextBullet;
+    Sprite2D lwNextBullet1;
+    Sprite2D lwNextBullet2;
+    Sprite2D lwNextBullet3;
+    Sprite2D rwNextBullet1;
+    Sprite2D rwNextBullet2;
+    Sprite2D rwNextBullet3;
     int kills = 0;
     bool winCon = true;
     bool firstErr = false;
@@ -23,12 +23,12 @@ public partial class PlayerUiManager : Control
         killLabel = (RichTextLabel)GetNode("Kills");
         timerLabel = (RichTextLabel)GetNode("TimerDisplay");
         healthbar = (ProgressBar)GetNode("HealthBar");
-        nextBullet = (Sprite2D)GetNode("NextBullet/DisplayBullet");
-        nextNextBullet = (Sprite2D)GetNode("NextBullet2/DisplayBullet");
-        nextNextNextBullet = (Sprite2D)GetNode("NextBullet3/DisplayBullet");
-        weaponTwoNextBullet = (Sprite2D)GetNode("NextBullet4/DisplayBullet");
-        weaponTwoNextNextBullet = (Sprite2D)GetNode("NextBullet5/DisplayBullet");
-        weaponTwoNextNextNextBullet = (Sprite2D)GetNode("NextBullet6/DisplayBullet");
+        lwNextBullet1 = (Sprite2D)GetNode("NextBullet/DisplayBullet");
+        lwNextBullet2 = (Sprite2D)GetNode("NextBullet2/DisplayBullet");
+        lwNextBullet3 = (Sprite2D)GetNode("NextBullet3/DisplayBullet");
+        rwNextBullet1 = (Sprite2D)GetNode("NextBullet4/DisplayBullet");
+        rwNextBullet2 = (Sprite2D)GetNode("NextBullet5/DisplayBullet");
+        rwNextBullet3 = (Sprite2D)GetNode("NextBullet6/DisplayBullet");
         healthbar.Value = healthbar.MaxValue;
     }
 
@@ -92,30 +92,30 @@ public partial class PlayerUiManager : Control
     {
         try{
             if (isLeftWeapon){
-                nextBullet.Texture = GD.Load<Texture2D>(sprite1);
+                lwNextBullet1.Texture = GD.Load<Texture2D>(sprite1);
                 // This prevents a null ref exception that pops up every load
                 if (sprite1 == sprite2){
-                    nextNextBullet.Texture = nextBullet.Texture;
+                    lwNextBullet2.Texture = lwNextBullet1.Texture;
                     if (sprite2 == sprite3){
-                        nextNextNextBullet.Texture = nextNextBullet.Texture;
+                        lwNextBullet3.Texture = lwNextBullet2.Texture;
                         return;
                     }
                 }
-                nextNextBullet.Texture = GD.Load<Texture2D>(sprite2);
-                nextNextNextBullet.Texture = GD.Load<Texture2D>(sprite3);
+                lwNextBullet2.Texture = GD.Load<Texture2D>(sprite2);
+                lwNextBullet3.Texture = GD.Load<Texture2D>(sprite3);
             }
             else{
-                weaponTwoNextBullet.Texture = GD.Load<Texture2D>(sprite1);
+                rwNextBullet1.Texture = GD.Load<Texture2D>(sprite1);
                 // This prevents a null ref exception that pops up every load
                 if (sprite1 == sprite2){
-                    weaponTwoNextNextBullet.Texture = nextBullet.Texture;
+                    rwNextBullet2.Texture = rwNextBullet1.Texture;
                     if (sprite2 == sprite3){
-                        weaponTwoNextNextNextBullet.Texture = nextNextBullet.Texture;
+                        rwNextBullet3.Texture = rwNextBullet2.Texture;
                         return;
                     }
                 }
-                weaponTwoNextNextBullet.Texture = GD.Load<Texture2D>(sprite2);
-                weaponTwoNextNextNextBullet.Texture = GD.Load<Texture2D>(sprite3);
+                rwNextBullet2.Texture = GD.Load<Texture2D>(sprite2);
+                rwNextBullet3.Texture = GD.Load<Texture2D>(sprite3);
             }
         }
         catch (Exception ex){

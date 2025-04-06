@@ -46,6 +46,7 @@ bbcode_enabled = true
 text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25] Kills: 0[/font_size][/font][/color]"
 
 [node name="TimerDisplay" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 882.0
 offset_top = 22.0
 offset_right = 1082.0

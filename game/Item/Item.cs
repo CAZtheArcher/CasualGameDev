@@ -5,13 +5,11 @@ public partial class Item : RigidBody2D
 { 
     Weapon inst; 
     [Export]
-    Module moduleType;
+    Module itemType;
     [Export]
     int itemLevel;
     [Export]
     Weapon weaponType;
-
-    Random rand;
 
     Node2D player;
 
@@ -23,10 +21,10 @@ public partial class Item : RigidBody2D
         weaponManager = (WeaponManager)GetNode("/root/Main/Player/PlayerBody/PlayerSprite/WeaponManager");
         player = (Node2D)GetNode("/root/Main/Player/PlayerBody");
     }
-    public void spawn(Vector2 position, Module moduleType)
+    public void spawn(Vector2 position, Module itemType)
     {
         this.Position = position;
-        this.moduleType = moduleType;
+        this.itemType = itemType;
     }
     //work in progres
     private void _on_Item_body_entered()
@@ -36,19 +34,6 @@ public partial class Item : RigidBody2D
             //GD.Print(itemType);
             weaponManager.LeftWeapon.AddModule(itemType);
             // Emit the signal for pickup
-            int randNum = rand.Next(0, 101);
-            if(randNum < 50)
-            {
-
-            }
-            else if(randNum < 75)
-            {
-
-            }
-            else
-            {
-
-            }
             QueueFree();  // Remove the item from the scene
         }
     }

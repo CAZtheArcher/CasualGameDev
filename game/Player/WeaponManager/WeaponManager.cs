@@ -31,7 +31,7 @@ public partial class WeaponManager : Node
 
         foreach (Node child in GetChildren()){
             if (child is Weapon sprite)
-                AddWeapon(sprite);
+                InitWeapon(sprite);
         }
         weapons[0].AddModule(new BuckshotModule());
         Weapon w2 = (Weapon)weaponScene.Instantiate();
@@ -76,6 +76,21 @@ public partial class WeaponManager : Node
     public void AddWeapon(Weapon weapon){
         weapons.Add(weapon);
         AddChild(weapon, true);
+        if (weapons.Count == 1) { 
+            leftWeaponIndex = 0; 
+        }
+        if (weapons.Count == 2) { 
+            rightWeaponIndex = 1; 
+        }
+    }
+
+    /// <summary>
+    /// Adds an existing Weapon to WeaponManager's list of weapons without causing an error. 
+    /// <para>If this is the only weapon in the list, binds it to LMB</para>
+    /// <para>If this is the second weapon in the list, binds it to RMB</para>
+    /// </summary>
+    public void InitWeapon(Weapon weapon){
+        weapons.Add(weapon);
         if (weapons.Count == 1) { 
             leftWeaponIndex = 0; 
         }
