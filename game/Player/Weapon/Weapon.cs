@@ -26,12 +26,14 @@ public partial class Weapon : Sprite2D
     private double timeSinceLastShot;
 
 
-
+    Control pause;
     private WeaponManager weaponManager;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
+        pause = (Control)GetNode("/root/Main/Player/PlayerBody/SwapDrop");
+        pause.Hide();
         weaponManager = (WeaponManager)GetNode("../");
         bulletSpawn = (Marker2D)GetChild(0);
         playerSprite = (Sprite2D)GetNode("/root/Main/Player/PlayerBody/PlayerSprite");
@@ -78,24 +80,39 @@ public partial class Weapon : Sprite2D
                 return;
             }
 		}
+        GetTree().Paused = true;
+        pause.Show();
+
         GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
 	}
 
     /// <summary> Removes the module closest to the end of weaponModules.
     /// <para>Also increments weaponModulesSize and adds the module as a child.</para></summary>
     /// <param name="module">The module that will be added.</param>
-    public void RemoveModule()
+    
+    public void RemoveModule(int num = -1)
     {
-        for (int i = weaponModules.Length - 1; i >= 0 ; i--)
+        if(num == -1)
         {
-            if (weaponModules[i] != null)
+            for (int i = weaponModules.Length - 1; i >= 0; i--)
             {
-                Module justRemoved = weaponModules[i];
-                weaponModules[i] = null;
-                RemoveChild(justRemoved);
-                weaponModulesSize--;
-                return;
+                if (weaponModules[i] != null)
+                {
+                    Module justRemoved = weaponModules[i];
+                    weaponModules[i] = null;
+                    RemoveChild(justRemoved);
+                    weaponModulesSize--;
+                    return;
+                }
             }
+        }
+        else
+        {
+            Module justRemoved = weaponModules[num];
+            weaponModules[num] = null;
+            RemoveChild(justRemoved);
+            weaponModulesSize--;
+            return;
         }
         GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
     }
@@ -116,5 +133,14 @@ public partial class Weapon : Sprite2D
         }
         return sprites;
     }
+    public void butonSwap(int num, Module mod)
+    {
+        RemoveModule(num);
+        AddModule(mod);
+        pause.Hide();
+        GetTree().Paused = false;
+    }
+
+
 
 }
