@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=3 uid="uid://gfd8yniw6adk"]
+
+[ext_resource type="Script" path="res://Overlays/PlayerUiManager.cs" id="1_yqvap"]
+[ext_resource type="Texture2D" uid="uid://deqlm0npwy647" path="res://Overlays/active_bullet.png" id="2_m3sch"]
+[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/bullet.png" id="3_dv5ld"]
+[ext_resource type="Texture2D" uid="uid://gqupn8y5j5gi" path="res://Overlays/next_bullet.png" id="4_hvq80"]
+
+[node name="PlayerUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqvap")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 50.0
+value = 100.0
+
+[node name="Timer" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 20.0
+offset_right = 1132.0
+offset_bottom = 50.0
+max_value = 60.0
+value = 60.0
+show_percentage = false
+
+[node name="Kills" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 603.0
+offset_right = 220.0
+offset_bottom = 628.0
+bbcode_enabled = true
+text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25] Kills: 0[/font_size][/font][/color]"
+
+[node name="TimerDisplay" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 882.0
+offset_top = 22.0
+offset_right = 1082.0
+offset_bottom = 47.0
+bbcode_enabled = true
+text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25] Time Remaining: 60[/font_size][/font][/color]"
+
+[node name="NextBullet" type="Sprite2D" parent="."]
+position = Vector2(967, 603)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_m3sch")
+
+[node name="DisplayBullet" type="Sprite2D" parent="NextBullet"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_dv5ld")
+
+[node name="NextBullet2" type="Sprite2D" parent="."]
+position = Vector2(1037, 603)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_hvq80")
+
+[node name="DisplayBullet" type="Sprite2D" parent="NextBullet2"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_dv5ld")
+
+[node name="NextBullet3" type="Sprite2D" parent="."]
+position = Vector2(1107, 603)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_hvq80")
+
+[node name="DisplayBullet" type="Sprite2D" parent="NextBullet3"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_dv5ld")
+
+[node name="NextBullet4" type="Sprite2D" parent="."]
+position = Vector2(967, 544)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_m3sch")
+
+[node name="DisplayBullet" type="Sprite2D" parent="NextBullet4"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_dv5ld")
+
+[node name="NextBullet5" type="Sprite2D" parent="."]
+position = Vector2(1037, 544)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_hvq80")
+
+[node name="DisplayBullet" type="Sprite2D" parent="NextBullet5"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_dv5ld")
+
+[node name="NextBullet6" type="Sprite2D" parent="."]
+position = Vector2(1107, 544)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_hvq80")
+
+[node name="DisplayBullet" type="Sprite2D" parent="NextBullet6"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_dv5ld")

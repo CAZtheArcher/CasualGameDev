@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc6tvg064nani"]
+
+[ext_resource type="Script" path="res://Levels/MainMenu/Start.cs" id="1_p0a6c"]
+[ext_resource type="Script" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_d8o0k"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Start" type="Button" parent="."]
+offset_left = 540.0
+offset_top = 333.0
+offset_right = 586.0
+offset_bottom = 364.0
+text = "Start"
+script = ExtResource("1_p0a6c")
+
+[node name="Exit to Desktop" type="Button" parent="."]
+offset_left = 501.0
+offset_top = 394.0
+offset_right = 626.0
+offset_bottom = 425.0
+text = "Exit to Desktop"
+script = ExtResource("2_d8o0k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_top = 150.0
+offset_right = 1152.0
+offset_bottom = 250.0
+bbcode_enabled = true
+text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=100][center]APPLIANCE ASSAULT[/center][/font_size][/font][/color]"

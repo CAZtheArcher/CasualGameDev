@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l6ois6prjvab"
-path="res://.godot/imported/enemy_temp.png-559843e27ce8c50a2e5ad8599ed44bcb.ctex"
+uid="uid://by2rscp4bypcv"
+path="res://.godot/imported/VacuumTelegraph3.png-fbea068dc8ed7d919e936a43b1f1891f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/enemy_temp.png"
-dest_files=["res://.godot/imported/enemy_temp.png-559843e27ce8c50a2e5ad8599ed44bcb.ctex"]
+source_file="res://Enemy/Vacuum/VacuumTelegraph3.png"
+dest_files=["res://.godot/imported/VacuumTelegraph3.png-fbea068dc8ed7d919e936a43b1f1891f.ctex"]
 
 [params]
 

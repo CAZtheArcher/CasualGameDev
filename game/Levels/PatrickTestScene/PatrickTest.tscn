@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkb5ir3wrmc2l"]
+
+[ext_resource type="Texture2D" uid="uid://cv0h38v3len3g" path="res://Sprites/stone.png" id="1_7u2o3"]
+[ext_resource type="PackedScene" uid="uid://thw2lf5s8cii" path="res://Player/Player.tscn" id="2_il3pw"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Sprite2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+position = Vector2(-13, 22)
+scale = Vector2(6.15247, 4.02318)
+color = Color(0.31, 0.267943, 0.2418, 1)
+texture = ExtResource("1_7u2o3")
+texture_scale = Vector2(250, 250)
+polygon = PackedVector2Array(-960, 960, -960, -960, 960, -960, 960, 960)
+uv = PackedVector2Array(0, 1920, 0, 0, 1920, 0, 1920, 1920)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="Player" parent="." instance=ExtResource("2_il3pw")]
