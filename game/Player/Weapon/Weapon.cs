@@ -35,7 +35,7 @@ public partial class Weapon : Sprite2D
         weaponManager = (WeaponManager)GetNode("../");
         bulletSpawn = (Marker2D)GetChild(0);
         playerSprite = (Sprite2D)GetNode("/root/Main/Player/PlayerBody/PlayerSprite");
-        fireRate = 1f / 8f; // 8 per second
+        fireRate = 0.433f; // 8 per second
         timeSinceLastShot = fireRate; // Can fire immediately upon spawning.
         weaponModules = new Module[4]; // Weapon can hold a default 4 modules.
         weaponModulesSize = 0; // There is a single BasicBulletModule slotted into the weapon.

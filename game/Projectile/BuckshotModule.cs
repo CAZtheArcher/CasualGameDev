@@ -28,8 +28,10 @@ public partial class BuckshotModule : Module {
             
             pellet_instance.GlobalPosition = parent.BulletSpawn.GlobalPosition;
             float rotation = parent.PlayerSprite.Rotation;
-            rotation += (float)(rng.Next(pelletSpreadVariance) * Math.PI / 180);
-            rotation -= (float)(rng.Next(pelletSpreadVariance) * Math.PI / 180 / 2);
+            if(i != 0){ // First pellet has no spread.
+                rotation += (float)(rng.Next(pelletSpreadVariance) * Math.PI / 180);
+                rotation -= (float)(rng.Next(pelletSpreadVariance) * Math.PI / 180 / 2);
+            }
             pellet_instance.Rotation = rotation;
 
             GetTree().Root.AddChild(pellet_instance);
