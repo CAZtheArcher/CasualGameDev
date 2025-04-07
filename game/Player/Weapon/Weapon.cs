@@ -78,7 +78,7 @@ public partial class Weapon : Sprite2D
                 return;
             }
 		}
-        GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
+        //GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
 	}
 
     /// <summary> Removes the module closest to the end of weaponModules.
@@ -97,7 +97,7 @@ public partial class Weapon : Sprite2D
                 return;
             }
         }
-        GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
+        //GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
     }
 
     public void SlotExpand() { Array.Resize(ref weaponModules, weaponModules.Length + 1); }
