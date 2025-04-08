@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://thw2lf5s8cii"]
+[gd_scene load_steps=8 format=3 uid="uid://thw2lf5s8cii"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_ybvti"]
 [ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Player/player_temp.png" id="2_cm1vq"]
 [ext_resource type="PackedScene" uid="uid://r1cuxdmp53iy" path="res://Player/WeaponManager/WeaponManager.tscn" id="3_83vbc"]
 [ext_resource type="PackedScene" uid="uid://ddlrpdxfw77gg" path="res://Player/Weapon/Weapon.tscn" id="3_nla60"]
+[ext_resource type="Script" path="res://Levels/MainMenu/Drop.cs" id="6_s3wk3"]
 [ext_resource type="PackedScene" uid="uid://gfd8yniw6adk" path="res://Overlays/PlayerUi.tscn" id="6_yu4jo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oy6"]
@@ -29,3 +30,30 @@ shape = SubResource("RectangleShape2D_l3oy6")
 [node name="Camera2D" type="Camera2D" parent="PlayerBody"]
 
 [node name="PlayerUi" parent="PlayerBody" instance=ExtResource("6_yu4jo")]
+
+[node name="SwapDrop" type="Control" parent="PlayerBody"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -578.0
+offset_top = -323.0
+offset_right = 575.0
+offset_bottom = 323.0
+
+[node name="Button" type="Button" parent="PlayerBody/SwapDrop"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 498.0
+offset_top = 175.0
+offset_right = 652.0
+offset_bottom = 255.0
+text = "drop"
+script = ExtResource("6_s3wk3")
+
+[node name="poause" type="Control" parent="PlayerBody"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -23.0
+offset_top = 65.0
+offset_right = 17.0
+offset_bottom = 105.0

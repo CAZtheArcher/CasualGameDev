@@ -8,6 +8,7 @@ public partial class Start : Button{
 	}
 
     private void Clicked(){
-		GetTree().ChangeSceneToFile("res://Main.tscn");
+        GD.PrintErr("dos work?");
+        GetTree().ChangeSceneToFile("res://Main.tscn");
     }
 }
