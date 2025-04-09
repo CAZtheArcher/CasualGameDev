@@ -9,6 +9,7 @@ public partial class BuckshotModule : Module {
     private short pelletCount;
     private short pelletSpreadVariance; // Degrees
     private Random rng;
+    //private float offset = 90 * (Mathf.Pi / 180);
 
     public override void _Ready()
     {

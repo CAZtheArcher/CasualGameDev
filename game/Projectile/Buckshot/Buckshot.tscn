@@ -10,11 +10,11 @@ script = ExtResource("1_wpj53")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-rotation = 1.5708
 scale = Vector2(0.928571, 1)
 texture = ExtResource("2_c3c6t")
 
 [node name="Area2D" type="Area2D" parent="."]
+rotation = -1.5708
 collision_layer = 5
 collision_mask = 2
 
