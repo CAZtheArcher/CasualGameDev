@@ -65,7 +65,8 @@ public partial class Weapon : Sprite2D
     /// <summary> Adds 'module' to the weapon, at the first available empty spot.
     /// <para>Also increments weaponModulesSize and adds the module as a child.</para></summary>
     /// <param name="module">The module that will be added.</param>
-    public void AddModule(Module module)
+    /// <returns>True, if the module was added.  False if it was not added.</returns>
+    public bool AddModule(Module module)
 	{
 		for (int i = 0; i < weaponModules.Length; i++) 
 		{
@@ -75,10 +76,11 @@ public partial class Weapon : Sprite2D
                 // Modules need to be added as children of Weapon to be able to add things to the scene.
                 AddChild(weaponModules[i]);
                 weaponModulesSize++;
-                return;
+                return true;
             }
 		}
-        GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
+        GD.Print("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
+        return false;
 	}
 
     /// <summary> Removes the module closest to the end of weaponModules.

@@ -31,8 +31,8 @@ public partial class Item : Area2D
     private void CollisionDetected(Node2D body)
     {
         if(body.GetType() == typeof(Player)){
-            weaponManager.LeftWeapon.AddModule(itemType);
-            QueueFree();  // Remove the item from the scene
+            if(weaponManager.LeftWeapon.AddModule(itemType))
+                QueueFree();  // Remove the item from the scene, if AddModule was successful
         }
         else{
             GD.PrintErr("Item (" + this + ") just collided with " + body.GetType() + " (" + body + ") which is not a Player. This should not happen.");
