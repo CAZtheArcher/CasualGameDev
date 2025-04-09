@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://thw2lf5s8cii"]
 
-[ext_resource type="Script" path="res://Player/Player.cs" id="1_ybvti"]
+[ext_resource type="Script" uid="uid://dt6gwv1xnxvjm" path="res://Player/Player.cs" id="1_ybvti"]
 [ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Player/player_temp.png" id="2_cm1vq"]
 [ext_resource type="PackedScene" uid="uid://r1cuxdmp53iy" path="res://Player/WeaponManager/WeaponManager.tscn" id="3_83vbc"]
 [ext_resource type="PackedScene" uid="uid://ddlrpdxfw77gg" path="res://Player/Weapon/Weapon.tscn" id="3_nla60"]

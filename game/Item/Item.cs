@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Item : RigidBody2D
+public partial class Item : Area2D
 { 
     Weapon inst; 
     [Export]
@@ -21,28 +21,25 @@ public partial class Item : RigidBody2D
         weaponManager = (WeaponManager)GetNode("/root/Main/Player/PlayerBody/PlayerSprite/WeaponManager");
         player = (Node2D)GetNode("/root/Main/Player/PlayerBody");
     }
+
     public void spawn(Vector2 position, Module itemType)
     {
         this.Position = position;
         this.itemType = itemType;
     }
-    //work in progres
-    private void _on_Item_body_entered()
+
+    private void CollisionDetected(Node2D body)
     {
-        if (((this.Position.Y + 20 > player.Position.Y) && (this.Position.Y - 20 < player.Position.Y)) && ((this.Position.X + 20 > player.Position.X) && (this.Position.X - 20 < player.Position.X)))  // Check if the player collided with the item
-        {
-            //GD.Print(itemType);
+        if(body.GetType() == typeof(Player)){
             weaponManager.LeftWeapon.AddModule(itemType);
-            // Emit the signal for pickup
             QueueFree();  // Remove the item from the scene
+        }
+        else{
+            GD.PrintErr("Item (" + this + ") just collided with " + body.GetType() + " (" + body + ") which is not a Player. This should not happen.");
         }
     }
 
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-        _on_Item_body_entered();
-
     }
 }
