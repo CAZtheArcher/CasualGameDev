@@ -33,7 +33,7 @@ public partial class Weapon : Sprite2D
     public override void _Ready()
 	{
         pause = (Control)GetNode("/root/Main/Player/PlayerBody/SwapDrop");
-        //pause.Hide();
+        pause.Hide();
         weaponManager = (WeaponManager)GetNode("../");
         bulletSpawn = (Marker2D)GetChild(0);
         playerSprite = (Sprite2D)GetNode("/root/Main/Player/PlayerBody/PlayerSprite");
@@ -42,9 +42,7 @@ public partial class Weapon : Sprite2D
         weaponModules = new Module[4]; // Weapon can hold a default 4 modules.
         weaponModulesSize = 0; // There is a single BasicBulletModule slotted into the weapon.
         AddModule(new BasicBulletModule());// Weapon has one BasicBulletModule installed by default.
-        AddModule(new BasicBulletModule());
-        AddModule(new BasicBulletModule());
-        AddModule(new BasicBulletModule());
+        
        
 
 

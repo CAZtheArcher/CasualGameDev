@@ -57,3 +57,19 @@ offset_left = -23.0
 offset_top = 65.0
 offset_right = 17.0
 offset_bottom = 105.0
+
+[node name="pause" type="Control" parent="PlayerBody"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -101.0
+offset_top = -117.0
+offset_right = 84.0
+offset_bottom = -14.0
+
+[node name="TextEdit" type="TextEdit" parent="PlayerBody/pause"]
+layout_mode = 0
+offset_left = -59.0
+offset_top = 6.0
+offset_right = 273.0
+offset_bottom = 41.0
+text = "the game is paused prese Esc to unpause"

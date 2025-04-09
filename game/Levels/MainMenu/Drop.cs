@@ -10,7 +10,7 @@ public partial class Drop : Button
     public override void _Ready()
     {
         //pause = (Control)GetNode("/root/Main/Player/PlayerBody/SwapDrop");
-        weapon = (Weapon)GetNode("/root/Main/Player/PlayerBody/PlayerSprite/WeaponSprite");
+        weapon = (Weapon)GetNode("/root/Main/Player/PlayerBody/PlayerSprite/WeaponManager/Weapon");
         pause = (Control)GetNode("/root/Main/Player/PlayerBody/SwapDrop");
         this.Pressed += Clicked;
         
