@@ -42,10 +42,6 @@ public partial class Weapon : Sprite2D
         weaponModules = new Module[4]; // Weapon can hold a default 4 modules.
         weaponModulesSize = 0; // There is a single BasicBulletModule slotted into the weapon.
         AddModule(new BasicBulletModule());// Weapon has one BasicBulletModule installed by default.
-        
-       
-
-
         currentModule = 0; // Weapon fires the module in slot 1 (index 0) first.
     }
 
@@ -98,13 +94,15 @@ public partial class Weapon : Sprite2D
     {
         if(num == -1)
         {
-            if (weaponModules[i] != null)
-            {
-                Module justRemoved = weaponModules[i];
-                weaponModules[i] = null;
-                RemoveChild(justRemoved);
-                weaponModulesSize--;
-                return;
+            for (int i = weaponModules.Length - 1; i >= 0; i--) {
+                if (weaponModules[i] != null)
+                {
+                    Module justRemoved = weaponModules[i];
+                    weaponModules[i] = null;
+                    RemoveChild(justRemoved);
+                    weaponModulesSize--;
+                    return;
+                }
             }
         }
         //GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
