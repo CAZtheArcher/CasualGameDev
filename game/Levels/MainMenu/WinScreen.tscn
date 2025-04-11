@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b558ml4d28ciw"]
 
-[ext_resource type="Script" path="res://Levels/MainMenu/Start.cs" id="1_dx04m"]
-[ext_resource type="Script" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_v4qvw"]
+[ext_resource type="Script" uid="uid://2gkjn6yd8jdc" path="res://Levels/MainMenu/Start.cs" id="1_dx04m"]
+[ext_resource type="Script" uid="uid://dqy670mf620n4" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_v4qvw"]
 
 [node name="WinScreen" type="Node2D"]
 
