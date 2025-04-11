@@ -7,7 +7,8 @@ public partial class Player : CharacterBody2D
 {
     float speed = 300;
 	int health = 5;
-	public Vector2 direction = new Vector2();
+    public float offset = 90 * (Mathf.Pi / 180);
+    public Vector2 direction = new Vector2();
     private float minRotRadians;
     private float maxRotRadians;
     private float InitRot = 0f;
@@ -53,6 +54,6 @@ public partial class Player : CharacterBody2D
 		GetInput();
 		MoveAndSlide();
         pouse();
-        playerSprite.Rotation = GetAngleTo(GetGlobalMousePosition());
+        playerSprite.Rotation = GetAngleTo(GetGlobalMousePosition()) + offset;
     }
 }

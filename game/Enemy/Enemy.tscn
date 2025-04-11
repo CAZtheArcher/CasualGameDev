@@ -12,7 +12,6 @@ mass = 0.01
 gravity_scale = 0.0
 can_sleep = false
 script = ExtResource("1_gxctd")
-velocity = null
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(3, -3)

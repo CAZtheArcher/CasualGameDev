@@ -87,7 +87,7 @@ public partial class Weapon : Sprite2D
         GetTree().Paused = true;
         pause.Show();
 
-        GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
+        //GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
 	}
 
     /// <summary> Removes the module closest to the end of weaponModules.
@@ -98,27 +98,16 @@ public partial class Weapon : Sprite2D
     {
         if(num == -1)
         {
-            for (int i = weaponModules.Length - 1; i >= 0; i--)
+            if (weaponModules[i] != null)
             {
-                if (weaponModules[i] != null)
-                {
-                    Module justRemoved = weaponModules[i];
-                    weaponModules[i] = null;
-                    RemoveChild(justRemoved);
-                    weaponModulesSize--;
-                    return;
-                }
+                Module justRemoved = weaponModules[i];
+                weaponModules[i] = null;
+                RemoveChild(justRemoved);
+                weaponModulesSize--;
+                return;
             }
         }
-        else
-        {
-            Module justRemoved = weaponModules[num];
-            weaponModules[num] = null;
-            RemoveChild(justRemoved);
-            weaponModulesSize--;
-            return;
-        }
-        GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
+        //GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
     }
 
     public void SlotExpand() { Array.Resize(ref weaponModules, weaponModules.Length + 1); }
