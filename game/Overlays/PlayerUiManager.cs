@@ -14,7 +14,6 @@ public partial class PlayerUiManager : Control
     Sprite2D rwNextBullet2;
     Sprite2D rwNextBullet3;
     int kills = 0;
-    bool winCon = true;
     bool firstErr = false;
 
     public override void _Ready()
@@ -37,11 +36,10 @@ public partial class PlayerUiManager : Control
         timer.Value -= delta;
         int timerValue = Convert.ToInt32(Math.Ceiling(timer.Value));
         timerLabel.Text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25] Time Remaining: " + timerValue + "[/font_size][/font][/color]";
-        if (timer.Value <= 0 && winCon)
+        if (timer.Value <= 0)
         {
             //win condition/level transition
             CallDeferred("GameWin");
-            winCon = false;
         }
     }
 
