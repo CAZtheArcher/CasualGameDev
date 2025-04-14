@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4trbrw5rgaau" path="res://Player/PlayerSprite.png" id="2_pl5t6"]
 [ext_resource type="PackedScene" uid="uid://r1cuxdmp53iy" path="res://Player/WeaponManager/WeaponManager.tscn" id="3_83vbc"]
 [ext_resource type="PackedScene" uid="uid://ddlrpdxfw77gg" path="res://Player/Weapon/Weapon.tscn" id="3_nla60"]
-[ext_resource type="Script" uid="uid://ccerrdok05tj6" path="res://Levels/MainMenu/Drop.cs" id="6_s3wk3"]
+[ext_resource type="Script" path="res://Levels/MainMenu/Drop.cs" id="6_s3wk3"]
 [ext_resource type="PackedScene" uid="uid://gfd8yniw6adk" path="res://Overlays/PlayerUi.tscn" id="6_yu4jo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oy6"]
@@ -24,6 +24,7 @@ texture = ExtResource("2_pl5t6")
 
 [node name="Weapon" parent="PlayerBody/PlayerSprite/WeaponManager" instance=ExtResource("3_nla60")]
 position = Vector2(24, 0)
+rotation = 1.5708
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="PlayerBody"]
 shape = SubResource("RectangleShape2D_l3oy6")
