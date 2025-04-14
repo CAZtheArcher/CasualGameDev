@@ -33,11 +33,11 @@ public partial class WeaponManager : Node
             if (child is Weapon sprite)
                 InitWeapon(sprite);
         }
-        weapons[0].AddModule(new BuckshotModule());
+        weapons[0].AddModule(new BasicBulletModule());
         Weapon w2 = (Weapon)weaponScene.Instantiate();
         AddWeapon(w2);
         w2.RemoveModule();
-        w2.AddModule(new SlugModule());
+        w2.AddModule(new BasicBulletModule());
 
         String[] spritePaths = LeftWeapon.GetNextModuleIcons();
         UIManager.CallDeferred(nameof(UIManager.UpdateBulletSprite), spritePaths[0], spritePaths[1], spritePaths[2], false);
