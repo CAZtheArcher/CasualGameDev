@@ -58,13 +58,10 @@ public partial class EnemyManager : Node
 
     public void addEnemy()
     {
-        if (random.NextSingle() < 0.35)
-        {
-            enemies.Add(vacuumEnemyScene.Instantiate<Vacuum>());
-            AddChild(enemies[enemies.Count - 1]);
-            return;
-        }
-        enemies.Add(scene.Instantiate<Enemy>());
+        Enemy enemy;
+        if(random.NextSingle() < 0.35){enemy = vacuumEnemyScene.Instantiate<Vacuum>();}
+        else{enemy = scene.Instantiate<Enemy>();}
+        enemies.Add(enemy);
         AddChild(enemies[enemies.Count - 1]);
     }
 
