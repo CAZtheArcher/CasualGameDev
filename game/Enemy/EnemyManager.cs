@@ -16,7 +16,6 @@ public partial class EnemyManager : Node
 
     Random random;
 
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
         countdown = spawnDelay;
@@ -28,7 +27,6 @@ public partial class EnemyManager : Node
         addEnemy(); 
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
 		UIManager.DecrementTime(delta);
@@ -51,7 +49,6 @@ public partial class EnemyManager : Node
                 spawnDelay = 10 / totalTime;
                 break;
             case 1:
-
                 break;
 		}
     }
