@@ -23,8 +23,8 @@ texture = ExtResource("2_pl5t6")
 [node name="WeaponManager" parent="PlayerBody/PlayerSprite" instance=ExtResource("3_83vbc")]
 
 [node name="Weapon" parent="PlayerBody/PlayerSprite/WeaponManager" instance=ExtResource("3_nla60")]
-position = Vector2(0, -24)
-rotation = 1.5708
+position = Vector2(0, -100)
+scale = Vector2(3, 3)
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="PlayerBody"]
 shape = SubResource("RectangleShape2D_l3oy6")
