@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 public partial class Player : CharacterBody2D
 {
-    float speed = 300;
+    float speed = 250;
 	int health = 5;
 	public Vector2 direction = new Vector2();
     private float minRotRadians;

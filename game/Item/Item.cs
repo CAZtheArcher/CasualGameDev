@@ -4,18 +4,14 @@ using System;
 public partial class Item : Area2D
 { 
     Weapon inst; 
-    [Export]
-    Module itemType;
-    [Export]
-    int itemLevel;
-    [Export]
-    Weapon weaponType;
+    [Export] Module itemType;
+    [Export] int itemLevel;
+    [Export] Weapon weaponType;
 
     Node2D player;
 
     WeaponManager weaponManager;
 
-    // Setup the collision signal
     public override void _Ready()
     {
         weaponManager = (WeaponManager)GetNode("/root/Main/Player/PlayerBody/PlayerSprite/WeaponManager");
@@ -37,9 +33,5 @@ public partial class Item : Area2D
         else{
             GD.PrintErr("Item (" + this + ") just collided with " + body.GetType() + " (" + body + ") which is not a Player. This should not happen.");
         }
-    }
-
-    public override void _Process(double delta)
-    {
     }
 }
