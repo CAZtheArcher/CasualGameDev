@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgdrqfot2516l"]
+
+[ext_resource type="Script" uid="uid://ci7thw54nl8cd" path="res://Projectile/Helix/Helix.cs" id="1_2uue0"]
+[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/bullet.png" id="2_2rjsn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fp3t"]
+radius = 10.7
+
+[node name="Helix" type="Node2D"]
+script = ExtResource("1_2uue0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(0.928571, 1)
+texture = ExtResource("2_2rjsn")
+centered = false
+offset = Vector2(-7, -16)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7, 0)
+rotation = 1.5708
+scale = Vector2(0.52, 0.605)
+shape = SubResource("CapsuleShape2D_1fp3t")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D"]
+position = Vector2(6, -1)
+scale = Vector2(5.95, 4.1)
+
+[connection signal="body_entered" from="Area2D" to="." method="OnArea2DBodyEntered"]
+[connection signal="screen_exited" from="Area2D/VisibleOnScreenNotifier2D" to="." method="OnVisibleOnScreenNotifier2DScreenExited"]
