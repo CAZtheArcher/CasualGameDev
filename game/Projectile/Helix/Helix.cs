@@ -26,7 +26,9 @@ public partial class Helix : Projectile
         timeSinceInstantiation += (float)delta;
         var currentYPosition = Position[1];
         currentYPosition = Mathf.Sin(timeSinceInstantiation);
-        Position.Y = currentYPosition;
+
+        // Sin() goes from -1 to 1
+        this.Position += new Vector2(0, currentYPosition);
 
         base._Process(delta);
 	}
