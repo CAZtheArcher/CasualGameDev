@@ -37,6 +37,11 @@ public partial class Item : RigidBody2D
                 weaponManager.LeftWeapon.AddModule(itemType);
                 QueueFree();
             }
+            else if(Input.IsActionPressed("swapRight"))
+            {
+                weaponManager.RightWeapon.AddModule(itemType);
+                QueueFree();
+            }
             //weaponManager.LeftWeapon.AddModule(itemType);
             // Emit the signal for pickup
             //QueueFree();  // Remove the item from the scene

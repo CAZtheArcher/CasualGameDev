@@ -39,7 +39,7 @@ public partial class Weapon : Sprite2D
         playerSprite = (Sprite2D)GetNode("/root/Main/Player/PlayerBody/PlayerSprite");
         fireRate = 1f / 8f; // 8 per second
         timeSinceLastShot = fireRate; // Can fire immediately upon spawning.
-        weaponModules = new Module[2]; // Weapon can hold a default 4 modules.
+        weaponModules = new Module[1]; // Weapon can hold a default 4 modules.
         weaponModulesSize = 0; // There is a single BasicBulletModule slotted into the weapon.
        // AddModule(new BasicBulletModule());// Weapon has one BasicBulletModule installed by default.
         currentModule = 0; // Weapon fires the module in slot 1 (index 0) first.
@@ -80,9 +80,13 @@ public partial class Weapon : Sprite2D
                 return;
             }
             GD.PrintErr(module);
-            weaponModules[0] = null;
-            //weaponModules[1] = null;
+            RemoveModule();
             weaponModules[0] = module;
+            AddChild(weaponModules[0]);
+            weaponModulesSize++;
+            return;
+            //weaponModules[1] = null;
+
         }
         //GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
 	}
