@@ -80,13 +80,7 @@ public partial class PlayerUiManager : Control
 
     }
 
-    public void UpdateBulletSprite(string sprite1, string sprite2, string sprite3){
-        // If which weapon is not specified, defaults to left.
-        // Ensures compatibility with pre-existing code. 
-        UpdateBulletSprite(sprite1, sprite2, sprite3, true);
-    }
-
-    public void UpdateBulletSprite(string sprite1, string sprite2, string sprite3, bool isLeftWeapon)
+    public void UpdateBulletSprite(string sprite1, string sprite2, string sprite3, bool isLeftWeapon = true)
     {
         try{
             if (isLeftWeapon){
