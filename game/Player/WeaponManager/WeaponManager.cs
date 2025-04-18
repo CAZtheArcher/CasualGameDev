@@ -29,14 +29,16 @@ public partial class WeaponManager : Node
         weaponScene = GD.Load<PackedScene>("res://Player/Weapon/Weapon.tscn");
         UIManager = (PlayerUiManager)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
 
+        // Find preexisting weapons and add them
         foreach (Node child in GetChildren()){
             if (child is Weapon sprite)
                 InitWeapon(sprite);
         }
-        weapons[0].AddModule(new BuckshotModule());
+
+        weapons[0].AddModule(new HelixModule());
+
         Weapon w2 = (Weapon)weaponScene.Instantiate();
         AddWeapon(w2);
-        w2.RemoveModule();
         w2.AddModule(new SlugModule());
 
         String[] spritePaths = LeftWeapon.GetNextModuleIcons();

@@ -8,6 +8,12 @@ using System;
 public partial class Helix : Projectile
 {
     float timeSinceInstantiation;
+    /// <summary> How many times, per second, this helix will move like a wave</summary>
+    int cyclesPerSecond;
+    /// <summary> How large the wave movement will be</summary>
+    int cycleDistance;
+
+    bool reversed;
 
     public override void _Ready()
 	{
@@ -15,21 +21,31 @@ public partial class Helix : Projectile
         velocity = 600;
 		damage = 5;
 		pierce = 2;
+
         timeSinceInstantiation = 0;
+        cyclesPerSecond = (int)velocity / 30;
+        cycleDistance = 200;
+        reversed = false;
     }
 
 	public override void _Process(double delta)
 	{
-        // Move in the direction it was fired in
-        // this.Position += this.Transform.X * velocity * (float)delta;
-
         timeSinceInstantiation += (float)delta;
-        var currentYPosition = Position[1];
-        currentYPosition = Mathf.Sin(timeSinceInstantiation);
+        Vector2 waveVector = new Vector2(
+            Mathf.Cos(timeSinceInstantiation * cyclesPerSecond) * cycleDistance, 
+            Mathf.Sin(timeSinceInstantiation * cyclesPerSecond) * cycleDistance);
+        waveVector.Rotated(Rotation);
 
-        // Sin() goes from -1 to 1
-        this.Position += new Vector2(0, currentYPosition);
+        if(reversed) this.Position += new Vector2(-waveVector.X * (float)delta, -waveVector.Y * (float)delta);
+        else this.Position += new Vector2(waveVector.X * (float)delta, waveVector.Y * (float)delta);
 
-        base._Process(delta);
-	}
+        // Move in the direction it was fired in
+        this.Position += this.Transform.X * velocity * (float)delta;
+    }
+
+    /// <summary>Reverses the direction in which the helix projectile wiggles</summary>
+    public void ReverseWave()
+    {
+        reversed = !reversed;
+    }
 }
