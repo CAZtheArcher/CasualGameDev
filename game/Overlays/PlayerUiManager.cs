@@ -52,7 +52,7 @@ public partial class PlayerUiManager : Control
     public void IncrementKills()
     {
         kills++;
-        killLabel.Text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25] Kills: " + kills + "[/font_size][/font][/color]";
+        killLabel.Text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25] Kills: " + kills + " [/font_size][/font][/color]";
     }
 
     public void DecrementHealth(int value)

@@ -80,9 +80,11 @@ public partial class Weapon : Sprite2D
                 return;
             }
             GD.PrintErr(module);
-            weaponModules[0] = null;
-            //weaponModules[1] = null;
+            RemoveModule();
             weaponModules[0] = module;
+            AddChild(weaponModules[0]);
+            weaponModulesSize++;
+            return;
         }
         //GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
 	}

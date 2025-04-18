@@ -123,11 +123,18 @@ public partial class Enemy : RigidBody2D
 
     public void EnemyDie()
     {
+        UIManager.CallDeferred("IncrementKills");
         if ((float)(random.Next(3)) == 0 && (!itemDropped))
         {
-            UIManager.IncrementKills();
             item.Add(scene.Instantiate<Item>());
-            item[item.Count - 1].spawn(this.Position, new BuckshotModule());
+            if ((float)(random.Next(2)) == 0)
+            {
+                item[item.Count - 1].spawn(this.Position, new BuckshotModule());
+            }
+            else
+            {
+                item[item.Count - 1].spawn(this.Position, new SlugModule());
+            }
             GetTree().Root.CallDeferred("add_child", item[item.Count - 1]);
             //GD.Print("Item spawned");
             itemDropped = true;
