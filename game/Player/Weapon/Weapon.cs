@@ -84,9 +84,9 @@ public partial class Weapon : Sprite2D
             weaponModules[0] = module;
             AddChild(weaponModules[0]);
             weaponModulesSize++;
-            return false;
         }
         //GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
+            return false;
 	}
 
     /// <summary> Removes the module closest to the end of weaponModules.

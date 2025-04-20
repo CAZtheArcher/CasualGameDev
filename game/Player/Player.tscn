@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://thw2lf5s8cii"]
 
 [ext_resource type="Script" uid="uid://dt6gwv1xnxvjm" path="res://Player/Player.cs" id="1_ybvti"]
-[ext_resource type="Texture2D" uid="uid://duat1ifxfqe4o" path="res://Player/player_temp.png" id="2_cm1vq"]
+[ext_resource type="Texture2D" uid="uid://b4trbrw5rgaau" path="res://Player/PlayerSprite.png" id="2_6ysni"]
 [ext_resource type="PackedScene" uid="uid://r1cuxdmp53iy" path="res://Player/WeaponManager/WeaponManager.tscn" id="3_83vbc"]
 [ext_resource type="PackedScene" uid="uid://ddlrpdxfw77gg" path="res://Player/Weapon/Weapon.tscn" id="3_nla60"]
 [ext_resource type="Script" uid="uid://ccerrdok05tj6" path="res://Levels/MainMenu/Drop.cs" id="6_s3wk3"]
@@ -18,7 +18,7 @@ script = ExtResource("1_ybvti")
 
 [node name="PlayerSprite" type="Sprite2D" parent="PlayerBody"]
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_pl5t6")
+texture = ExtResource("2_6ysni")
 
 [node name="WeaponManager" parent="PlayerBody/PlayerSprite" instance=ExtResource("3_83vbc")]
 

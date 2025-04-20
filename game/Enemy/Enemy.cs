@@ -129,15 +129,15 @@ public partial class Enemy : RigidBody2D
             alreadyDied = true;
             if ((float)(random.Next(5)) == 0)
             {
-                    item.Add(scene.Instantiate<Item>());
-            if ((float)(random.Next(2)) == 0)
-            {
+                item.Add(scene.Instantiate<Item>());
+                if ((float)(random.Next(2)) == 0)
+                {
                     item[item.Count - 1].spawn(this.Position, new BuckshotModule());
-            }
-            else
-            {
-                item[item.Count - 1].spawn(this.Position, new SlugModule());
-            }
+                }
+                else
+                {
+                    item[item.Count - 1].spawn(this.Position, new SlugModule());
+                }
                 GetTree().Root.CallDeferred("add_child", item[item.Count - 1]);
                 //GD.Print("Item spawned");
             }
