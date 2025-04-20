@@ -37,11 +37,10 @@ public partial class Weapon : Sprite2D
         weaponManager = (WeaponManager)GetNode("../");
         bulletSpawn = (Marker2D)GetChild(0);
         playerSprite = (Sprite2D)GetNode("/root/Main/Player/PlayerBody/PlayerSprite");
-        fireRate = 1f / 8f; // 8 per second
+        fireRate = 0.433f; // 8 per second
         timeSinceLastShot = fireRate; // Can fire immediately upon spawning.
-        weaponModules = new Module[2]; // Weapon can hold a default 4 modules.
-        weaponModulesSize = 0; // There is a single BasicBulletModule slotted into the weapon.
-       // AddModule(new BasicBulletModule());// Weapon has one BasicBulletModule installed by default.
+        weaponModules = new Module[4]; // Weapon can hold a default 4 modules.
+        weaponModulesSize = 0;
         currentModule = 0; // Weapon fires the module in slot 1 (index 0) first.
     }
 
@@ -67,7 +66,8 @@ public partial class Weapon : Sprite2D
     /// <summary> Adds 'module' to the weapon, at the first available empty spot.
     /// <para>Also increments weaponModulesSize and adds the module as a child.</para></summary>
     /// <param name="module">The module that will be added.</param>
-    public void AddModule(Module module)
+    /// <returns>True, if the module was added.  False if it was not added.</returns>
+    public bool AddModule(Module module)
 	{
 		for (int i = 0; i < weaponModules.Length; i++) 
 		{
@@ -77,14 +77,14 @@ public partial class Weapon : Sprite2D
                 // Modules need to be added as children of Weapon to be able to add things to the scene.
                 AddChild(weaponModules[i]);
                 weaponModulesSize++;
-                return;
+                return true;
             }
             GD.PrintErr(module);
             RemoveModule();
             weaponModules[0] = module;
             AddChild(weaponModules[0]);
             weaponModulesSize++;
-            return;
+            return false;
         }
         //GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
 	}
