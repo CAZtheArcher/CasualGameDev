@@ -32,9 +32,9 @@ public partial class Helix : Projectile
 	{
         timeSinceInstantiation += (float)delta;
         Vector2 waveVector = new Vector2(
-            Mathf.Cos(timeSinceInstantiation * cyclesPerSecond) * cycleDistance, 
+            Mathf.Sin(timeSinceInstantiation * cyclesPerSecond) * cycleDistance, 
             Mathf.Sin(timeSinceInstantiation * cyclesPerSecond) * cycleDistance);
-        waveVector.Rotated(Rotation);
+        waveVector = waveVector.Rotated(Rotation - 0.785398f/*45 degrees*/);
 
         if(reversed) this.Position += new Vector2(-waveVector.X * (float)delta, -waveVector.Y * (float)delta);
         else this.Position += new Vector2(waveVector.X * (float)delta, waveVector.Y * (float)delta);
