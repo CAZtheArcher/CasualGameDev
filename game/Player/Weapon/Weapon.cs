@@ -107,6 +107,22 @@ public partial class Weapon : Sprite2D
         string sprite;
         int accessModule = 0;
         sprite = weaponModules[accessModule].SpritePath;
+        switch(sprite){
+            case "res://Projectile/bullet.png":
+            sprite = "res://Overlays/Pistol(BasicBullet).png";
+                break;
+            case "res://Projectile/Slug/Slug.png":
+            sprite = "res://Overlays/RiotGrenade(Slug).png";
+                break;
+            case "res://Projectile/Helix/Helix.png":
+            sprite = "res://Overlays/HelixGun.png";
+                break;
+            case "res://Projectile/Buckshot/Buckshot.png":
+            sprite = "res://Overlays/Shotgun(Pellets).png";
+                break;
+            default:
+                break;
+        }
         return sprite;
     }
     public void butonSwap(int num, Module mod)

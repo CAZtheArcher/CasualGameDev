@@ -11,7 +11,7 @@ public partial class HelixModule : Module {
     {
         base._Ready();
         helixScene = GD.Load<PackedScene>("res://Projectile/Helix/Helix.tscn");
-        spritePath = "res://Projectile/bullet.png";
+        spritePath = "res://Projectile/Helix/Helix.png";
     }
 
     /// <summary>Fires a BasicBullet.</summary>
