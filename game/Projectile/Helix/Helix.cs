@@ -23,8 +23,8 @@ public partial class Helix : Projectile
 		pierce = 2;
 
         timeSinceInstantiation = 0;
-        cyclesPerSecond = (int)velocity / 30;
-        cycleDistance = 200;
+        cyclesPerSecond = (int)velocity / 25;
+        cycleDistance = 120;
         reversed = false;
     }
 
