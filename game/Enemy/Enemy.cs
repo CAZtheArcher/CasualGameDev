@@ -130,9 +130,14 @@ public partial class Enemy : RigidBody2D
             if ((float)(random.Next(5)) == 0)
             {
                 item.Add(scene.Instantiate<Item>());
-                if ((float)(random.Next(2)) == 0)
+                int rngesus = random.Next(3);
+                if (rngesus == 0)
                 {
                     item[item.Count - 1].spawn(this.Position, new BuckshotModule());
+                }
+                else if (rngesus == 1)
+                {
+                    item[item.Count - 1].spawn(this.Position, new HelixModule());
                 }
                 else
                 {
