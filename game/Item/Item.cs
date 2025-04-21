@@ -26,14 +26,18 @@ public partial class Item : Area2D
 
     private void CollisionDetected(Node2D body)
     {
-        if(body.GetType() == typeof(Player)){
-            if(Input.IsActionPressed("swapL"))
+        if(body.GetType() == typeof(Player))
+        {
+            GD.Print("PlayerCollisionDetected");
+            if (Input.IsActionPressed("swapL"))
             {
+                GD.Print("Left Weapon Swap");
                 weaponManager.LeftWeapon.AddModule(itemType);
                 QueueFree();
             }
             else if (Input.IsActionPressed("swapR"))
             {
+                GD.Print("Right Weapon Swap");
                 weaponManager.RightWeapon.AddModule(itemType);
                 QueueFree();
             }
