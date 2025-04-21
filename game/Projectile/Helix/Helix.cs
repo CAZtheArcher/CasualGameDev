@@ -40,7 +40,7 @@ public partial class Helix : Projectile
         else this.Position += new Vector2(waveVector.X * (float)delta, waveVector.Y * (float)delta);
 
         // Move in the direction it was fired in
-        this.Position += this.Transform.X * velocity * (float)delta;
+        this.Position += this.Transform.Y * -1 * velocity * (float)delta;
     }
 
     /// <summary>Reverses the direction in which the helix projectile wiggles</summary>
