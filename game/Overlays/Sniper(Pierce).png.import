@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deqlm0npwy647"
-path="res://.godot/imported/active_bullet.png-a22755a20f29e7afad4dabc913749d68.ctex"
+uid="uid://bwoaycy147e4t"
+path="res://.godot/imported/Sniper(Pierce).png-6170162503640346ee7293bd081098fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overlays/active_bullet.png"
-dest_files=["res://.godot/imported/active_bullet.png-a22755a20f29e7afad4dabc913749d68.ctex"]
+source_file="res://Overlays/Sniper(Pierce).png"
+dest_files=["res://.godot/imported/Sniper(Pierce).png-6170162503640346ee7293bd081098fc.ctex"]
 
 [params]
 

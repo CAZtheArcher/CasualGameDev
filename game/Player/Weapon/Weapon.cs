@@ -102,18 +102,12 @@ public partial class Weapon : Sprite2D
     public void SlotExpand() { Array.Resize(ref weaponModules, weaponModules.Length + 1); }
     public void SlotShrink() { Array.Resize(ref weaponModules, weaponModules.Length - 1); }
 
-    public String[] GetNextModuleIcons()
+    public String GetNextModuleIcons()
     {
-        string[] sprites = { "", "", "" };
-        int count = 0;
-        for (int i = currentModule; i < currentModule + 3; i++)
-        {
-            int accessModule = i;
-            while (accessModule >= weaponModulesSize) { accessModule -= weaponModulesSize; if (weaponModulesSize == 0) { accessModule = 0; break; } }
-            sprites[count] = weaponModules[accessModule].SpritePath;
-            count++;
-        }
-        return sprites;
+        string sprite;
+        int accessModule = 0;
+        sprite = weaponModules[accessModule].SpritePath;
+        return sprite;
     }
     public void butonSwap(int num, Module mod)
     {

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlj1c4xrnoi1q"
-path="res://.godot/imported/ammo_count_sprite.png-b4ae9b1ff8d051801d077af77ee26889.ctex"
+uid="uid://d2lp2kfra1tc4"
+path="res://.godot/imported/Pistol(BasicBullet).png-565bfbdb4e5ff03b6d0874f4d9d6a9bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overlays/ammo_count_sprite.png"
-dest_files=["res://.godot/imported/ammo_count_sprite.png-b4ae9b1ff8d051801d077af77ee26889.ctex"]
+source_file="res://Overlays/Pistol(BasicBullet).png"
+dest_files=["res://.godot/imported/Pistol(BasicBullet).png-565bfbdb4e5ff03b6d0874f4d9d6a9bc.ctex"]
 
 [params]
 

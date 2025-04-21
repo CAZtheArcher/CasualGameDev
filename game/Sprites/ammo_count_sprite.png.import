@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwoaycy147e4t"
-path="res://.godot/imported/Sniper(Pierce).png-392f7f182b6bf39e4fe9fec35f62b56a.ctex"
+uid="uid://dlj1c4xrnoi1q"
+path="res://.godot/imported/ammo_count_sprite.png-5646a58581140762342e6d7d6c7708ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Sniper(Pierce).png"
-dest_files=["res://.godot/imported/Sniper(Pierce).png-392f7f182b6bf39e4fe9fec35f62b56a.ctex"]
+source_file="res://Sprites/ammo_count_sprite.png"
+dest_files=["res://.godot/imported/ammo_count_sprite.png-5646a58581140762342e6d7d6c7708ce.ctex"]
 
 [params]
 

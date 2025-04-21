@@ -55,8 +55,9 @@ public partial class WeaponManager : Node
             {
                 //GD.Print("LEFT weapon fired." + LeftWeapon + leftWeaponIndex);
                 weapons[leftWeaponIndex].ActivateNextModule();
-                String[] spritePaths = LeftWeapon.GetNextModuleIcons();
-                UIManager.UpdateBulletSprite(spritePaths[0], spritePaths[1], spritePaths[2], false);
+                //String[] spritePaths = LeftWeapon.GetNextModuleIcons();
+                String spritePath = "";
+                UIManager.UpdateBulletSprite(spritePath, false);
             }
         }
         if (rightWeaponIndex >= 0) // If there is a weapon in the right hand
@@ -65,8 +66,9 @@ public partial class WeaponManager : Node
             {
                 //GD.Print("Right weapon fired." + RightWeapon + rightWeaponIndex);
                 weapons[rightWeaponIndex].ActivateNextModule();
-                String[] spritePaths = RightWeapon.GetNextModuleIcons();
-                UIManager.UpdateBulletSprite(spritePaths[0], spritePaths[1], spritePaths[2], true);
+                //String[] spritePaths = RightWeapon.GetNextModuleIcons();
+                String spritePath = "";
+                UIManager.UpdateBulletSprite(spritePath, true);
             }
         }
     }

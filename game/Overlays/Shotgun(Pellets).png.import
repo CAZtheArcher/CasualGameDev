@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gqupn8y5j5gi"
-path="res://.godot/imported/next_bullet.png-2904b2494755abc95c3fa28814c3751c.ctex"
+uid="uid://cwsgvwfpui1eg"
+path="res://.godot/imported/Shotgun(Pellets).png-a29e355934de7be3792f5c56c55fe901.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overlays/next_bullet.png"
-dest_files=["res://.godot/imported/next_bullet.png-2904b2494755abc95c3fa28814c3751c.ctex"]
+source_file="res://Overlays/Shotgun(Pellets).png"
+dest_files=["res://.godot/imported/Shotgun(Pellets).png-a29e355934de7be3792f5c56c55fe901.ctex"]
 
 [params]
 

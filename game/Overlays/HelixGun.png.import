@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csv786um058vg"
-path="res://.godot/imported/RiotGrenade(Slug).png-363d0c215ed74937ff16a6e5f62a1b0e.ctex"
+uid="uid://chgm3agoahe43"
+path="res://.godot/imported/HelixGun.png-11c485ef9771167e1d0722de81add157.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/RiotGrenade(Slug).png"
-dest_files=["res://.godot/imported/RiotGrenade(Slug).png-363d0c215ed74937ff16a6e5f62a1b0e.ctex"]
+source_file="res://Overlays/HelixGun.png"
+dest_files=["res://.godot/imported/HelixGun.png-11c485ef9771167e1d0722de81add157.ctex"]
 
 [params]
 

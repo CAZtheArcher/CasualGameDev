@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwsgvwfpui1eg"
-path="res://.godot/imported/Shotgun(Pellets).png-689782d81c975b309c58fa58aecaed22.ctex"
+uid="uid://csv786um058vg"
+path="res://.godot/imported/RiotGrenade(Slug).png-efe898ef713e420d7812383239c0e583.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Shotgun(Pellets).png"
-dest_files=["res://.godot/imported/Shotgun(Pellets).png-689782d81c975b309c58fa58aecaed22.ctex"]
+source_file="res://Overlays/RiotGrenade(Slug).png"
+dest_files=["res://.godot/imported/RiotGrenade(Slug).png-efe898ef713e420d7812383239c0e583.ctex"]
 
 [params]
 
