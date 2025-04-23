@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bp2a1wwjkj475"]
 
-[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/bullet.png" id="1_5t16a"]
+[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/BasicBullet/BasicBullet.png" id="1_5t16a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cdeo6"]
 
