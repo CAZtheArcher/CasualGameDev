@@ -34,7 +34,7 @@ public partial class Item : Area2D
     {
         if (body.GetType() == typeof(Player))
         {
-            GD.Print("PlayerCollisionDetected - Item.cs");
+            //GD.Print("PlayerCollisionDetected - Item.cs");
             playerIsColliding = true;
         }
         else
@@ -47,7 +47,7 @@ public partial class Item : Area2D
     {
         if (body.GetType() == typeof(Player))
         {
-            GD.Print("PlayerCollisionNoLongerDetected - Item.cs");
+            //GD.Print("PlayerCollisionNoLongerDetected - Item.cs");
             playerIsColliding = false;
         }
         else
