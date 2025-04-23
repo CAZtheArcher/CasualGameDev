@@ -47,7 +47,7 @@ public partial class Enemy : RigidBody2D
 
         damage = 1;
         velocity = 100f;
-        radius = 400;
+        radius = 1000;
 
         random = new Random();
         player = (Player)GetNode("/root/Main/Player/PlayerBody");

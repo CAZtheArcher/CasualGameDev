@@ -19,7 +19,7 @@ public partial class Helix : Projectile
 	{
 		base._Ready();
         velocity = 600;
-		damage = 5;
+		damage = 4;
 		pierce = 2;
 
         timeSinceInstantiation = 0;
