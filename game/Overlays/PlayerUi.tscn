@@ -62,6 +62,14 @@ texture = ExtResource("2_oyev7")
 [node name="EquippedLeftWeapon" type="Sprite2D" parent="LeftWeapon"]
 texture = ExtResource("3_pmops")
 
+[node name="LeftTextLabel" type="RichTextLabel" parent="LeftWeapon"]
+offset_left = -200.0
+offset_top = -75.0
+offset_right = -100.0
+offset_bottom = -50.0
+bbcode_enabled = true
+text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25]Primary[/font_size][/font][/color]"
+
 [node name="RightWeapon" type="Sprite2D" parent="."]
 position = Vector2(1032, 613)
 scale = Vector2(0.5, 0.5)
@@ -69,3 +77,11 @@ texture = ExtResource("2_oyev7")
 
 [node name="EquippedRightWeapon" type="Sprite2D" parent="RightWeapon"]
 texture = ExtResource("4_1smal")
+
+[node name="RightTextLabel" type="RichTextLabel" parent="RightWeapon"]
+offset_left = -200.0
+offset_top = -75.0
+offset_right = -100.0
+offset_bottom = -50.0
+bbcode_enabled = true
+text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25]Secondary[/font_size][/font][/color]"
