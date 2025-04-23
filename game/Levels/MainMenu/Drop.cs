@@ -3,11 +3,10 @@ using System;
 
 public partial class Drop : Button
 {
-    // Called when the node enters the scene tree for the first time.
     private Control pause;
     private Control otherpause;
     Module mod;
-    // Called when the node enters the scene tree for the first time.
+
     public override void _Ready()
     {
         //pause = (Control)GetNode("/root/Main/Player/PlayerBody/SwapDrop");

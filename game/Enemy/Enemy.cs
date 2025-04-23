@@ -43,11 +43,11 @@ public partial class Enemy : RigidBody2D
     public override void _Ready(){
         // These two make collision work.
         ContactMonitor = true;
-        MaxContactsReported = 999;
+        MaxContactsReported = 32;
 
         damage = 1;
         velocity = 100f;
-        radius = 400;
+        radius = 800;
 
         random = new Random();
         player = (Player)GetNode("/root/Main/Player/PlayerBody");
