@@ -15,9 +15,11 @@ public partial class PlayerUiManager : Control
     Sprite2D rwNextBullet3;
     int kills = 0;
     bool firstErr = false;
+    EnemyManager enMan;
 
     public override void _Ready()
     {
+        enMan = (EnemyManager)GetNode("/root/Main/enemyManager");
         timer = (ProgressBar)GetNode("Timer");
         killLabel = (RichTextLabel)GetNode("Kills");
         timerLabel = (RichTextLabel)GetNode("TimerDisplay");
@@ -39,7 +41,8 @@ public partial class PlayerUiManager : Control
         if (timer.Value <= 0)
         {
             //win condition/level transition
-            CallDeferred("GameWin");
+            //CallDeferred("GameWin");
+            timer.MaxValue = enMan.LevelTrans();
         }
     }
 

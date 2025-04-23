@@ -4,27 +4,31 @@ using System.Collections;
 using System.Collections.Generic;
 
 public partial class EnemyManager : Node
-{ 
+{
+    public Resource Data;
     PackedScene scene = GD.Load<PackedScene>("res://Enemy/Enemy.tscn");
     PackedScene vacuumEnemyScene;
     List<Enemy> enemies = new List<Enemy>();
+    int[] levels = { 30, 60, 90, 120 };
     PlayerUiManager UIManager;
     double spawnDelay = 2;
 	double countdown;
 	double totalTime = 0;
 	int level = 0;
+    RichTextLabel levelWin;
 
     Random random;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
-	{
+    {
+        DirAccess.MakeDirAbsolute("/root/Data.tres");
         countdown = spawnDelay;
         UIManager = (PlayerUiManager)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
 
         random = new Random();
         vacuumEnemyScene = GD.Load<PackedScene>("res://Enemy/Vacuum/Vacuum.tscn");
-        
+
         addEnemy(); 
     }
 
@@ -43,17 +47,45 @@ public partial class EnemyManager : Node
                     countdown = spawnDelay;
                     addEnemy();
                 }
-                if (totalTime >= 60)
-                {
-                    level++;
-                    //level transition scene
-                }
                 spawnDelay = 10 / totalTime;
                 break;
             case 1:
-
+                if (countdown <= 0)
+                {
+                    countdown = spawnDelay;
+                    addEnemy();
+                }
+                spawnDelay = 10 / totalTime;
                 break;
-		}
+            case 2:
+                if (countdown <= 0)
+                {
+                    countdown = spawnDelay;
+                    addEnemy();
+                }
+                spawnDelay = 10 / totalTime;
+                break;
+            case 3:
+                if (countdown <= 0)
+                {
+                    countdown = spawnDelay;
+                    addEnemy();
+                }
+                spawnDelay = 10 / totalTime;
+                break;
+        }
+    }
+
+    public void LevelUpdate(int lev)
+    {
+        level = lev;
+    }
+
+    public int LevelTrans()
+    {
+        level++;
+        CallDeferred("DelaySwitch");
+        return levels[level];
     }
 
     public void addEnemy()
@@ -76,4 +108,9 @@ public partial class EnemyManager : Node
             AddChild(enemies[enemies.Count - 1]);
         }
     }
+    public void DelaySwitch()
+    {
+        GetTree().ChangeSceneToFile("res://Levels/MainMenu/LevelScene.tscn");
+    }
+
 }

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cv0h38v3len3g" path="res://Sprites/stone.png" id="1_fxylj"]
 [ext_resource type="PackedScene" uid="uid://thw2lf5s8cii" path="res://Player/Player.tscn" id="3_45x1i"]
-[ext_resource type="Script" uid="uid://ch5cqogae8ive" path="res://Enemy/EnemyManager.cs" id="3_awo5e"]
+[ext_resource type="Script" path="res://Enemy/EnemyManager.cs" id="3_awo5e"]
 [ext_resource type="PackedScene" uid="uid://dkopxoxf8twm" path="res://Enemy/Vacuum/Vacuum.tscn" id="4_7qpqx"]
 
 [node name="Main" type="Node2D"]

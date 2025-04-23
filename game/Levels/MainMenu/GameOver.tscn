@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ba717hpy0v3fc"]
 
-[ext_resource type="Script" uid="uid://2gkjn6yd8jdc" path="res://Levels/MainMenu/Start.cs" id="1_iy3gt"]
-[ext_resource type="Script" uid="uid://dqy670mf620n4" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_o8hg1"]
+[ext_resource type="Script" path="res://Levels/MainMenu/Start.cs" id="1_iy3gt"]
+[ext_resource type="Script" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_o8hg1"]
 
 [node name="GameOver" type="Node2D"]
 
@@ -10,7 +10,7 @@ offset_left = 526.0
 offset_top = 333.0
 offset_right = 626.0
 offset_bottom = 364.0
-text = "New Game?"
+text = "New Game"
 script = ExtResource("1_iy3gt")
 
 [node name="ExitToDesktop" type="Button" parent="."]

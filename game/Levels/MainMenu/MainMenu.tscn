@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6o7l72pb7dg7"]
 
-[ext_resource type="Script" uid="uid://2gkjn6yd8jdc" path="res://Levels/MainMenu/Start.cs" id="1_p0a6c"]
-[ext_resource type="Script" uid="uid://dqy670mf620n4" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_d8o0k"]
+[ext_resource type="Script" path="res://Levels/MainMenu/Start.cs" id="1_p0a6c"]
+[ext_resource type="Script" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_d8o0k"]
 
 [node name="MainMenu" type="Node2D"]
 
