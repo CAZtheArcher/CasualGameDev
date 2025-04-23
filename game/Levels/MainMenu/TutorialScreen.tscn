@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8trctxg3rml6"]
+
+[ext_resource type="Script" uid="uid://b1q28tpg40gbu" path="res://Levels/MainMenu/Play.cs" id="1_3ytwj"]
+[ext_resource type="Script" uid="uid://buved86o051e" path="res://Levels/MainMenu/ReturnToTitle.cs" id="2_5stb3"]
+
+[node name="TutorialScreen" type="Node2D"]
+
+[node name="Play" type="Button" parent="."]
+offset_left = 555.0
+offset_top = 508.0
+offset_right = 597.0
+offset_bottom = 539.0
+text = "Play"
+script = ExtResource("1_3ytwj")
+
+[node name="Title" type="Button" parent="."]
+offset_left = 515.0
+offset_top = 568.0
+offset_right = 637.0
+offset_bottom = 599.0
+text = "Return To Title"
+script = ExtResource("2_5stb3")
+
+[node name="TutorialText" type="RichTextLabel" parent="."]
+offset_top = 388.0
+offset_right = 1152.0
+offset_bottom = 488.0
+bbcode_enabled = true
+text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=30][center]Use 'WASD' or arrow keys to move. Aim with the cursor, and fire your primary weapon with left click, and your Secondary weapon with right click. use Q and E or 'Enter' and 'Shift' to swap Primary and Secondary weapons with items on the ground.[/center][/font_size][/font][/color]"
