@@ -13,11 +13,15 @@ public partial class Item : Area2D
 
     WeaponManager weaponManager;
 
+    /// <summary> Used to update the 'next bullet indicator' in the bottom right corner of the UI </summary>
+    private PlayerUiManager UIManager;
+
     public override void _Ready()
     {
         weaponManager = (WeaponManager)GetNode("/root/Main/Player/PlayerBody/PlayerSprite/WeaponManager");
         player = (Node2D)GetNode("/root/Main/Player/PlayerBody");
         playerIsColliding = false;
+        UIManager = (PlayerUiManager)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
     }
 
     public void spawn(Vector2 position, Module itemType)
@@ -57,13 +61,13 @@ public partial class Item : Area2D
     {
 
         if (Input.IsActionPressed("swapL") && playerIsColliding){
-            GD.Print("Left Weapon Swap");
+            //GD.Print("Left Weapon Swap");
             weaponManager.LeftWeapon.AddModule(itemType);
             playerIsColliding = false;
             QueueFree();
         }
         else if (Input.IsActionPressed("swapR") && playerIsColliding){
-            GD.Print("Right Weapon Swap");
+            //GD.Print("Right Weapon Swap");
             weaponManager.RightWeapon.AddModule(itemType);
             playerIsColliding = false;
             QueueFree();

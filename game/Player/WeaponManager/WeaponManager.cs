@@ -42,10 +42,10 @@ public partial class WeaponManager : Node
         w2.RemoveModule();
         w2.AddModule(new BasicBulletModule());
 
-        String[] spritePaths = LeftWeapon.GetNextModuleIcons();
-        UIManager.CallDeferred(nameof(UIManager.UpdateBulletSprite), spritePaths[0], spritePaths[1], spritePaths[2], false);
-        spritePaths = RightWeapon.GetNextModuleIcons();
-        UIManager.CallDeferred(nameof(UIManager.UpdateBulletSprite), spritePaths[0], spritePaths[1], spritePaths[2], true);
+        String spritePath = LeftWeapon.GetNextModuleIcons();
+        UIManager.CallDeferred(nameof(UIManager.UpdateBulletSprite), spritePath, true);
+        spritePath = RightWeapon.GetNextModuleIcons();
+        UIManager.CallDeferred(nameof(UIManager.UpdateBulletSprite), spritePath, false);
     }
 
     public override void _Process(double delta){
@@ -55,8 +55,9 @@ public partial class WeaponManager : Node
             {
                 //GD.Print("LEFT weapon fired." + LeftWeapon + leftWeaponIndex);
                 weapons[leftWeaponIndex].ActivateNextModule();
-                String[] spritePaths = LeftWeapon.GetNextModuleIcons();
-                UIManager.UpdateBulletSprite(spritePaths[0], spritePaths[1], spritePaths[2], false);
+                //String[] spritePaths = LeftWeapon.GetNextModuleIcons();
+                String spritePath = LeftWeapon.GetNextModuleIcons();
+                UIManager.UpdateBulletSprite(spritePath, true);
             }
         }
         if (rightWeaponIndex >= 0) // If there is a weapon in the right hand
@@ -65,8 +66,9 @@ public partial class WeaponManager : Node
             {
                 //GD.Print("Right weapon fired." + RightWeapon + rightWeaponIndex);
                 weapons[rightWeaponIndex].ActivateNextModule();
-                String[] spritePaths = RightWeapon.GetNextModuleIcons();
-                UIManager.UpdateBulletSprite(spritePaths[0], spritePaths[1], spritePaths[2], true);
+                //String[] spritePaths = RightWeapon.GetNextModuleIcons();
+                String spritePath = RightWeapon.GetNextModuleIcons();
+                UIManager.UpdateBulletSprite(spritePath, false);
             }
         }
     }
