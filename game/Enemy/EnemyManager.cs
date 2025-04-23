@@ -11,7 +11,7 @@ public partial class EnemyManager : Node
     PlayerUiManager UIManager;
     double spawnDelay = 2;
 	double countdown;
-	double totalTime = 0;
+	double totalTime = 5;
 	int level = 0;
 
     Random random;
