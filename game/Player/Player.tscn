@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://thw2lf5s8cii"]
+[gd_scene load_steps=9 format=3 uid="uid://thw2lf5s8cii"]
 
 [ext_resource type="Script" uid="uid://qvprqfffh1tj" path="res://Player/Player.cs" id="1_ybvti"]
 [ext_resource type="Texture2D" uid="uid://b4trbrw5rgaau" path="res://Player/PlayerSprite.png" id="2_pl5t6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ddlrpdxfw77gg" path="res://Player/Weapon/Weapon.tscn" id="3_nla60"]
 [ext_resource type="Script" uid="uid://ccerrdok05tj6" path="res://Levels/MainMenu/Drop.cs" id="6_s3wk3"]
 [ext_resource type="PackedScene" uid="uid://gfd8yniw6adk" path="res://Overlays/PlayerUi.tscn" id="6_yu4jo"]
+[ext_resource type="AudioStream" uid="uid://c32unjoafyyfx" path="res://secret-lab-194422.mp3" id="7_vlldt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oy6"]
 size = Vector2(26, 26)
@@ -86,3 +87,7 @@ offset_right = 173.0
 offset_bottom = 162.0
 text = "un poause"
 script = ExtResource("6_s3wk3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vlldt")
+volume_db = 2.222

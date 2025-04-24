@@ -123,9 +123,10 @@ public partial class Enemy : RigidBody2D
 
     public void EnemyDie()
     {
+        UIManager.IncrementKills();
         if ((float)(random.Next(3)) == 0 && (!itemDropped))
         {
-            UIManager.IncrementKills();
+            
             item.Add(scene.Instantiate<Item>());
             if ((float)(random.Next(2)) == 0 )
             {
