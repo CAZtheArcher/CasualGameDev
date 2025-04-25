@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://gfd8yniw6adk"]
+[gd_scene load_steps=6 format=3 uid="uid://gfd8yniw6adk"]
 
 [ext_resource type="Script" uid="uid://cj4aqqqaradre" path="res://Overlays/PlayerUiManager.cs" id="1_yqvap"]
 [ext_resource type="Texture2D" uid="uid://b5hwjokx3vwkm" path="res://Overlays/WeaponDisplayReady.png" id="2_oyev7"]
 [ext_resource type="Texture2D" uid="uid://chgm3agoahe43" path="res://Overlays/HelixGun.png" id="3_pmops"]
 [ext_resource type="Texture2D" uid="uid://d2lp2kfra1tc4" path="res://Overlays/Pistol(BasicBullet).png" id="4_1smal"]
+
+[sub_resource type="Theme" id="Theme_pmops"]
 
 [node name="PlayerUi" type="Control"]
 layout_mode = 3
@@ -24,6 +26,9 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 320.0
 offset_bottom = 50.0
+theme = SubResource("Theme_pmops")
+theme_override_colors/font_color = Color(0.914606, 4.71681e-06, 9.62615e-07, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 value = 100.0
 
 [node name="Timer" type="ProgressBar" parent="."]
