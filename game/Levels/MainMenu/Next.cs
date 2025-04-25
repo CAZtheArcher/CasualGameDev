@@ -2,8 +2,7 @@ using Godot;
 using System;
 
 public partial class Next : Button{
-    public Resource Data;
-    int level = 0;
+    Data data;
     RichTextLabel winLabel;
     EnemyManager enemyManager;
 
@@ -12,12 +11,13 @@ public partial class Next : Button{
 		this.Pressed += Clicked;
         //enemyManager = (EnemyManager)GetNode("res://Enemy/EnemyManager.cs");
         winLabel = (RichTextLabel)GetNode("/root/LevelScene/YouWin");
-        Data = ResourceLoader.Load("/root/Data.tres");
-        winLabel.Text = "[color=green][font=res://Fonts/VT323/VT323-Regular.ttf] [font_size=100][center]WAVE " + level + " COMPLETE[/center][/font_size][/font][/color]";
+        data = ResourceLoader.Load<Data>("res://Data.tres");
+        winLabel.Text = "[color=green][font=res://Fonts/VT323/VT323-Regular.ttf] [font_size=100][center]WAVE " + data.level + " COMPLETE[/center][/font_size][/font][/color]";
     }
 
     private void Clicked(){
-        GD.PrintErr("Level transition");
+        data.ChangeLevel();
+        GD.PrintErr("Level transition to " + data.level);
         //enemyManager.LevelUpdate(level);
         GetTree().ChangeSceneToFile("res://Main.tscn");
     }

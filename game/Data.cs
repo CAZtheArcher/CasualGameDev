@@ -6,7 +6,7 @@ public partial class Data : Resource
 {
 
     [Export]
-    int level;
+    public int level;
 
-    public void ChangeLevel() { level++; }
+    public int ChangeLevel() { level++; return level; }
 }

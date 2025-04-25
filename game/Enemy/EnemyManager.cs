@@ -2,10 +2,11 @@ using Godot;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public partial class EnemyManager : Node
 {
-    public Resource Data;
+    public Data data;
     PackedScene scene = GD.Load<PackedScene>("res://Enemy/Enemy.tscn");
     PackedScene vacuumEnemyScene;
     List<Enemy> enemies = new List<Enemy>();
@@ -14,7 +15,6 @@ public partial class EnemyManager : Node
     double spawnDelay = 2;
 	double countdown;
 	double totalTime = 0;
-	int level = 0;
     RichTextLabel levelWin;
 
     Random random;
@@ -22,8 +22,10 @@ public partial class EnemyManager : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
     {
-        DirAccess.MakeDirAbsolute("/root/Data.tres");
+        DirAccess.MakeDirAbsolute("res://Data.tres");
         countdown = spawnDelay;
+
+        data = ResourceLoader.Load<Data>("res://Data.tres");
         UIManager = (PlayerUiManager)GetNode("/root/Main/Player/PlayerBody/PlayerUi");
 
         random = new Random();
@@ -39,7 +41,7 @@ public partial class EnemyManager : Node
         countdown -= delta;
 		totalTime += delta;
 
-		switch (level)
+		switch (data.level)
 		{
 			case 0:
                 if (countdown <= 0)
@@ -78,14 +80,13 @@ public partial class EnemyManager : Node
 
     public void LevelUpdate(int lev)
     {
-        level = lev;
+        data.level = lev;
     }
 
     public int LevelTrans()
     {
-        level++;
-        CallDeferred("DelaySwitch");
-        return levels[level];
+            CallDeferred("DelaySwitch");
+            return levels[data.level + 1];
     }
 
     public void addEnemy()
@@ -113,4 +114,8 @@ public partial class EnemyManager : Node
         GetTree().ChangeSceneToFile("res://Levels/MainMenu/LevelScene.tscn");
     }
 
+    public void GameWin()
+    {
+        GetTree().ChangeSceneToFile("res://Levels/MainMenu/WinScreen.tscn");
+    }
 }
