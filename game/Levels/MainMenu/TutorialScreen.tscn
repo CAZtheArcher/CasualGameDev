@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8trctxg3rml6"]
+[gd_scene load_steps=7 format=3 uid="uid://c8trctxg3rml6"]
 
 [ext_resource type="Script" uid="uid://b1q28tpg40gbu" path="res://Levels/MainMenu/Play.cs" id="1_3ytwj"]
 [ext_resource type="Script" uid="uid://buved86o051e" path="res://Levels/MainMenu/ReturnToTitle.cs" id="2_5stb3"]
+[ext_resource type="Texture2D" uid="uid://bk3jaxdlmeecu" path="res://Sprites/ArrowKeys.png" id="3_rc133"]
+[ext_resource type="Texture2D" uid="uid://btltfk51hkqlo" path="res://Sprites/cursorImage.png" id="4_6srxw"]
+[ext_resource type="Texture2D" uid="uid://dhk4u5smocrdv" path="res://Sprites/Mouse.png" id="5_h1gwl"]
+[ext_resource type="Texture2D" uid="uid://creq06bjn3h3" path="res://Sprites/QEShiftEnter.png" id="6_6srxw"]
 
 [node name="TutorialScreen" type="Node2D"]
 
@@ -27,3 +31,21 @@ offset_right = 1152.0
 offset_bottom = 488.0
 bbcode_enabled = true
 text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=30][center]Use 'WASD' or arrow keys to move. Aim with the cursor, and fire your primary weapon with left click, and your Secondary weapon with right click. use Q and E or 'Enter' and 'Shift' to swap Primary and Secondary weapons with items on the ground.[/center][/font_size][/font][/color]"
+
+[node name="wasd_arrowbuttons" type="Sprite2D" parent="."]
+position = Vector2(230, 180)
+scale = Vector2(2, 2)
+texture = ExtResource("3_rc133")
+
+[node name="cursor" type="Sprite2D" parent="."]
+position = Vector2(420, 180)
+texture = ExtResource("4_6srxw")
+
+[node name="mouse" type="Sprite2D" parent="."]
+position = Vector2(540, 180)
+texture = ExtResource("5_h1gwl")
+
+[node name="swapbuttons" type="Sprite2D" parent="."]
+position = Vector2(750, 180)
+scale = Vector2(3, 3)
+texture = ExtResource("6_6srxw")
