@@ -21,7 +21,7 @@ public partial class BuckshotModule : Module {
         spritePath = "res://Projectile/Buckshot/Buckshot.png";
     }
 
-    /// <summary>Fires a BasicBullet.</summary>
+    /// <summary>Fires pelletCount buckshot pellets.</summary>
     public override void Activate()
     {
         for(byte i = 0; i < pelletCount; i++){
@@ -31,7 +31,7 @@ public partial class BuckshotModule : Module {
             float rotation = parent.PlayerSprite.Rotation;
             if(i != 0){ // First pellet has no spread.
                 rotation += (float)(rng.Next(pelletSpreadVariance) * Math.PI / 180);
-                rotation -= (float)(rng.Next(pelletSpreadVariance) * Math.PI / 180 / 2);
+                rotation -= (float)(pelletSpreadVariance * Math.PI / 180 / 2);
             }
             pellet_instance.Rotation = rotation;
 
