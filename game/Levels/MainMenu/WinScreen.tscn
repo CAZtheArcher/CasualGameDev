@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b558ml4d28ciw"]
 
-[ext_resource type="Script" uid="uid://2gkjn6yd8jdc" path="res://Levels/MainMenu/Start.cs" id="1_dx04m"]
+[ext_resource type="Script" uid="uid://b1q28tpg40gbu" path="res://Levels/MainMenu/Play.cs" id="1_fhble"]
 [ext_resource type="Script" uid="uid://dqy670mf620n4" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_v4qvw"]
 
 [node name="WinScreen" type="Node2D"]
@@ -11,7 +11,7 @@ offset_top = 333.0
 offset_right = 626.0
 offset_bottom = 364.0
 text = "New Game?"
-script = ExtResource("1_dx04m")
+script = ExtResource("1_fhble")
 
 [node name="ExitToDesktop" type="Button" parent="."]
 offset_left = 513.0
