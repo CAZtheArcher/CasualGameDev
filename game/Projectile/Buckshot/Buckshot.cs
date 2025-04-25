@@ -14,12 +14,12 @@ public partial class Buckshot : Projectile
 	public override void _Ready()
 	{
 		base._Ready();
-		speedVariance = 125;
-        velocity = 450;
+		speedVariance = 150;
+        velocity = 600;
 		baseVelocity = velocity;
 		velocity += new Random().Next(speedVariance) - speedVariance / 2;
 		pierce = 1;
-		damage = 1;
+		damage = 3;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

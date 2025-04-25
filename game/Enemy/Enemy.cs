@@ -38,16 +38,16 @@ public partial class Enemy : RigidBody2D
     /// <summary> Controls how long an enemy will flash red upon taking damage. </summary>
     protected double totalHitTimer;
     /// <summary> Prevents the spawning of multiple items if the enemy is killed multiple times in a single frame. </summary>
-    protected bool itemDropped = false; 
+    protected bool alreadyDied = false; 
 
     public override void _Ready(){
         // These two make collision work.
         ContactMonitor = true;
-        MaxContactsReported = 999;
+        MaxContactsReported = 32;
 
         damage = 1;
         velocity = 100f;
-        radius = 400;
+        radius = 800;
 
         random = new Random();
         player = (Player)GetNode("/root/Main/Player/PlayerBody");
@@ -123,23 +123,29 @@ public partial class Enemy : RigidBody2D
 
     public void EnemyDie()
     {
-        UIManager.IncrementKills();
-        if ((float)(random.Next(3)) == 0 && (!itemDropped))
-        {
-            
-            item.Add(scene.Instantiate<Item>());
-            if ((float)(random.Next(2)) == 0 )
+        UIManager.CallDeferred("IncrementKills");
+        // Prevents multiple dice rolls for an item drop, if multiple Projectiles kill this enemy in the same frame.
+        if (!alreadyDied) {
+            alreadyDied = true;
+            if ((float)(random.Next(5)) == 0)
             {
-                item[item.Count - 1].spawn(this.Position, new BuckshotModule());
+                item.Add(scene.Instantiate<Item>());
+                int rngesus = random.Next(3);
+                if (rngesus == 0)
+                {
+                    item[item.Count - 1].spawn(this.Position, new BuckshotModule());
+                }
+                else if (rngesus == 1)
+                {
+                    item[item.Count - 1].spawn(this.Position, new HelixModule());
+                }
+                else
+                {
+                    item[item.Count - 1].spawn(this.Position, new SlugModule());
+                }
+                GetTree().Root.CallDeferred("add_child", item[item.Count - 1]);
+                //GD.Print("Item spawned");
             }
-            else
-            {
-                item[item.Count - 1].spawn(this.Position, new SlugModule());
-            }
-            
-            GetTree().Root.CallDeferred("add_child", item[item.Count - 1]);
-            //GD.Print("Item spawned");
-            itemDropped = true;
         }
         this.QueueFree();
     }

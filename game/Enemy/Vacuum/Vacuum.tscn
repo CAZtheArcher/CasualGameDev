@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dkopxoxf8twm"]
 
-[ext_resource type="Script" uid="uid://cuknvl2dwy28y" path="res://Enemy/Vacuum/Vacuum.cs" id="1_epa7s"]
+[ext_resource type="Script" uid="uid://icg28vn1f30v" path="res://Enemy/Vacuum/Vacuum.cs" id="1_epa7s"]
 [ext_resource type="Texture2D" uid="uid://b67ysr42hafr2" path="res://Enemy/Vacuum/Vacuum.png" id="2_snqt1"]
 [ext_resource type="Texture2D" uid="uid://dk2olpkrcypxp" path="res://Enemy/Vacuum/VacuumTelegraph.png" id="2_v5o4r"]
 [ext_resource type="Texture2D" uid="uid://f6t4jqhr7wmm" path="res://Enemy/Vacuum/VacuumTelegraph1.png" id="3_jcv1k"]
