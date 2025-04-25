@@ -3,6 +3,7 @@ using System;
 
 public partial class PlayerUiManager : Control
 {
+    Data data;
     ProgressBar timer;
     RichTextLabel killLabel;
     RichTextLabel timerLabel;
@@ -19,6 +20,7 @@ public partial class PlayerUiManager : Control
 
     public override void _Ready()
     {
+        data = ResourceLoader.Load<Data>("res://Data.tres");
         enMan = (EnemyManager)GetNode("/root/Main/enemyManager");
         timer = (ProgressBar)GetNode("Timer");
         killLabel = (RichTextLabel)GetNode("Kills");
@@ -31,6 +33,9 @@ public partial class PlayerUiManager : Control
         rwNextBullet2 = (Sprite2D)GetNode("NextBullet5/DisplayBullet");
         rwNextBullet3 = (Sprite2D)GetNode("NextBullet6/DisplayBullet");
         healthbar.Value = healthbar.MaxValue;
+        timer.MaxValue = 30*data.level;
+        timer.Value = 30*data.level;
+        timerLabel.Text = timer.MaxValue.ToString();
     }
 
     public void DecrementTime(double delta)

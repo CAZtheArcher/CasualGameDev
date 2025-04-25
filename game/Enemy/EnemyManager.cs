@@ -86,6 +86,7 @@ public partial class EnemyManager : Node
     public int LevelTrans()
     {
             CallDeferred("DelaySwitch");
+            GD.Print(levels[data.level + 1]);
             return levels[data.level + 1];
     }
 
