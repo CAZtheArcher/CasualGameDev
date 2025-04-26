@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gqupn8y5j5gi"
-path="res://.godot/imported/next_bullet.png-2904b2494755abc95c3fa28814c3751c.ctex"
+uid="uid://bk3jaxdlmeecu"
+path="res://.godot/imported/ArrowKeys.png-ba3d28b17892ec38f3116fe3ca77f7b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overlays/next_bullet.png"
-dest_files=["res://.godot/imported/next_bullet.png-2904b2494755abc95c3fa28814c3751c.ctex"]
+source_file="res://Sprites/ArrowKeys.png"
+dest_files=["res://.godot/imported/ArrowKeys.png-ba3d28b17892ec38f3116fe3ca77f7b6.ctex"]
 
 [params]
 

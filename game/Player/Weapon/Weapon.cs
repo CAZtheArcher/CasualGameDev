@@ -37,11 +37,10 @@ public partial class Weapon : Sprite2D
         weaponManager = (WeaponManager)GetNode("../");
         bulletSpawn = (Marker2D)GetChild(0);
         playerSprite = (Sprite2D)GetNode("/root/Main/Player/PlayerBody/PlayerSprite");
-        fireRate = 1f / 8f; // 8 per second
+        fireRate = 0.433f; // 8 per second
         timeSinceLastShot = fireRate; // Can fire immediately upon spawning.
         weaponModules = new Module[1]; // Weapon can hold a default 4 modules.
         weaponModulesSize = 0; // There is a single BasicBulletModule slotted into the weapon.
-       // AddModule(new BasicBulletModule());// Weapon has one BasicBulletModule installed by default.
         currentModule = 0; // Weapon fires the module in slot 1 (index 0) first.
     }
 
@@ -67,28 +66,15 @@ public partial class Weapon : Sprite2D
     /// <summary> Adds 'module' to the weapon, at the first available empty spot.
     /// <para>Also increments weaponModulesSize and adds the module as a child.</para></summary>
     /// <param name="module">The module that will be added.</param>
-    public void AddModule(Module module)
+    /// <returns>True, if the module was added.  False if it was not added.</returns>
+    public bool AddModule(Module module)
 	{
-		for (int i = 0; i < weaponModules.Length; i++) 
-		{
-            if(weaponModules[i] == null)
-            {
-                weaponModules[i] = module;
-                // Modules need to be added as children of Weapon to be able to add things to the scene.
-                AddChild(weaponModules[i]);
-                weaponModulesSize++;
-                return;
-            }
-            GD.PrintErr(module);
-            RemoveModule();
-            weaponModules[0] = module;
-            AddChild(weaponModules[0]);
-            weaponModulesSize++;
-            return;
-            //weaponModules[1] = null;
-
-        }
+        RemoveModule();
+        weaponModules[0] = module;
+        AddChild(weaponModules[0]);
+        weaponModulesSize++;
         //GD.PrintErr("Weapon.AddModule - Weapon is at module capacity, nothing was changed.");
+        return false;
 	}
 
     /// <summary> Removes the module closest to the end of weaponModules.
@@ -116,18 +102,28 @@ public partial class Weapon : Sprite2D
     public void SlotExpand() { Array.Resize(ref weaponModules, weaponModules.Length + 1); }
     public void SlotShrink() { Array.Resize(ref weaponModules, weaponModules.Length - 1); }
 
-    public String[] GetNextModuleIcons()
+    public String GetNextModuleIcons()
     {
-        string[] sprites = { "", "", "" };
-        int count = 0;
-        for (int i = currentModule; i < currentModule + 3; i++)
-        {
-            int accessModule = i;
-            while (accessModule >= weaponModulesSize) { accessModule -= weaponModulesSize; if (weaponModulesSize == 0) { accessModule = 0; break; } }
-            sprites[count] = weaponModules[accessModule].SpritePath;
-            count++;
+        string sprite;
+        int accessModule = 0;
+        sprite = weaponModules[accessModule].SpritePath;
+        switch(sprite){
+            case "res://Projectile/bullet.png":
+            sprite = "res://Overlays/Pistol(BasicBullet).png";
+                break;
+            case "res://Projectile/Slug/Slug.png":
+            sprite = "res://Overlays/RiotGrenade(Slug).png";
+                break;
+            case "res://Projectile/Helix/Helix.png":
+            sprite = "res://Overlays/HelixGun.png";
+                break;
+            case "res://Projectile/Buckshot/Buckshot.png":
+            sprite = "res://Overlays/Shotgun(Pellets).png";
+                break;
+            default:
+                break;
         }
-        return sprites;
+        return sprite;
     }
     public void butonSwap(int num, Module mod)
     {

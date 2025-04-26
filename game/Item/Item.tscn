@@ -1,24 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://5sayynp76d4v"]
 
-[ext_resource type="Script" uid="uid://uqprfghm566i" path="res://Item/Item.cs" id="1_320sg"]
+[ext_resource type="Script" uid="uid://chbxlyki0aayr" path="res://Item/Item.cs" id="1_320sg"]
 [ext_resource type="Texture2D" uid="uid://wltxpa1k5ctx" path="res://Item/ItemTemp.png" id="2_t4vy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji50q"]
 size = Vector2(25.4558, 25.4558)
 
-[node name="Items" type="RigidBody2D"]
-collision_layer = 4
-collision_mask = 0
-gravity_scale = 0.0
+[node name="Items" type="Area2D"]
+collision_layer = 0
 script = ExtResource("1_320sg")
 itemLevel = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 0.785398
-scale = Vector2(-1, -1)
+rotation = -2.35619
 texture = ExtResource("2_t4vy3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.3487e-06, 0)
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_ji50q")
+
+[connection signal="body_entered" from="." to="." method="CollisionDetected"]
+[connection signal="body_exited" from="." to="." method="CollisionNoLongerDetected"]
