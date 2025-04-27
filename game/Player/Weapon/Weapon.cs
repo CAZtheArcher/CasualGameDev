@@ -120,6 +120,9 @@ public partial class Weapon : Sprite2D
             case "res://Projectile/Buckshot/Buckshot.png":
             sprite = "res://Overlays/Shotgun(Pellets).png";
                 break;
+            case "res://Projectile/sniper/Sniper_Bullet.png":
+            sprite = "res://Overlays/Sniper(Pierce).png";
+                break;
             default:
                 break;
         }

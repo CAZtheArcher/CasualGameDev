@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1jkvtjjnrtxy"]
 
 [ext_resource type="Script" uid="uid://cplamwkbts0g4" path="res://Projectile/sniper/OneShot.cs" id="1_hkuln"]
-[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/bullet.png" id="2_q0p6y"]
+[ext_resource type="Texture2D" uid="uid://dkn85qidejasb" path="res://Projectile/sniper/Sniper_Bullet.png" id="2_hkuln"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fp3t"]
 radius = 10.7
@@ -12,11 +12,11 @@ script = ExtResource("1_hkuln")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 8)
-scale = Vector2(0.928571, 2.30769)
-texture = ExtResource("2_q0p6y")
+position = Vector2(1, 8)
+scale = Vector2(1, 2.485)
+texture = ExtResource("2_hkuln")
 centered = false
-offset = Vector2(-7, -16)
+offset = Vector2(-6, -16)
 
 [node name="Area2D" type="Area2D" parent="."]
 rotation = -1.5708

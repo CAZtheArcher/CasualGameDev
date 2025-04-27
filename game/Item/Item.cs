@@ -50,23 +50,6 @@ public partial class Item : Area2D
             //GD.Print("PlayerCollisionNoLongerDetected - Item.cs");
             playerIsColliding = false;
         }
-        else
-        {
-            //GD.Print(itemType);
-            if(Input.IsActionPressed("swap"))
-            {
-                weaponManager.LeftWeapon.AddModule(itemType);
-                QueueFree();
-            }
-            else if(Input.IsActionPressed("swapRight"))
-            {
-                weaponManager.RightWeapon.AddModule(itemType);
-                QueueFree();
-            }
-            //weaponManager.LeftWeapon.AddModule(itemType);
-            // Emit the signal for pickup
-            //QueueFree();  // Remove the item from the scene
-        }
     }
 
 

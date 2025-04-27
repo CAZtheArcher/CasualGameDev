@@ -13,7 +13,7 @@ public partial class OneShotModule : Module {
     {
         base._Ready();
         OneShotScene = GD.Load<PackedScene>("res://Projectile/sniper/OneShot.tscn");
-        spritePath = "res://Projectile/bullet.png";
+        spritePath = "res://Projectile/sniper/Sniper_Bullet.png";
      
 
     }
