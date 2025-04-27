@@ -40,7 +40,7 @@ public partial class WeaponManager : Node
         Weapon w2 = (Weapon)weaponScene.Instantiate();
         AddWeapon(w2);
         w2.RemoveModule();
-        w2.AddModule(new BasicBulletModule());
+        w2.AddModule(new OneShotModule());
 
         String spritePath = LeftWeapon.GetNextModuleIcons();
         UIManager.CallDeferred(nameof(UIManager.UpdateBulletSprite), spritePath, true);

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1jkvtjjnrtxy"]
+
+[ext_resource type="Script" uid="uid://cplamwkbts0g4" path="res://Projectile/sniper/OneShot.cs" id="1_hkuln"]
+[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/bullet.png" id="2_q0p6y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fp3t"]
+radius = 10.7
+height = 76.0331
+
+[node name="OneSHot" type="Node2D"]
+script = ExtResource("1_hkuln")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(0.928571, 2.30769)
+texture = ExtResource("2_q0p6y")
+centered = false
+offset = Vector2(-7, -16)
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = -1.5708
+collision_layer = 5
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 1.086e-05)
+rotation = 1.5708
+scale = Vector2(0.52, 0.605)
+shape = SubResource("CapsuleShape2D_1fp3t")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D"]
+position = Vector2(5.00001, -3.00002)
+scale = Vector2(5.95, 4.1)
+
+[connection signal="body_entered" from="Area2D" to="." method="OnArea2DBodyEntered"]
+[connection signal="screen_exited" from="Area2D/VisibleOnScreenNotifier2D" to="." method="OnVisibleOnScreenNotifier2DScreenExited"]
