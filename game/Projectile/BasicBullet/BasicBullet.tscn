@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://2bfau3idx3sc"]
 
 [ext_resource type="Script" uid="uid://chqyt43owjg4t" path="res://Projectile/BasicBullet/BasicBullet.cs" id="1_8tk2b"]
-[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/bullet.png" id="2_6m2c1"]
+[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/BasicBullet/BasicBullet.png" id="2_6m2c1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fp3t"]
 radius = 10.7
@@ -11,13 +11,13 @@ script = ExtResource("1_8tk2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-rotation = 1.5708
 scale = Vector2(0.928571, 1)
 texture = ExtResource("2_6m2c1")
 centered = false
 offset = Vector2(-7, -16)
 
 [node name="Area2D" type="Area2D" parent="."]
+rotation = -1.5708
 collision_layer = 5
 collision_mask = 2
 

@@ -1,17 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6o7l72pb7dg7"]
+[gd_scene load_steps=5 format=3 uid="uid://c6o7l72pb7dg7"]
 
-[ext_resource type="Script" uid="uid://bs42j7ss080mc" path="res://Levels/MainMenu/Start.cs" id="1_p0a6c"]
-[ext_resource type="Script" uid="uid://1elqod0n6iqs" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_d8o0k"]
+[ext_resource type="Texture2D" uid="uid://d3cv7p6ndv74l" path="res://gametidel.png" id="1_g6pvw"]
+[ext_resource type="Script" uid="uid://2gkjn6yd8jdc" path="res://Levels/MainMenu/Start.cs" id="1_p0a6c"]
+[ext_resource type="Script" uid="uid://dqy670mf620n4" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_d8o0k"]
+[ext_resource type="Texture2D" uid="uid://coeorpqpadeei" path="res://Sprites/TextBackground.png" id="3_mp53d"]
 
 [node name="MainMenu" type="Node2D"]
 
-[node name="Start" type="Button" parent="."]
-offset_left = 540.0
-offset_top = 333.0
-offset_right = 586.0
-offset_bottom = 364.0
-text = "Start"
-script = ExtResource("1_p0a6c")
+[node name="Gametidel" type="Sprite2D" parent="."]
+position = Vector2(577, 329.5)
+scale = Vector2(1, 1.02315)
+texture = ExtResource("1_g6pvw")
 
 [node name="Exit to Desktop" type="Button" parent="."]
 offset_left = 501.0
@@ -22,8 +21,23 @@ text = "Exit to Desktop"
 script = ExtResource("2_d8o0k")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 2
 offset_top = 150.0
 offset_right = 1152.0
 offset_bottom = 250.0
 bbcode_enabled = true
 text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=100][center]APPLIANCE ASSAULT[/center][/font_size][/font][/color]"
+
+[node name="Sprite2D" type="Sprite2D" parent="RichTextLabel"]
+self_modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(575, 50)
+texture = ExtResource("3_mp53d")
+
+[node name="Start" type="Button" parent="."]
+offset_left = 540.0
+offset_top = 333.0
+offset_right = 586.0
+offset_bottom = 364.0
+text = "Start"
+script = ExtResource("1_p0a6c")

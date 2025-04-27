@@ -8,6 +8,6 @@ public partial class Start : Button{
 	}
 
     private void Clicked(){
-		GetTree().ChangeSceneToFile("res://Main.tscn");
+        GetTree().ChangeSceneToFile("res://Levels/MainMenu/TutorialScreen.tscn");
     }
 }

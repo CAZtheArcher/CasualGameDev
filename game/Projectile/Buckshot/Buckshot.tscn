@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhtu1c7y5v0t8"]
 
-[ext_resource type="Script" uid="uid://j500u5itpj6o" path="res://Projectile/Buckshot/Buckshot.cs" id="1_wpj53"]
+[ext_resource type="Script" uid="uid://cj13n6xusy50r" path="res://Projectile/Buckshot/Buckshot.cs" id="1_wpj53"]
 [ext_resource type="Texture2D" uid="uid://bgvy627mltwvg" path="res://Projectile/Buckshot/Buckshot.png" id="2_c3c6t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0c7gx"]
@@ -10,11 +10,11 @@ script = ExtResource("1_wpj53")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-rotation = 1.5708
 scale = Vector2(0.928571, 1)
 texture = ExtResource("2_c3c6t")
 
 [node name="Area2D" type="Area2D" parent="."]
+rotation = -1.5708
 collision_layer = 5
 collision_mask = 2
 

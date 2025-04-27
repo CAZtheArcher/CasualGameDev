@@ -11,12 +11,11 @@ public partial class EnemyManager : Node
     PlayerUiManager UIManager;
     double spawnDelay = 2;
 	double countdown;
-	double totalTime = 0;
+	double totalTime = 5;
 	int level = 0;
 
     Random random;
 
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
         countdown = spawnDelay;
@@ -28,7 +27,6 @@ public partial class EnemyManager : Node
         addEnemy(); 
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
 		UIManager.DecrementTime(delta);
@@ -51,20 +49,16 @@ public partial class EnemyManager : Node
                 spawnDelay = 10 / totalTime;
                 break;
             case 1:
-
                 break;
 		}
     }
 
     public void addEnemy()
     {
-        if (random.NextSingle() < 0.35)
-        {
-            enemies.Add(vacuumEnemyScene.Instantiate<Vacuum>());
-            AddChild(enemies[enemies.Count - 1]);
-            return;
-        }
-        enemies.Add(scene.Instantiate<Enemy>());
+        Enemy enemy;
+        if(random.NextSingle() < 0.35){enemy = vacuumEnemyScene.Instantiate<Vacuum>();}
+        else{enemy = scene.Instantiate<Enemy>();}
+        enemies.Add(enemy);
         AddChild(enemies[enemies.Count - 1]);
     }
 

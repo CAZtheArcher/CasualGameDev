@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://gfd8yniw6adk"]
+[gd_scene load_steps=6 format=3 uid="uid://gfd8yniw6adk"]
 
-[ext_resource type="Script" uid="uid://mjymt3geupjq" path="res://Overlays/PlayerUiManager.cs" id="1_yqvap"]
-[ext_resource type="Texture2D" uid="uid://deqlm0npwy647" path="res://Overlays/active_bullet.png" id="2_m3sch"]
-[ext_resource type="Texture2D" uid="uid://b6t0b5xwip8v" path="res://Projectile/bullet.png" id="3_dv5ld"]
-[ext_resource type="Texture2D" uid="uid://gqupn8y5j5gi" path="res://Overlays/next_bullet.png" id="4_hvq80"]
+[ext_resource type="Script" uid="uid://cj4aqqqaradre" path="res://Overlays/PlayerUiManager.cs" id="1_yqvap"]
+[ext_resource type="Texture2D" uid="uid://b5hwjokx3vwkm" path="res://Overlays/WeaponDisplayReady.png" id="2_oyev7"]
+[ext_resource type="Texture2D" uid="uid://chgm3agoahe43" path="res://Overlays/HelixGun.png" id="3_pmops"]
+[ext_resource type="Texture2D" uid="uid://d2lp2kfra1tc4" path="res://Overlays/Pistol(BasicBullet).png" id="4_1smal"]
+
+[sub_resource type="Theme" id="Theme_pmops"]
 
 [node name="PlayerUi" type="Control"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +27,9 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 320.0
 offset_bottom = 50.0
+theme = SubResource("Theme_pmops")
+theme_override_colors/font_color = Color(0.914606, 4.71681e-06, 9.62615e-07, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 value = 100.0
 
 [node name="Timer" type="ProgressBar" parent="."]
@@ -54,56 +60,34 @@ offset_bottom = 47.0
 bbcode_enabled = true
 text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25] Time Remaining: 60[/font_size][/font][/color]"
 
-[node name="NextBullet" type="Sprite2D" parent="."]
-position = Vector2(967, 603)
+[node name="LeftWeapon" type="Sprite2D" parent="."]
+position = Vector2(1032, 553)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_m3sch")
+texture = ExtResource("2_oyev7")
 
-[node name="DisplayBullet" type="Sprite2D" parent="NextBullet"]
-scale = Vector2(3, 3)
-texture = ExtResource("3_dv5ld")
+[node name="EquippedLeftWeapon" type="Sprite2D" parent="LeftWeapon"]
+texture = ExtResource("3_pmops")
 
-[node name="NextBullet2" type="Sprite2D" parent="."]
-position = Vector2(1037, 603)
+[node name="LeftTextLabel" type="RichTextLabel" parent="LeftWeapon"]
+offset_left = -200.0
+offset_top = -75.0
+offset_right = -100.0
+offset_bottom = -50.0
+bbcode_enabled = true
+text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25]Primary[/font_size][/font][/color]"
+
+[node name="RightWeapon" type="Sprite2D" parent="."]
+position = Vector2(1032, 613)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_hvq80")
+texture = ExtResource("2_oyev7")
 
-[node name="DisplayBullet" type="Sprite2D" parent="NextBullet2"]
-scale = Vector2(3, 3)
-texture = ExtResource("3_dv5ld")
+[node name="EquippedRightWeapon" type="Sprite2D" parent="RightWeapon"]
+texture = ExtResource("4_1smal")
 
-[node name="NextBullet3" type="Sprite2D" parent="."]
-position = Vector2(1107, 603)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_hvq80")
-
-[node name="DisplayBullet" type="Sprite2D" parent="NextBullet3"]
-scale = Vector2(3, 3)
-texture = ExtResource("3_dv5ld")
-
-[node name="NextBullet4" type="Sprite2D" parent="."]
-position = Vector2(967, 544)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_m3sch")
-
-[node name="DisplayBullet" type="Sprite2D" parent="NextBullet4"]
-scale = Vector2(3, 3)
-texture = ExtResource("3_dv5ld")
-
-[node name="NextBullet5" type="Sprite2D" parent="."]
-position = Vector2(1037, 544)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_hvq80")
-
-[node name="DisplayBullet" type="Sprite2D" parent="NextBullet5"]
-scale = Vector2(3, 3)
-texture = ExtResource("3_dv5ld")
-
-[node name="NextBullet6" type="Sprite2D" parent="."]
-position = Vector2(1107, 544)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_hvq80")
-
-[node name="DisplayBullet" type="Sprite2D" parent="NextBullet6"]
-scale = Vector2(3, 3)
-texture = ExtResource("3_dv5ld")
+[node name="RightTextLabel" type="RichTextLabel" parent="RightWeapon"]
+offset_left = -200.0
+offset_top = -75.0
+offset_right = -100.0
+offset_bottom = -50.0
+bbcode_enabled = true
+text = "[color=white][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=25]Secondary[/font_size][/font][/color]"

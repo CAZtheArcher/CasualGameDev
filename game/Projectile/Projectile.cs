@@ -31,7 +31,7 @@ public abstract partial class Projectile : Node2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta){
         // Move in the direction it was fired in
-        this.Position += this.Transform.X * velocity * (float)delta;
+        this.Position += this.Transform.Y * -1 * velocity * (float)delta;
 	}
 
     /// <summary>

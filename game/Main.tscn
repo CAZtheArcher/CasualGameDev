@@ -1,15 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://kqarq2vld2tw"]
+[gd_scene load_steps=9 format=3 uid="uid://kqarq2vld2tw"]
 
 [ext_resource type="Texture2D" uid="uid://cv0h38v3len3g" path="res://Sprites/stone.png" id="1_fxylj"]
 [ext_resource type="PackedScene" uid="uid://thw2lf5s8cii" path="res://Player/Player.tscn" id="3_45x1i"]
-[ext_resource type="Script" uid="uid://ch5cqogae8ive" path="res://Enemy/EnemyManager.cs" id="3_awo5e"]
+[ext_resource type="Script" uid="uid://cm5qftou5ohgt" path="res://Enemy/EnemyManager.cs" id="3_awo5e"]
+[ext_resource type="Texture2D" uid="uid://b4q260r1xoyha" path="res://street.PNG" id="3_lgr22"]
 [ext_resource type="PackedScene" uid="uid://dkopxoxf8twm" path="res://Enemy/Vacuum/Vacuum.tscn" id="4_7qpqx"]
+[ext_resource type="Texture2D" uid="uid://crua4u32tvoj6" path="res://city.PNG" id="5_fos0i"]
+[ext_resource type="Texture2D" uid="uid://cy5p2cswvy4k0" path="res://cityside.PNG" id="6_3dxm6"]
+[ext_resource type="Texture2D" uid="uid://nvv8skmm30qu" path="res://cityTop.PNG" id="8_trn2v"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Sprite2D" type="Polygon2D" parent="."]
+z_index = -2
 texture_repeat = 2
-position = Vector2(-13, 22)
+position = Vector2(-433, -94)
 scale = Vector2(6.15247, 4.02318)
 color = Color(0.31, 0.267943, 0.2418, 1)
 texture = ExtResource("1_fxylj")
@@ -17,6 +22,141 @@ texture_scale = Vector2(250, 250)
 polygon = PackedVector2Array(-960, 960, -960, -960, 960, -960, 960, 960)
 uv = PackedVector2Array(0, 1920, 0, 0, 1920, 0, 1920, 1920)
 polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="Street" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-260.607, 126.268)
+scale = Vector2(0.151533, 2.23982)
+texture = ExtResource("3_lgr22")
+
+[node name="Street" type="Sprite2D" parent="Sprite2D/Street"]
+position = Vector2(2379.46, 1.55363)
+scale = Vector2(1.18803, 0.987587)
+texture = ExtResource("3_lgr22")
+
+[node name="Street2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(178.952, 514.27)
+rotation = 1.5708
+scale = Vector2(0.24856, 2.32039)
+texture = ExtResource("3_lgr22")
+
+[node name="Street3" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(164.671, -295.786)
+rotation = 1.5708
+scale = Vector2(0.276487, 2.31542)
+texture = ExtResource("3_lgr22")
+
+[node name="Street4" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-100.61, 171.495)
+scale = Vector2(0.24112, 1.83839)
+texture = ExtResource("3_lgr22")
+
+[node name="Street5" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(237.628, 138.448)
+scale = Vector2(0.214088, 1.67051)
+texture = ExtResource("3_lgr22")
+
+[node name="City" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-454.127, -411.615)
+scale = Vector2(0.522733, 0.24856)
+texture = ExtResource("5_fos0i")
+
+[node name="City2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-210.485, -409.129)
+scale = Vector2(0.561991, 0.24856)
+texture = ExtResource("5_fos0i")
+
+[node name="City3" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(316.621, -415.592)
+scale = Vector2(0.592294, 0.24856)
+texture = ExtResource("5_fos0i")
+
+[node name="City3" type="Sprite2D" parent="Sprite2D/City3"]
+position = Vector2(475.993, 3)
+scale = Vector2(1.08541, 1)
+texture = ExtResource("5_fos0i")
+
+[node name="City4" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(50.5488, -409.378)
+scale = Vector2(0.552581, 0.24856)
+texture = ExtResource("5_fos0i")
+
+[node name="Cityside" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-340.839, -295.289)
+scale = Vector2(0.288309, 0.628682)
+texture = ExtResource("6_3dxm6")
+
+[node name="Cityside2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-363.675, 10.6881)
+scale = Vector2(0.443105, 0.655996)
+texture = ExtResource("6_3dxm6")
+
+[node name="Cityside3" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-369.77, 172.749)
+scale = Vector2(0.480353, 0.375116)
+texture = ExtResource("6_3dxm6")
+
+[node name="Cityside4" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-361.318, 339.284)
+scale = Vector2(0.438751, 0.289075)
+texture = ExtResource("6_3dxm6")
+
+[node name="Cityside5" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-373.346, 516.258)
+scale = Vector2(0.524858, 0.418818)
+texture = ExtResource("6_3dxm6")
+
+[node name="Cityside6" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(313.858, -269.687)
+scale = Vector2(0.239634, 0.617067)
+texture = ExtResource("6_3dxm6")
+
+[node name="Cityside7" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(333.687, 28.8329)
+scale = Vector2(0.348488, 0.614735)
+texture = ExtResource("6_3dxm6")
+
+[node name="Cityside8" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(334.175, 289.82)
+scale = Vector2(0.319538, 0.536847)
+texture = ExtResource("6_3dxm6")
+
+[node name="Cityside9" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(327.998, 489.662)
+scale = Vector2(0.30883, 0.438874)
+texture = ExtResource("6_3dxm6")
+
+[node name="Cityside10" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(371.883, 627.683)
+scale = Vector2(0.272486, 0.574727)
+texture = ExtResource("6_3dxm6")
+
+[node name="CityTop" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-235.84, 637.493)
+scale = Vector2(0.244702, 0.489265)
+texture = ExtResource("8_trn2v")
+
+[node name="CityTop2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-50.0612, 636.064)
+rotation = 3.14159
+scale = Vector2(0.27959, 0.466074)
+texture = ExtResource("8_trn2v")
+
+[node name="CityTop3" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(352.46, 646.193)
+rotation = -3.14159
+scale = Vector2(0.25121, 0.48406)
+texture = ExtResource("8_trn2v")
+
+[node name="CityTop4" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(156.035, 644.329)
+scale = Vector2(0.292364, 0.527434)
+texture = ExtResource("8_trn2v")
+
+[node name="CityTop5" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(509.324, 647.187)
+rotation = -3.14159
+scale = Vector2(0.179734, 0.466074)
+texture = ExtResource("8_trn2v")
 
 [node name="Player" parent="." instance=ExtResource("3_45x1i")]
 

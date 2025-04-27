@@ -1,11 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddlrpdxfw77gg"]
 
-[ext_resource type="Script" uid="uid://dduoflsaj7te0" path="res://Player/Weapon/Weapon.cs" id="1_2rbhg"]
+[ext_resource type="Script" uid="uid://bwvvlfakmpe7a" path="res://Player/Weapon/Weapon.cs" id="1_2rbhg"]
 [ext_resource type="Texture2D" uid="uid://b1lqnj7mtla4v" path="res://Player/weapon_temp.png" id="2_n3w2j"]
 
 [node name="Weapon" type="Sprite2D"]
-position = Vector2(13, 0)
-rotation = 1.5708
 texture = ExtResource("2_n3w2j")
 script = ExtResource("1_2rbhg")
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gqupn8y5j5gi"
-path="res://.godot/imported/next_bullet.png-2904b2494755abc95c3fa28814c3751c.ctex"
+uid="uid://coeorpqpadeei"
+path="res://.godot/imported/TextBackground.png-0b26de14b122491776f35affcd3128f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overlays/next_bullet.png"
-dest_files=["res://.godot/imported/next_bullet.png-2904b2494755abc95c3fa28814c3751c.ctex"]
+source_file="res://Sprites/TextBackground.png"
+dest_files=["res://.godot/imported/TextBackground.png-0b26de14b122491776f35affcd3128f0.ctex"]
 
 [params]
 
