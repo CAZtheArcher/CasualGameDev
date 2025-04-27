@@ -55,7 +55,6 @@ public partial class WeaponManager : Node
             {
                 //GD.Print("LEFT weapon fired." + LeftWeapon + leftWeaponIndex);
                 weapons[leftWeaponIndex].ActivateNextModule();
-                //String[] spritePaths = LeftWeapon.GetNextModuleIcons();
                 String spritePath = LeftWeapon.GetNextModuleIcons();
                 UIManager.UpdateBulletSprite(spritePath, true);
             }
@@ -66,7 +65,6 @@ public partial class WeaponManager : Node
             {
                 //GD.Print("Right weapon fired." + RightWeapon + rightWeaponIndex);
                 weapons[rightWeaponIndex].ActivateNextModule();
-                //String[] spritePaths = RightWeapon.GetNextModuleIcons();
                 String spritePath = RightWeapon.GetNextModuleIcons();
                 UIManager.UpdateBulletSprite(spritePath, false);
             }
