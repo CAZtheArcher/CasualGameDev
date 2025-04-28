@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://yux7y5ddn70e"]
+
+[ext_resource type="Script" path="res://Levels/MainMenu/Next.cs" id="1_8evy7"]
+[ext_resource type="Script" path="res://Levels/MainMenu/ExitToDesktop.cs" id="2_5xyhc"]
+
+[node name="LevelScene" type="Node2D"]
+
+[node name="NextLevelButton" type="Button" parent="."]
+offset_left = 526.0
+offset_top = 333.0
+offset_right = 626.0
+offset_bottom = 364.0
+text = "Next Level"
+script = ExtResource("1_8evy7")
+
+[node name="ExitToDesktop" type="Button" parent="."]
+offset_left = 513.0
+offset_top = 394.0
+offset_right = 639.0
+offset_bottom = 425.0
+text = "Exit to Desktop"
+script = ExtResource("2_5xyhc")
+
+[node name="YouWin" type="RichTextLabel" parent="."]
+offset_left = 372.0
+offset_top = 125.0
+offset_right = 780.0
+offset_bottom = 225.0
+bbcode_enabled = true
+text = "[color=green][font=res://Fonts/VT323/VT323-Regular.ttf][font_size=100][center]YOU WIN[/center][/font_size][/font][/color]"
+fit_content = true

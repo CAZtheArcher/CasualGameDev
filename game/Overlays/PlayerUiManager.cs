@@ -3,6 +3,7 @@ using System;
 
 public partial class PlayerUiManager : Control
 {
+    Data data;
     ProgressBar timer;
     RichTextLabel killLabel;
     RichTextLabel timerLabel;
@@ -11,9 +12,12 @@ public partial class PlayerUiManager : Control
     Sprite2D rightWeaponEquipped;
     int kills = 0;
     bool firstErr = false;
+    EnemyManager enMan;
 
     public override void _Ready()
     {
+        data = ResourceLoader.Load<Data>("res://Data.tres");
+        enMan = (EnemyManager)GetNode("/root/Main/enemyManager");
         timer = (ProgressBar)GetNode("Timer");
         killLabel = (RichTextLabel)GetNode("Kills");
         timerLabel = (RichTextLabel)GetNode("TimerDisplay");
@@ -21,6 +25,9 @@ public partial class PlayerUiManager : Control
         leftWeaponEquipped = (Sprite2D)GetNode("LeftWeapon/EquippedLeftWeapon");
         rightWeaponEquipped = (Sprite2D)GetNode("RightWeapon/EquippedRightWeapon");
         healthbar.Value = healthbar.MaxValue;
+        timer.MaxValue = 30*data.level;
+        timer.Value = 30*data.level;
+        timerLabel.Text = timer.MaxValue.ToString();
     }
 
     public void DecrementTime(double delta)
@@ -31,7 +38,8 @@ public partial class PlayerUiManager : Control
         if (timer.Value <= 0)
         {
             //win condition/level transition
-            CallDeferred("GameWin");
+            //CallDeferred("GameWin");
+            timer.MaxValue = enMan.LevelTrans();
         }
     }
 

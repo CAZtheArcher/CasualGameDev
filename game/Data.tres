@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Data" load_steps=2 format=3 uid="uid://bmxmhae7ja2fs"]
+
+[ext_resource type="Script" path="res://Data.cs" id="1_jlf82"]
+
+[resource]
+script = ExtResource("1_jlf82")
+level = 0

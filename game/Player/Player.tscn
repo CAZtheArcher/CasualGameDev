@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4trbrw5rgaau" path="res://Player/PlayerSprite.png" id="2_6ysni"]
 [ext_resource type="PackedScene" uid="uid://r1cuxdmp53iy" path="res://Player/WeaponManager/WeaponManager.tscn" id="3_83vbc"]
 [ext_resource type="PackedScene" uid="uid://ddlrpdxfw77gg" path="res://Player/Weapon/Weapon.tscn" id="3_nla60"]
-[ext_resource type="Script" uid="uid://ccerrdok05tj6" path="res://Levels/MainMenu/Drop.cs" id="6_s3wk3"]
+[ext_resource type="Script" path="res://Levels/MainMenu/Drop.cs" id="6_s3wk3"]
 [ext_resource type="PackedScene" uid="uid://gfd8yniw6adk" path="res://Overlays/PlayerUi.tscn" id="6_yu4jo"]
 [ext_resource type="AudioStream" uid="uid://c32unjoafyyfx" path="res://secret-lab-194422.mp3" id="7_vlldt"]
 
